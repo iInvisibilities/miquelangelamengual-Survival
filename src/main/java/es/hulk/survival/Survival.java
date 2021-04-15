@@ -34,7 +34,6 @@ public final class Survival extends JavaPlugin {
     public void onEnable() {
         loadConfigs();
         loadScoreboard();
-        loadTablist();
         loadListeners();
         loadCommands();
     }
