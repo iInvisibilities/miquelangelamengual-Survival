@@ -1,10 +1,9 @@
-PLAYER-JOIN-MESSAGE: "%player% has joined the server"
-PLAYER-QUIT-MESSAGE: "%player% has left the server"
-SET-SLOTS: 80
+PLAYER-JOIN-MESSAGE: "%luckperms_prefix%%player% &ahas joined the server!"
+PLAYER-QUIT-MESSAGE: "%luckperms_prefix%%player% &chas left the server!"
 CHAT-FORMAT:
   ENABLE: true
-  FORMAT: "%player_name% &8» %message%"
-FILE-RELOAD: "&AConfig Reloaded"
+  FORMAT: "%luckperms_prefix%%player_name% &8» &r%message%"
+FILE-RELOAD: "&aConfig Reloaded"
 JOIN-MESSAGE:
   ENABLE: true
   LINES:

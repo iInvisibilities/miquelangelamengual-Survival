@@ -1,10 +1,13 @@
 SCOREBOARD:
   ENABLED: true
-  TITLE: "Scorboard"
+  TITLE: "&6JazePvP &7| &fSurvival"
   LINES:
     - ""
+    - "&6Nombre&7: &f%player_name%"
+    - "&6Ping&7: &f%player_ping%ms"
+    - "&6Rango&7: %luckperms_primary_group_name%"
     - ""
+    - "&6TPS&7: %server_tps_1_colored%"
+    - "&6Jugadores&7: &f%server_online%"
     - ""
-    - ""
-    - ""
-    - ""
+    - "&7jazepvp.us"

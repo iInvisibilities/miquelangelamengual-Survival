@@ -5,6 +5,7 @@ import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.RulesCommand;
 import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
+import es.hulk.survival.listeners.QuitListener;
 import es.hulk.survival.listeners.ServerListener;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.providers.TablistProvider;
@@ -102,6 +103,7 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new JoinListener(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ServerListener(), this);
+        pm.registerEvents(new QuitListener(), this);
         Utils.sendConsole("&aListners Loaded");
     }
 
