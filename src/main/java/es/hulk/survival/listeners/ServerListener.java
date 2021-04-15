@@ -15,7 +15,6 @@ public class ServerListener implements Listener {
         if (event.getMaxPlayers() != 80) {
             event.setMaxPlayers(100);
         }
-        event.setMaxPlayers(mainConfig.getInt("SET-SLOTS"));
     }
 
 }

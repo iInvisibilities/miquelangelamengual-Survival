@@ -6,10 +6,13 @@ import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.ServerListener;
 import es.hulk.survival.providers.ScoreboardProvider;
+import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
+import io.github.nosequel.tab.shared.TabHandler;
+import io.github.nosequel.tab.v1_16_r3.v1_16_R3TabAdapter;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -32,6 +35,7 @@ public final class Survival extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             loadConfigs();
             loadScoreboard();
+            loadTablist();
             loadListeners();
             loadCommands();
         } else {
@@ -40,7 +44,8 @@ public final class Survival extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {}
+    public void onDisable() {
+    }
 
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
@@ -50,11 +55,15 @@ public final class Survival extends JavaPlugin {
     }
 
     public void loadScoreboard() {
-        if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
-            this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
-            scoreboard.setTicks(2);
-            Utils.sendConsole("&aScoreboard Enabled");
-        }
+        this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
+        scoreboard.setTicks(2);
+        Utils.sendConsole("&aScoreboard Enabled");
+
+    }
+
+    public void loadTablist() {
+        new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 20L);
+        Utils.sendConsole("&aTablist Enabled");
     }
 
     public void loadListeners() {

@@ -11,7 +11,7 @@ public class ReloadCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
-    private final FileConfig tablistConfig = Survival.get().gxdetTablistConfig();
+    private final FileConfig tablistConfig = Survival.get().getTablistConfig();
 
     @Command(name = "survival.reload", permission = "survival.command.reload")
 
