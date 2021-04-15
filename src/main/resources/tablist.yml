@@ -1,6 +1,6 @@
 TABLIST:
-  HEADER: "a"
-  FOOTER: "a"
+  HEADER: "its a header"
+  FOOTER: "its a footer"
   LEFT:
     1: ""
     2: ""
