@@ -72,6 +72,7 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new RulesCommand();
+        Utils.sendConsole("&aCommands loaded");
     }
 
     public static Survival get() {
