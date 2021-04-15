@@ -8,3 +8,13 @@ CHAT-FORMAT:
   FORMAT: "%player_name% &8» %message%"
 
 FILE-RELOAD: "&AConfig Reloaded"
+
+JOIN-MESSAGE:
+  ENABLE: true
+  LINES:
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
