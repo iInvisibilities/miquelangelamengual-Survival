@@ -1,7 +1,7 @@
 package es.hulk.survival.providers;
 
+import dev.risas.panda.files.FileConfig;
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
