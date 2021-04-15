@@ -15,9 +15,13 @@ public class TablistProvider implements TabElementHandler {
     @Override
     public TabElement getElement(Player player) {
         final TabElement element = new TabElement();
+/*
         element.setHeader(Utils.color(PlaceholderAPI.setPlaceholders(player, tablistConfig.getString("TABLIST.HEADER"))));
         element.setFooter(Utils.color(PlaceholderAPI.setPlaceholders(player, tablistConfig.getString("TABLIST.FOOTER"))));
+*/
 
+        element.setFooter("Footer");
+        element.setHeader("Header");
         return element;
     }
 }
