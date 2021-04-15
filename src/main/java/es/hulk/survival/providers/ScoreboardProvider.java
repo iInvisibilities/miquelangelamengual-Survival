@@ -1,0 +1,39 @@
+package es.hulk.survival.providers;
+
+import com.sun.xml.internal.ws.encoding.soap.streaming.SOAP12NamespaceConstants;
+import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
+import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
+import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ScoreboardProvider implements ScoreboardAdapter {
+
+    private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
+
+    @Override
+    public String getTitle(Player player) {
+        return Utils.color(PlaceholderAPI.setPlaceholders(player, scoreboardConfig.getString("SCOREBOARD.TITLE")));
+    }
+
+    @Override
+    public List<String> getLines(Player player) {
+        List<String> lines = new ArrayList<>();
+
+        scoreboardConfig.getStringList("SCOREBOARD.QUEUED").forEach(line -> {
+            line = Utils.color(PlaceholderAPI.setPlaceholders(player, line));
+            lines.add(line);
+        });
+        return lines;
+    }
+
+    @Override
+    public ScoreboardStyle getBoardStyle(Player player) {
+        return ScoreboardStyle.MODERN;
+    }
+}
