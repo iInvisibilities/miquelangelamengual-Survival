@@ -2,7 +2,7 @@ BOOLEANS:
   TABLIST: true
   SCOREBOARD: true
 PLAYER-JOIN-MESSAGE: "%player% has joined the server"
-
+SET-SLOTS: 80
 CHAT-FORMAT:
   ENABLE: true
   FORMAT: "%player_name% &8» %message%"
