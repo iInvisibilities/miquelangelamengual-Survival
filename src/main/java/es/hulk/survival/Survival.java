@@ -31,11 +31,14 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        loadConfigs();
-        loadScoreboard();
-        loadListeners();
-        loadTablist();
-        loadCommands();
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            loadConfigs();
+            loadScoreboard();
+            loadListeners();
+            loadCommands();
+        } else {
+            Bukkit.getPluginManager().disablePlugin(this);
+        }
     }
 
     @Override
@@ -52,13 +55,6 @@ public final class Survival extends JavaPlugin {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&aScoreboard Enabled");
-        }
-    }
-
-    public void loadTablist() {
-        if (mainConfig.getBoolean("BOOLEANS.TABLIST")) {
-            new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 20L);
-            Utils.sendConsole("&aTablist Enabled");
         }
     }
 
