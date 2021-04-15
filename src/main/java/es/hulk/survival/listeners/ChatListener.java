@@ -20,12 +20,6 @@ public class ChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
-        if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
-            mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
-                lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
-            });
-        }
-
         if (mainConfig.getBoolean("CHAT-FORMAT.ENABLE")) {
             event.setFormat(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("CHAT-FORMAT.FORMAT").replace("%message%", Utils.color("%2$s")))));
         }

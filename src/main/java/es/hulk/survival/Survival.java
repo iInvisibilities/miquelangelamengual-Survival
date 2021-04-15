@@ -1,6 +1,7 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.ReloadCommand;
+import es.hulk.survival.command.RulesCommand;
 import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.providers.ScoreboardProvider;
@@ -70,6 +71,7 @@ public final class Survival extends JavaPlugin {
 
     public void loadCommands() {
         new ReloadCommand();
+        new RulesCommand();
     }
 
     public static Survival get() {

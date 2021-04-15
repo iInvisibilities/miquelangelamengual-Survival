@@ -20,6 +20,12 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
         event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("PLAYER-JOIN-MESSAGE").replaceAll("%player%", player.getDisplayName()))));
 
+        if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
+            mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
+                lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
+            });
+        }
+
         if (!player.hasPlayedBefore()) {
             player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 20));
         }
