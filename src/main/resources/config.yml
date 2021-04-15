@@ -1,6 +1,3 @@
-BOOLEANS:
-  TABLIST: true
-  SCOREBOARD: true
 PLAYER-JOIN-MESSAGE: "%player% has joined the server"
 PLAYER-QUIT-MESSAGE: "%player% has left the server"
 SET-SLOTS: 80
