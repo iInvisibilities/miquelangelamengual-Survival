@@ -21,6 +21,7 @@ public class RulesCommand extends BaseCommand {
 
         mainConfig.getStringList("RULES-COMMAND").forEach(lines -> {
             lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
+            player.sendMessage(lines);
         });
     }
 }

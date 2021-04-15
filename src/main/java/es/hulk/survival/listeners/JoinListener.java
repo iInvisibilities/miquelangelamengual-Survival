@@ -23,6 +23,7 @@ public class JoinListener implements Listener {
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
                 lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
+                player.sendMessage(lines);
             });
         }
 

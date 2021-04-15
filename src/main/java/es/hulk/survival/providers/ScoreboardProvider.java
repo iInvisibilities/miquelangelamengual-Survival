@@ -24,10 +24,9 @@ public class ScoreboardProvider implements ScoreboardAdapter {
     public List<String> getLines(Player player) {
         List<String> lines = new ArrayList<>();
 
-        scoreboardConfig.getStringList("SCOREBOARD.QUEUED").forEach(line -> {
-            line = Utils.color(PlaceholderAPI.setPlaceholders(player, line));
-            lines.add(line);
-        });
+        for (String s : scoreboardConfig.getStringList("SCOREBOARD.LINES")) {
+            lines.add(PlaceholderAPI.setPlaceholders(player, s));
+        }
         return lines;
     }
 
