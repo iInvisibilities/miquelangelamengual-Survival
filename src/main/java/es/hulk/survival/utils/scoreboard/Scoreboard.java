@@ -1,6 +1,6 @@
 package es.hulk.survival.utils.scoreboard;
 
-import dev.panda.lib.scoreboard.events.ScoreboardCreateEvent;
+import es.hulk.survival.utils.scoreboard.events.ScoreboardCreateEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;

@@ -1,6 +1,5 @@
 package es.hulk.survival.providers;
 
-import com.sun.xml.internal.ws.encoding.soap.streaming.SOAP12NamespaceConstants;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
