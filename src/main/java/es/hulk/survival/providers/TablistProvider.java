@@ -2,6 +2,7 @@ package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.Utils;
 import io.github.nosequel.tab.shared.entry.TabElement;
 import io.github.nosequel.tab.shared.entry.TabElementHandler;
 import me.clip.placeholderapi.PlaceholderAPI;
@@ -25,6 +26,8 @@ public class TablistProvider implements TabElementHandler {
                 element.add(j, i, PlaceholderAPI.setPlaceholders(player, tablistConfig.getString("TABLIST." + corner + "." + (i + 1))));
             }
         }
+        element.setHeader(Utils.color(tablistConfig.getString("TABLIST.HEADER")));
+        element.setFooter(Utils.color(tablistConfig.getString("TABLIST.FOOTER")));
         return element;
     }
 }

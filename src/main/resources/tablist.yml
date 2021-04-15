@@ -1,4 +1,6 @@
 TABLIST:
+  HEADER: "a"
+  FOOTER: "a"
   LEFT:
     1: ""
     2: ""
