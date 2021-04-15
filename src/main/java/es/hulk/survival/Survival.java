@@ -22,6 +22,7 @@ public final class Survival extends JavaPlugin {
 
     private FileConfig scoreboardConfig;
     private FileConfig mainConfig;
+    private FileConfig tablistConfig;
 
     private Scoreboard scoreboard;
     private CommandManager commandManager;
@@ -44,6 +45,7 @@ public final class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "config.yml");
+        this.mainConfig = new FileConfig(this, "tablist.yml");
         Utils.sendConsole("&aFiles Loaded");
     }
 
