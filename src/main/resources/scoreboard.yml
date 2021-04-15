@@ -1,4 +1,5 @@
 SCOREBOARD:
+  ENABLED: true
   TITLE: "Scorboard"
   LINES:
     - ""
