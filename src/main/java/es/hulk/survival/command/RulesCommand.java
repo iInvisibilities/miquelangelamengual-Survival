@@ -1,7 +1,7 @@
 package es.hulk.survival.command;
 
+import dev.risas.panda.files.FileConfig;
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -19,9 +19,8 @@ public class RulesCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        mainConfig.getStringList("RULES-COMMAND").forEach(lines -> {
-            lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
-            player.sendMessage(lines);
-        });
+        for (String lines : mainConfig.getStringList("RULES-COMMAND")) {
+            player.sendMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, lines)));
+        }
     }
 }

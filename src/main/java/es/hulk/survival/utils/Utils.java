@@ -1,5 +1,6 @@
 package es.hulk.survival.utils;
 
+import dev.risas.panda.files.FileConfig;
 import es.hulk.survival.Survival;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.bukkit.Bukkit;
