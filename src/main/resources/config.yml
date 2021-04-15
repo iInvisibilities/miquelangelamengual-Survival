@@ -6,9 +6,10 @@ SET-SLOTS: 80
 CHAT-FORMAT:
   ENABLE: true
   FORMAT: "%player_name% &8» %message%"
-
 FILE-RELOAD: "&AConfig Reloaded"
-
+TABLIST:
+  HEADER: "its a header"
+  FOOTER: "its a footer"
 JOIN-MESSAGE:
   ENABLE: true
   LINES:
