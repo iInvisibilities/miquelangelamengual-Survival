@@ -4,6 +4,7 @@ import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.RulesCommand;
 import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
+import es.hulk.survival.listeners.ServerListener;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.FileConfig;
@@ -35,6 +36,7 @@ public final class Survival extends JavaPlugin {
         loadScoreboard();
         loadTablist();
         loadListeners();
+        loadCommands();
     }
 
     @Override
@@ -64,8 +66,10 @@ public final class Survival extends JavaPlugin {
 
     public void loadListeners() {
         PluginManager pm = Bukkit.getPluginManager();
+        this.commandManager = new CommandManager(this);
         pm.registerEvents(new JoinListener(), this);
         pm.registerEvents(new ChatListener(), this);
+        pm.registerEvents(new ServerListener(), this);
         Utils.sendConsole("&aListners Loaded");
     }
 
