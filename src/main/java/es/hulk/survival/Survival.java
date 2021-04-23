@@ -42,6 +42,12 @@ public final class Survival extends JavaPlugin {
     @Override
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            Utils.sendConsole("");
+            Utils.sendConsole("&aSurvival - 1.16.5");
+            Utils.sendConsole("");
+            Utils.sendConsole("Author: " + Survival.get().getDescription().getAuthors());
+            Utils.sendConsole("Version: 1.16.5");
+            Utils.sendConsole("");
             loadConfigs();
             createTabConfig();
             loadScoreboard();
@@ -60,7 +66,7 @@ public final class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "config.yml");
-        Utils.sendConsole("&aFiles Loaded");
+        Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
     public FileConfiguration getTabConfig() {
@@ -86,14 +92,18 @@ public final class Survival extends JavaPlugin {
         if (scoreboardConfig.getBoolean("SCOREBOARD.ENABLED")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
-            Utils.sendConsole("&aScoreboard Enabled");
+            Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
+        } else {
+            Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
         }
     }
 
     public void loadTablist() {
         if (getTabConfig().getBoolean("TABLIST.ENABLED")) {
             new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 20L);
-            Utils.sendConsole("&aTablist Enabled");
+            Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
+        } else {
+            Utils.sendConsole("&8[&aSurvival&8] &cTablist disabled");
         }
     }
 
@@ -104,13 +114,13 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ServerListener(), this);
         pm.registerEvents(new QuitListener(), this);
-        Utils.sendConsole("&aListners Loaded");
+        Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
     public void loadCommands() {
         new ReloadCommand();
         new RulesCommand();
-        Utils.sendConsole("&aCommands loaded");
+        Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
     public static Survival get() {
