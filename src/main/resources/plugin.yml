@@ -1,5 +1,5 @@
 name: Survival
-version: ${project.version}
+version: 1.0
 main: es.hulk.survival.Survival
 depend: [PlaceholderAPI]
 api-version: 1.16
