@@ -36,10 +36,6 @@ public final class Survival extends JavaPlugin {
             Utils.sendConsole("Author: Hulk");
             Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
             Utils.sendConsole("");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download Player");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download OtherPlayer");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download LuckPerms");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download Server");
             loadConfigs();
             loadScoreboard();
             loadListeners();

@@ -2,14 +2,17 @@ FILE-RELOAD: "&aConfig Reloaded"
 JOIN-MESSAGE:
   ENABLE: true
   LINES:
+    - "&7&m---------------------------"
+    - "&6Bienvenido &f%player_name% &6a JazePvP &fSurvival 1.16"
     - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
+    - "&6Discord&7: &fhttps://discord.gg/a9juZ6EzR8"
+    - "&7&m---------------------------"
 
-CAMA-COORDS-COMMAND: "&6JazePvP &8» &fCordenadas de tu Cama&7: &aX - %player_bed_x% &7| &aY - %player_bed_y% &7| %aZ - %player_bed_z%"
+CAMA-COORDS-COMMAND:
+  - "&6JazePvP &8» &fCoordenadas de tu Cama&7: "
+  - " &8» &aX - %player_bed_x%"
+  - " &8» &aY - %player_bed_y%"
+  - " &8» &aZ - %player_bed_z%"
 
 COORDS:
   NO-ARGS-COMMAND:
