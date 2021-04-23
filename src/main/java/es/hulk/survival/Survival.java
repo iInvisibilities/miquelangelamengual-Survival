@@ -1,6 +1,7 @@
 package es.hulk.survival;
 
 import dev.risas.panda.files.FileConfig;
+import es.hulk.survival.command.CamaCoordCommand;
 import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.RulesCommand;
 import es.hulk.survival.listeners.ChatListener;
@@ -16,7 +17,9 @@ import io.github.nosequel.tab.shared.TabHandler;
 import io.github.nosequel.tab.v1_16_r3.v1_16_R3TabAdapter;
 import lombok.Getter;
 import lombok.Setter;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -48,6 +51,10 @@ public final class Survival extends JavaPlugin {
             Utils.sendConsole("Author: Hulk");
             Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
             Utils.sendConsole("");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download Player");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download OtherPlayer");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download LuckPerms");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download Server");
             loadConfigs();
             createTabConfig();
             loadScoreboard();
@@ -100,7 +107,7 @@ public final class Survival extends JavaPlugin {
 
     public void loadTablist() {
         if (getTabConfig().getBoolean("TABLIST.ENABLED")) {
-            new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 20L);
+            new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 200L);
             Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
         } else {
             Utils.sendConsole("&8[&aSurvival&8] &cTablist disabled");
@@ -120,6 +127,7 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new RulesCommand();
+        new CamaCoordCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
