@@ -17,6 +17,8 @@ public class CamaCoordCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        player.sendMessage(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("CAMA-COORDS-COMMAND")));
+        for (String s : mainConfig.getStringList("CAMA-COORDS-COMMAND")) {
+            player.sendMessage(PlaceholderAPI.setPlaceholders(player, s));
+        }
     }
 }

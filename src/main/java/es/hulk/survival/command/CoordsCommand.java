@@ -18,11 +18,15 @@ public class CoordsCommand extends BaseCommand {
         String[] args = command.getArgs();
 
         if (args.length < 0) {
-            player.sendMessage(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("COORDS.NO-ARGS-COMMAND")));
+            for (String s : mainConfig.getStringList("COORDS.NO-ARGS-COMMAND")) {
+                player.sendMessage(PlaceholderAPI.setPlaceholders(player, s));
+            }
         }
         if (args.length > 0) {
             Player target = Bukkit.getPlayer(args[0]);
-            player.sendMessage(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("COORDS.OTHER-PLAYER-COORDS").replaceAll("{target}", String.valueOf(target))));
+            for (String s : mainConfig.getStringList("COORDS.OTHER-PLAYER-COORDS")) {
+                player.sendMessage(PlaceholderAPI.setPlaceholders(player, s.replaceAll("{target}", String.valueOf(target))));
+            }
         }
     }
 }
