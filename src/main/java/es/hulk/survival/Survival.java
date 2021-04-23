@@ -45,8 +45,8 @@ public final class Survival extends JavaPlugin {
             Utils.sendConsole("");
             Utils.sendConsole("&aSurvival - 1.16.5");
             Utils.sendConsole("");
-            Utils.sendConsole("Author: " + Survival.get().getDescription().getAuthors());
-            Utils.sendConsole("Version: 1.16.5");
+            Utils.sendConsole("Author: Hulk");
+            Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
             Utils.sendConsole("");
             loadConfigs();
             createTabConfig();
