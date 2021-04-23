@@ -2,6 +2,7 @@ package es.hulk.survival;
 
 import dev.risas.panda.files.FileConfig;
 import es.hulk.survival.command.CamaCoordCommand;
+import es.hulk.survival.command.CoordsCommand;
 import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.RulesCommand;
 import es.hulk.survival.listeners.ChatListener;
@@ -128,6 +129,7 @@ public final class Survival extends JavaPlugin {
         new ReloadCommand();
         new RulesCommand();
         new CamaCoordCommand();
+        new CoordsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
