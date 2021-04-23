@@ -4,31 +4,18 @@ import dev.risas.panda.files.FileConfig;
 import es.hulk.survival.command.CamaCoordCommand;
 import es.hulk.survival.command.CoordsCommand;
 import es.hulk.survival.command.ReloadCommand;
-import es.hulk.survival.command.RulesCommand;
-import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.QuitListener;
 import es.hulk.survival.listeners.ServerListener;
 import es.hulk.survival.providers.ScoreboardProvider;
-import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
-import io.github.nosequel.tab.shared.TabHandler;
-import io.github.nosequel.tab.v1_16_r3.v1_16_R3TabAdapter;
 import lombok.Getter;
 import lombok.Setter;
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.IOException;
 
 @Setter
 @Getter
@@ -36,9 +23,6 @@ public final class Survival extends JavaPlugin {
 
     private FileConfig scoreboardConfig;
     private FileConfig mainConfig;
-
-    private File tablistFile;
-    private FileConfiguration tablistConfig;
 
     private Scoreboard scoreboard;
     private CommandManager commandManager;
@@ -57,9 +41,7 @@ public final class Survival extends JavaPlugin {
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download LuckPerms");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "papi ecloud download Server");
             loadConfigs();
-            createTabConfig();
             loadScoreboard();
-            loadTablist();
             loadListeners();
             loadCommands();
         } else {
@@ -77,24 +59,6 @@ public final class Survival extends JavaPlugin {
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
-    public FileConfiguration getTabConfig() {
-        return this.tablistConfig;
-    }
-
-    public void createTabConfig() {
-        tablistFile = new File(getDataFolder(), "tab.yml");
-        if (!tablistFile.exists()) {
-            tablistFile.getParentFile().mkdirs();
-            saveResource("tab.yml", false);
-        }
-        tablistConfig = new YamlConfiguration();
-        try {
-            tablistConfig.load(tablistFile);
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     public void loadScoreboard() {
         if (scoreboardConfig.getBoolean("SCOREBOARD.ENABLED")) {
@@ -106,20 +70,10 @@ public final class Survival extends JavaPlugin {
         }
     }
 
-    public void loadTablist() {
-        if (getTabConfig().getBoolean("TABLIST.ENABLED")) {
-            new TabHandler(new v1_16_R3TabAdapter(), new TablistProvider(), this, 200L);
-            Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
-        } else {
-            Utils.sendConsole("&8[&aSurvival&8] &cTablist disabled");
-        }
-    }
-
     public void loadListeners() {
         PluginManager pm = Bukkit.getPluginManager();
         this.commandManager = new CommandManager(this);
         pm.registerEvents(new JoinListener(), this);
-        pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ServerListener(), this);
         pm.registerEvents(new QuitListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
@@ -127,7 +81,6 @@ public final class Survival extends JavaPlugin {
 
     public void loadCommands() {
         new ReloadCommand();
-        new RulesCommand();
         new CamaCoordCommand();
         new CoordsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");

@@ -18,8 +18,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("PLAYER-JOIN-MESSAGE").replaceAll("%player%", player.getDisplayName()))));
-
+        event.setJoinMessage(null);
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
                 lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
