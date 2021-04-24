@@ -25,3 +25,5 @@ COORDS:
     - " &8» &aX - %otherplayer_locx_{target}%"
     - " &8» &aY - %otherplayer_locy_{target}%"
     - " &8» &aZ - %otherplayer_locz_{target}%"
+
+MORE-COMMAND: "&aThe item you have been holding has been stacked to 64"
