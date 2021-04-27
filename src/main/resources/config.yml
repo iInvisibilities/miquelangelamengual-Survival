@@ -9,19 +9,19 @@ JOIN-MESSAGE:
     - "&7&m---------------------------"
 
 CAMA-COORDS-COMMAND:
-  - "&6JazePvP &8» &fCoordenadas de tu Cama&7: "
+  - "&fCoordenadas de tu Cama&7: "
   - " &8» &aX - %player_bed_x%"
   - " &8» &aY - %player_bed_y%"
   - " &8» &aZ - %player_bed_z%"
 
 COORDS:
   NO-ARGS-COMMAND:
-    - "&6JazePvP &8» &fTus Coordenadas&7: "
+    - "&fTus Coordenadas&7: "
     - " &8» &aX - %player_x%"
     - " &8» &aY - %player_y%"
     - " &8» &aZ - %player_z%"
   OTHER-PLAYER-COORDS:
-    - "&6JazePvP &8» &fCoordenadas de %target_player%&7:"
+    - "&fCoordenadas de %target_player%&7:"
     - " &8» &aX - %otherplayer_locx_%target_player%%"
     - " &8» &aY - %otherplayer_locy_%target_player%%"
     - " &8» &aZ - %otherplayer_locz_%target_player%%"
