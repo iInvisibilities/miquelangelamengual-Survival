@@ -5,9 +5,9 @@ import es.hulk.survival.command.CamaCoordCommand;
 import es.hulk.survival.command.CoordsCommand;
 import es.hulk.survival.command.MoreCommand;
 import es.hulk.survival.command.ReloadCommand;
+import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.QuitListener;
-import es.hulk.survival.listeners.ServerListener;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
@@ -69,10 +69,10 @@ public final class Survival extends JavaPlugin {
 
     public void loadListeners() {
         PluginManager pm = Bukkit.getPluginManager();
-        this.commandManager = new CommandManager(this);
+        commandManager = new CommandManager(this);
         pm.registerEvents(new JoinListener(), this);
-        pm.registerEvents(new ServerListener(), this);
         pm.registerEvents(new QuitListener(), this);
+        pm.registerEvents(new ChatListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
