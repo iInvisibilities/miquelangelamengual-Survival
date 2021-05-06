@@ -18,7 +18,9 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        event.setJoinMessage(null);
+
+        event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("BROADCAST.JOIN").replaceAll("%player%", player.getDisplayName()))));
+
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
                 lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
@@ -27,6 +29,10 @@ public class JoinListener implements Listener {
         }
 
         if (!player.hasPlayedBefore()) {
+            player.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
+            player.getInventory().addItem(new ItemStack(Material.STONE_PICKAXE));
+            player.getInventory().addItem(new ItemStack(Material.STONE_AXE));
+            player.getInventory().addItem(new ItemStack(Material.STONE_SHOVEL));
             player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 20));
         }
     }
