@@ -1,6 +1,6 @@
 package es.hulk.survival.command;
 
-import dev.risas.panda.files.FileConfig;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;

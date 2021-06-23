@@ -1,0 +1,18 @@
+package es.hulk.survival.command;
+
+import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.command.BaseCommand;
+import es.hulk.survival.utils.command.Command;
+import es.hulk.survival.utils.command.CommandArgs;
+import org.bukkit.command.CommandSender;
+
+public class SurvivalCommand extends BaseCommand {
+
+    @Command(name = "survival")
+
+    @Override
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
+        sender.sendMessage(Utils.color("&aSurvival plugin made by Hulk#0226"));
+    }
+}
