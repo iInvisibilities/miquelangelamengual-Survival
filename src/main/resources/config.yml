@@ -37,3 +37,4 @@ COORDS:
   PLAYER-NO-EXIST: "&CJugador %target_player% no existe"
 
 MORE-COMMAND: "&aThe item you have been holding has been stacked to 64"
+POPPY-DROP: false
