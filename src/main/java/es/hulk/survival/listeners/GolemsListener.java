@@ -14,11 +14,10 @@ public class GolemsListener implements Listener {
 
     @EventHandler
     public void onGolemDie(EntityDeathEvent event) {
-        if (mainConfig.getBoolean("POPPY-DROP")) {
+        if (!mainConfig.getBoolean("POPPY-DROP")) {
             if (event.getEntity().getType() == EntityType.IRON_GOLEM) {
                 event.getDrops().removeIf(is -> is.getType() == Material.POPPY);
             }
         }
     }
-
 }
