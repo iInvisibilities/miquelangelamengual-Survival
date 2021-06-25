@@ -2,7 +2,7 @@ package es.hulk.survival;
 
 import es.hulk.survival.command.*;
 import es.hulk.survival.listeners.ChatListener;
-import es.hulk.survival.listeners.GolemsListener;
+import es.hulk.survival.listeners.EntityListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.QuitListener;
 import es.hulk.survival.providers.ScoreboardProvider;
@@ -71,7 +71,7 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new JoinListener(), this);
         pm.registerEvents(new QuitListener(), this);
         pm.registerEvents(new ChatListener(), this);
-        pm.registerEvents(new GolemsListener(), this);
+        pm.registerEvents(new EntityListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 

@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class GolemsListener implements Listener {
+public class EntityListener implements Listener {
 
     private FileConfig mainConfig = Survival.get().getMainConfig();
     private final int MAX_DROPS = 30;
@@ -22,7 +22,11 @@ public class GolemsListener implements Listener {
                 event.getDrops().removeIf(is -> is.getType() == Material.POPPY);
             }
         }
-        if (mainConfig.getBoolean("ENTITIES.GUNPOWDER-BOOST")) {
+    }
+
+    @EventHandler
+    public void onCrepperDie(EntityDeathEvent event) {
+        if (mainConfig.getBoolean("ENTITIES.GUNPOWDERR-BOOST")) {
             if (event.getEntity().getType() == EntityType.CREEPER) {
                 int r = (int) (Math.random() * (MAX_DROPS - MIN_DROPS)) + MIN_DROPS;
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, r));
