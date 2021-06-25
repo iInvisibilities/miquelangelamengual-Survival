@@ -1,10 +1,7 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.*;
-import es.hulk.survival.listeners.ChatListener;
-import es.hulk.survival.listeners.EntityListener;
-import es.hulk.survival.listeners.JoinListener;
-import es.hulk.survival.listeners.QuitListener;
+import es.hulk.survival.listeners.*;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
@@ -13,6 +10,7 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -72,6 +70,7 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new QuitListener(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new EntityListener(), this);
+        pm.registerEvents(new BedListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
