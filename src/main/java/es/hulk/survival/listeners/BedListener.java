@@ -1,21 +1,18 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class BedListener implements Listener {
-
-    private Survival main;
 
     @EventHandler
     public void onPlayerJoinBedEvent(PlayerBedEnterEvent event) {
         Player player = event.getPlayer();
-        Bukkit.getServer().getScheduler().runTaskLater((Plugin)this.main, (Runnable)new Runnable() {
+        new BukkitRunnable() {
             @Override
             public void run() {
                 if (player.isSleeping()) {
@@ -24,7 +21,7 @@ public class BedListener implements Listener {
                     player.getWorld().setThundering(false);
                 }
             }
-        }, 100L);
+        }.runTaskLater(Survival.get(), 20L);
     }
 
 }
