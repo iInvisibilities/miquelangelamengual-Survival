@@ -21,7 +21,7 @@ public class BedListener implements Listener {
                     player.getWorld().setThundering(false);
                 }
             }
-        }.runTaskLater(Survival.get(), 20L);
+        }.runTaskLater(Survival.get(), 100L);
     }
 
 }
