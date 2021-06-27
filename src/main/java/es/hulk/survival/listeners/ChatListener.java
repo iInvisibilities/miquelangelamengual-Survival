@@ -24,5 +24,4 @@ public class ChatListener implements Listener {
                         .replace("%message%", "%2$s"))));
         }
     }
-
 }

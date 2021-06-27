@@ -21,7 +21,7 @@ public class EntityListener implements Listener {
             }
         }
 
-        if (mainConfig.getBoolean("ENTITIES.GUNPOWDERR-BOOST")) {
+        if (mainConfig.getBoolean("ENTITIES.GUNPOWDER-BOOST")) {
             if (event.getEntity().getType() == EntityType.CREEPER) {
                 int RANDOMIZER = (int) (Math.random() * (50 - 1)) + 1;
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, RANDOMIZER));
