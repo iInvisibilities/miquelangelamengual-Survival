@@ -17,18 +17,11 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        String message = event.getMessage();
-
-        if (message.equalsIgnoreCase("F") || message.equalsIgnoreCase("f")) {
-            for (int i = 0; i < 50; i++) {
-                CC.broadcast("&4&LF EN EL CHAT");
-            }
-        }
 
         if (mainConfig.getBoolean("CHAT.ENABLED")) {
-            event.setFormat(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("CHAT.FORMAT")
-                    .replaceAll("%player%", player.getDisplayName())
-                    .replace("%message%", "%2$s"))));
+                event.setFormat(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("CHAT.FORMAT")
+                        .replaceAll("%player%", player.getDisplayName())
+                        .replace("%message%", "%2$s"))));
         }
     }
 

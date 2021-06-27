@@ -79,6 +79,7 @@ public final class Survival extends JavaPlugin {
         new CoordsCommand();
         new MoreCommand();
         new SurvivalCommand();
+        new FlyCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

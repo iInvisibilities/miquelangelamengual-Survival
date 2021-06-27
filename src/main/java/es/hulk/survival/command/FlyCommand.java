@@ -7,8 +7,6 @@ import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-
 public class FlyCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
