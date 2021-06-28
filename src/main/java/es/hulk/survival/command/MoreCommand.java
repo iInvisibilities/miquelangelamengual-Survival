@@ -16,7 +16,15 @@ public class MoreCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        player.getInventory().getItemInMainHand().setAmount(64);
-        player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND")));
+        String[] args = command.getArgs();
+
+        if (args.length < 0) {
+            player.getInventory().getItemInMainHand().setAmount(64);
+            player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND")));
+        }
+        if (args.length > 0) {
+            player.getInventory().getItemInMainHand().setAmount(Integer.parseInt(args[0]));
+            player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND")));
+        }
     }
 }

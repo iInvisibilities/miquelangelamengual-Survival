@@ -29,11 +29,8 @@ public class CoordsCommand extends BaseCommand {
         if (args.length > 0) {
             OfflinePlayer pTo = Bukkit.getServer().getPlayer(args[0]);
 
-            if (pTo == null) {
-                pTo = Bukkit.getServer().getOfflinePlayer(args[0]);
-            }
-
             if (pTo == null || !pTo.hasPlayedBefore()) {
+                pTo = Bukkit.getServer().getOfflinePlayer(args[0]);
                 player.sendMessage(mainConfig.getString("COORDS.PLAYER-NO-EXIST").replaceAll("%target_player%", String.valueOf(pTo.getName())));
             } else {
                 if (pTo.isOnline()) {
