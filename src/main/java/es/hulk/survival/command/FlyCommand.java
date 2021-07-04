@@ -3,6 +3,7 @@ package es.hulk.survival.command;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.CC;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
@@ -18,14 +19,14 @@ public class FlyCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         if (player.hasPermission("survival.command.fly")) {
-            if (player.getAllowFlight()) {
+            if (!player.getAllowFlight()) {
+                player.setAllowFlight(true);
+                player.setFlying(true);
+                player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.ENABLED")));
+            } else {
                 player.setFlying(false);
                 player.setAllowFlight(false);
-                player.sendMessage(CC.translate(mainConfig.getString("FLY-COMMAND.DISABLED")));
-            } else {
-                player.setFlying(true);
-                player.setAllowFlight(true);
-                player.sendMessage(CC.translate(mainConfig.getString("FLY-COMMAND.ENABLED")));
+                player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.DISABLED")));
             }
         }
     }
