@@ -1,13 +1,11 @@
 package es.hulk.survival.command;
 
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import es.hulk.survival.utils.location.BedLocation;
-import es.hulk.survival.utils.location.PlayerLocation;
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Player;
 
 public class CamaCoordCommand extends BaseCommand {

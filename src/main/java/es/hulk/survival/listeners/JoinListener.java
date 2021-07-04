@@ -1,7 +1,7 @@
 package es.hulk.survival.listeners;
 
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Material;
