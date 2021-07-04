@@ -29,4 +29,20 @@ public class PlayerLocation {
         return String.valueOf(player.getLocation().getZ());
     }
 
+    public static String bedCoordinateX(Player player) {
+        return String.valueOf(player.getBedSpawnLocation().getX());
+    }
+
+    public static String bedCoordinateY(Player player) {
+        return String.valueOf(player.getBedSpawnLocation().getY());
+    }
+
+    public static String bedCoordinateZ(Player player) {
+        return String.valueOf(player.getBedSpawnLocation().getZ());
+    }
+
+    public static String getBedWorld(Player player) {
+        return player.getBedSpawnLocation().getWorld().getName();
+    }
+
 }
