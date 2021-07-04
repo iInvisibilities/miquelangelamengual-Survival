@@ -8,6 +8,10 @@ JOIN-MESSAGE:
     - "&6Discord&7: &fhttps://discord.gg/a9juZ6EzR8"
     - "&7&m---------------------------"
 
+BOOLEANS:
+  BROADCAST-QUIT: false
+  BROADCAST-JON: false
+
 BROADCAST:
   JOIN: "%player% has joined"
   QUIT: "%player% has left"
