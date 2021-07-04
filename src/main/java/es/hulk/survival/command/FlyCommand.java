@@ -13,21 +13,19 @@ public class FlyCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
 
-    @Command(name = "fly", permission = "survival.command.fly")
+    @Command(name = "fly")
 
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        if (player.hasPermission("survival.command.fly")) {
-            if (!player.getAllowFlight()) {
-                player.setAllowFlight(true);
-                player.setFlying(true);
-                player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.ENABLED")));
-            } else {
-                player.setFlying(false);
-                player.setAllowFlight(false);
-                player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.DISABLED")));
-            }
+        if (!player.getAllowFlight()) {
+            player.setAllowFlight(true);
+            player.setFlying(true);
+            player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.ENABLED")));
+        } else {
+            player.setFlying(false);
+            player.setAllowFlight(false);
+            player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.DISABLED")));
         }
     }
 }
