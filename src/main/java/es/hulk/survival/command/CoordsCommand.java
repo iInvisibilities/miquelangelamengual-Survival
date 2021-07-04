@@ -21,8 +21,10 @@ public class CoordsCommand extends BaseCommand {
     @SuppressWarnings("deprecation")
     @Override
     public void onCommand(CommandArgs command) {
-        Player player = command.getPlayer();
         String[] args = command.getArgs();
+
+        Player player = command.getPlayer();
+        OfflinePlayer offlinePlayer = Bukkit.getServer().getPlayer(args[0]);
 
         if (args.length == 0) {
             for (String s : mainConfig.getStringList("COORDS.NO-ARGS-COMMAND")) {
@@ -35,8 +37,6 @@ public class CoordsCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            OfflinePlayer offlinePlayer = Bukkit.getServer().getPlayer(args[0]);
-
             if (offlinePlayer == null || !offlinePlayer.hasPlayedBefore()) {
                 player.sendMessage(mainConfig.getString("COORDS.PLAYER-NO-EXIST")
                         .replaceAll("<target_player>", String.valueOf(offlinePlayer.getName())));
