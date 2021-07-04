@@ -5,6 +5,7 @@ import es.hulk.survival.Survival;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
+import es.hulk.survival.utils.location.BedLocation;
 import es.hulk.survival.utils.location.PlayerLocation;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Player;
@@ -19,11 +20,11 @@ public class CamaCoordCommand extends BaseCommand {
         Player player = command.getPlayer();
 
         for (String stringList : mainConfig.getStringList("CAMA-COORDS-COMMAND")) {
-            player.sendMessage(PlaceholderAPI.setPlaceholders(player, stringList)
-                    .replaceAll("<bed-x-coord>", PlayerLocation.bedCoordinateX(player))
-                    .replaceAll("<bed-y-coord>", PlayerLocation.bedCoordinateY(player))
-                    .replaceAll("<bed-z-coord>", PlayerLocation.bedCoordinateZ(player))
-                    .replaceAll("<bed-world>", PlayerLocation.getBedWorld(player)));
+            player.sendMessage(stringList
+                    .replaceAll("<bed-x-coord>", BedLocation.bedCoordinateX(player))
+                    .replaceAll("<bed-y-coord>", BedLocation.bedCoordinateY(player))
+                    .replaceAll("<bed-z-coord>", BedLocation.bedCoordinateZ(player))
+                    .replaceAll("<bed-world>", BedLocation.getBedWorld(player)));
         }
     }
 }

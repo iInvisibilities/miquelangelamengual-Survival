@@ -27,8 +27,8 @@ public class CoordsCommand extends BaseCommand {
         OfflinePlayer offlinePlayer = Bukkit.getServer().getPlayer(args[0]);
 
         if (args.length == 0) {
-            for (String s : mainConfig.getStringList("COORDS.NO-ARGS-COMMAND")) {
-                player.sendMessage(PlaceholderAPI.setPlaceholders(player, s)
+            for (String stringList : mainConfig.getStringList("COORDS.NO-ARGS-COMMAND")) {
+                player.sendMessage(stringList
                         .replaceAll("<x-coord>", PlayerLocation.coordinateX(player))
                         .replaceAll("<y-coord>", PlayerLocation.coordinateY(player))
                         .replaceAll("<z-coord>", PlayerLocation.coordinateZ(player))
@@ -43,13 +43,13 @@ public class CoordsCommand extends BaseCommand {
                 return;
             }
             if (offlinePlayer.isOnline()) {
-                for (String s : mainConfig.getStringList("COORDS.OTHER-PLAYER-COORDS")) {
-                    player.sendMessage(PlaceholderAPI.setPlaceholders(player, s
+                for (String stringList : mainConfig.getStringList("COORDS.OTHER-PLAYER-COORDS")) {
+                    player.sendMessage(stringList
                             .replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))
                             .replaceAll("<x-target-player>", OfflinePlayerLocation.coordinateX(offlinePlayer))
                             .replaceAll("<y-target-player>", OfflinePlayerLocation.coordinateY(offlinePlayer))
                             .replaceAll("<z-target-player>", OfflinePlayerLocation.coordinateZ(offlinePlayer))
-                            .replaceAll("<target-world>", OfflinePlayerLocation.getWorld(offlinePlayer))));
+                            .replaceAll("<target-world>", OfflinePlayerLocation.getWorld(offlinePlayer)));
                 }
             } else {
                 player.sendMessage(Utils.color(mainConfig.getString("COORDS.PLAYER-NOT-FOUND").
