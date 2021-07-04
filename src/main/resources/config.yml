@@ -25,16 +25,18 @@ CAMA-COORDS-COMMAND:
 COORDS:
   NO-ARGS-COMMAND:
     - "&fTus Coordenadas&7: "
-    - " &8» &aX - %player_x%"
-    - " &8» &aY - %player_y%"
-    - " &8» &aZ - %player_z%"
+    - " &8» &aMundo - <world>"
+    - " &8» &aX - <x-coord>"
+    - " &8» &aY - <y-coord>"
+    - " &8» &aZ - <z-coord>"
   OTHER-PLAYER-COORDS:
-    - "&fCoordenadas de %target_player%&7:"
-    - " &8» &aX - %otherplayer_locx_%target_player%%"
-    - " &8» &aY - %otherplayer_locy_%target_player%%"
-    - " &8» &aZ - %otherplayer_locz_%target_player%%"
-  PLAYER-NOT-FOUND: "&cJugador %target_player% no esta en linea actualmente"
-  PLAYER-NO-EXIST: "&CJugador %target_player% no existe"
+    - "&fCoordenadas de <target_player>&7:"
+    - " &8» &aMundo - <target-world>"
+    - " &8» &aX - <x-target-player>"
+    - " &8» &aY - <y-target-player>"
+    - " &8» &aZ - <z-target-player>"
+  PLAYER-NOT-FOUND: "&cJugador <target_player> no esta en linea actualmente"
+  PLAYER-NO-EXIST: "&CJugador <target_player> no existe"
 
 MORE-COMMAND: "&aThe item you have been holding has been stacked to 64"
 

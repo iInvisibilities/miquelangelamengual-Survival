@@ -2,8 +2,8 @@ package es.hulk.survival.command;
 
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.Location.OfflinePlayerLocation;
-import es.hulk.survival.utils.Location.PlayerLocation;
+import es.hulk.survival.utils.location.OfflinePlayerLocation;
+import es.hulk.survival.utils.location.PlayerLocation;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -53,7 +53,7 @@ public class CoordsCommand extends BaseCommand {
                 }
             } else {
                 player.sendMessage(Utils.color(mainConfig.getString("COORDS.PLAYER-NOT-FOUND").
-                        replaceAll("%target_player%", String.valueOf(offlinePlayer.getName()))));
+                        replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))));
             }
         }
     }
