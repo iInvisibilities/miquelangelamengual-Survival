@@ -17,16 +17,16 @@ public class PlayerLocation {
         }
     }
 
-    public static String coordinateX(Player player) {
-        return String.valueOf(player.getLocation().getX());
+    public static int coordinateX(Player player) {
+        return (int) player.getLocation().getX();
     }
 
-    public static String coordinateY(Player player) {
-        return String.valueOf(player.getLocation().getY());
+    public static int coordinateY(Player player) {
+        return (int) player.getLocation().getY();
     }
 
-    public static String coordinateZ(Player player) {
-        return String.valueOf(player.getLocation().getZ());
+    public static int coordinateZ(Player player) {
+        return (int) player.getLocation().getZ();
     }
 
 

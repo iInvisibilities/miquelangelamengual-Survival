@@ -14,7 +14,7 @@ BROADCAST:
 
 CHAT:
   ENABLED: true
-  FORMAT: "<player> &8» &r<message>"
+  FORMAT: "%player% &8» &r%message%"
 
 CAMA-COORDS-COMMAND:
     - "&fCoordenadas de tu Cama&7: "
@@ -24,7 +24,7 @@ CAMA-COORDS-COMMAND:
     - " &8» &aZ - <bed-z-coord>"
 
 COORDS:
-  NO-ARGS-COMMAND:
+  YOUR-COORDS:
     - "&fTus Coordenadas&7: "
     - " &8» &aMundo - <world>"
     - " &8» &aX - <x-coord>"

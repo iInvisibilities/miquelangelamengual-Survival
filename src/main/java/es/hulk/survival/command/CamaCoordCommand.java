@@ -19,9 +19,9 @@ public class CamaCoordCommand extends BaseCommand {
 
         for (String stringList : mainConfig.getStringList("CAMA-COORDS-COMMAND")) {
             player.sendMessage(stringList
-                    .replaceAll("<bed-x-coord>", BedLocation.bedCoordinateX(player))
-                    .replaceAll("<bed-y-coord>", BedLocation.bedCoordinateY(player))
-                    .replaceAll("<bed-z-coord>", BedLocation.bedCoordinateZ(player))
+                    .replaceAll("<bed-x-coord>", String.valueOf(BedLocation.bedCoordinateX(player)))
+                    .replaceAll("<bed-y-coord>", String.valueOf(BedLocation.bedCoordinateY(player)))
+                    .replaceAll("<bed-z-coord>", String.valueOf(BedLocation.bedCoordinateZ(player)))
                     .replaceAll("<bed-world>", BedLocation.getBedWorld(player)));
         }
     }

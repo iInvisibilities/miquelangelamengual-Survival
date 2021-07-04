@@ -23,19 +23,19 @@ public class OfflinePlayerLocation {
         }
     }
 
-    public static String coordinateX(OfflinePlayer offlinePlayer) {
+    public static int coordinateX(OfflinePlayer offlinePlayer) {
         Player player = offlinePlayer.getPlayer();
-        return String.valueOf(player.getLocation().getX());
+        return (int) player.getLocation().getX();
     }
 
-    public static String coordinateY(OfflinePlayer offlinePlayer) {
+    public static int coordinateY(OfflinePlayer offlinePlayer) {
         Player player = offlinePlayer.getPlayer();
-        return String.valueOf(player.getLocation().getY());
+        return (int) player.getLocation().getY();
     }
 
-    public static String coordinateZ(OfflinePlayer offlinePlayer) {
+    public static int coordinateZ(OfflinePlayer offlinePlayer) {
         Player player = offlinePlayer.getPlayer();
-        return String.valueOf(player.getLocation().getZ());
+        return (int) player.getLocation().getZ();
     }
 
 }

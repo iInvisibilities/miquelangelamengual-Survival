@@ -4,16 +4,16 @@ import org.bukkit.entity.Player;
 
 public class BedLocation {
 
-    public static String bedCoordinateX(Player player) {
-        return String.valueOf(player.getBedSpawnLocation().getX());
+    public static int bedCoordinateX(Player player) {
+        return (int) player.getBedSpawnLocation().getX();
     }
 
-    public static String bedCoordinateY(Player player) {
-        return String.valueOf(player.getBedSpawnLocation().getY());
+    public static int bedCoordinateY(Player player) {
+        return (int) player.getBedSpawnLocation().getY();
     }
 
-    public static String bedCoordinateZ(Player player) {
-        return String.valueOf(player.getBedSpawnLocation().getZ());
+    public static int bedCoordinateZ(Player player) {
+        return (int) player.getBedSpawnLocation().getZ();
     }
 
     public static String getBedWorld(Player player) {

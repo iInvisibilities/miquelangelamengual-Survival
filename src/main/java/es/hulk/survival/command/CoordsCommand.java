@@ -21,33 +21,33 @@ public class CoordsCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         String[] args = command.getArgs();
-
         Player player = command.getPlayer();
-        OfflinePlayer offlinePlayer = Bukkit.getServer().getPlayer(args[0]);
 
         if (args.length == 0) {
-            for (String stringList : mainConfig.getStringList("COORDS.NO-ARGS-COMMAND")) {
+            for (String stringList : mainConfig.getStringList("COORDS.YOUR-COORDS")) {
                 player.sendMessage(stringList
-                        .replaceAll("<x-coord>", PlayerLocation.coordinateX(player))
-                        .replaceAll("<y-coord>", PlayerLocation.coordinateY(player))
-                        .replaceAll("<z-coord>", PlayerLocation.coordinateZ(player))
+                        .replaceAll("<x-coord>", String.valueOf(PlayerLocation.coordinateX(player)))
+                        .replaceAll("<y-coord>", String.valueOf(PlayerLocation.coordinateY(player)))
+                        .replaceAll("<z-coord>", String.valueOf(PlayerLocation.coordinateZ(player)))
                         .replaceAll("<world>", PlayerLocation.getWorld(player)));
             }
         }
 
         if (args.length > 0) {
+            OfflinePlayer offlinePlayer = Bukkit.getServer().getPlayer(args[0]);
+
             if (offlinePlayer == null || !offlinePlayer.hasPlayedBefore()) {
-                player.sendMessage(mainConfig.getString("COORDS.PLAYER-NO-EXIST")
-                        .replaceAll("<target_player>", String.valueOf(offlinePlayer.getName())));
+                offlinePlayer = Bukkit.getServer().getOfflinePlayer(args[0]);
+                player.sendMessage(mainConfig.getString("COORDS.PLAYER-NO-EXIST").replaceAll("<target_player>", String.valueOf(offlinePlayer.getName())));
                 return;
             }
             if (offlinePlayer.isOnline()) {
                 for (String stringList : mainConfig.getStringList("COORDS.OTHER-PLAYER-COORDS")) {
                     player.sendMessage(stringList
                             .replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))
-                            .replaceAll("<x-target-player>", OfflinePlayerLocation.coordinateX(offlinePlayer))
-                            .replaceAll("<y-target-player>", OfflinePlayerLocation.coordinateY(offlinePlayer))
-                            .replaceAll("<z-target-player>", OfflinePlayerLocation.coordinateZ(offlinePlayer))
+                            .replaceAll("<x-target-player>", String.valueOf(OfflinePlayerLocation.coordinateX(offlinePlayer)))
+                            .replaceAll("<y-target-player>", String.valueOf(OfflinePlayerLocation.coordinateY(offlinePlayer)))
+                            .replaceAll("<z-target-player>", String.valueOf(OfflinePlayerLocation.coordinateZ(offlinePlayer)))
                             .replaceAll("<target-world>", OfflinePlayerLocation.getWorld(offlinePlayer)));
                 }
             } else {

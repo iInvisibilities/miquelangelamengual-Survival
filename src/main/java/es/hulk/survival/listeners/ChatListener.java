@@ -19,8 +19,8 @@ public class ChatListener implements Listener {
 
         if (mainConfig.getBoolean("CHAT.ENABLED")) {
                 event.setFormat(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("CHAT.FORMAT")
-                        .replaceAll("<player>", player.getDisplayName())
-                        .replace("<message>", "%2$s"))));
+                        .replaceAll("%player%", player.getDisplayName())
+                        .replace("%message%", "%2$s"))));
         }
     }
 }
