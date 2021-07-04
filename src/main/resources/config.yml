@@ -2,26 +2,22 @@ FILE-RELOAD: "&aConfig Reloaded"
 JOIN-MESSAGE:
   ENABLE: true
   LINES:
-    - "&7&m---------------------------"
-    - "&6Bienvenido &f%player_name% &6a JazePvP &fSurvival 1.16"
-    - ""
-    - "&6Discord&7: &fhttps://discord.gg/a9juZ6EzR8"
-    - "&7&m---------------------------"
+    - "&6Bienvenido &f%player_name% &6a &fSurvival 1.17"
 
 BOOLEANS:
   BROADCAST-QUIT: false
   BROADCAST-JON: false
 
 BROADCAST:
-  JOIN: "%player% has joined"
-  QUIT: "%player% has left"
+  JOIN: "<player> has joined"
+  QUIT: "<player> has left"
 
 CHAT:
   ENABLED: true
-  FORMAT: "%player% &8» &r%message%"
+  FORMAT: "<player> &8» &r<message>"
 
 CAMA-COORDS-COMMAND:
-  - "&fCoordenadas de tu Cama&7: "
+    - "&fCoordenadas de tu Cama&7: "
     - " &8» &aMundo - <bed-world>"
     - " &8» &aX - <bed-x-coord>"
     - " &8» &aY - <bed-y-coord>"

@@ -20,12 +20,12 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
 
         if (mainConfig.getBoolean("BOOLEANS.BORADCAST-JOIN")) {
-            event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("BROADCAST.JOIN").replaceAll("%player%", player.getDisplayName()))));
+            event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName()))));
         }
 
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             mainConfig.getStringList("JOIN-MESSAGE.LINES").forEach(lines -> {
-                lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines));
+                lines = Utils.color(PlaceholderAPI.setPlaceholders(player, lines.replaceAll("<player>", player.getDisplayName())));
                 player.sendMessage(lines);
             });
         }
