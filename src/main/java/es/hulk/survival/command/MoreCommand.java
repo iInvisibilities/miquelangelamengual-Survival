@@ -17,14 +17,19 @@ public class MoreCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        int amount = player.getInventory().getItemInMainHand().getAmount();
 
-        if (args.length < 0) {
+        if (args.length == 0) {
             player.getInventory().getItemInMainHand().setAmount(64);
             player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND")));
         }
         if (args.length > 0) {
+            if (Integer.parseInt(args[0]) <= amount) {
+                player.sendMessage(Utils.color("&cYou have more amount for this item"));
+                return;
+            }
             player.getInventory().getItemInMainHand().setAmount(Integer.parseInt(args[0]));
-            player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND")));
+            player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND-AMOUNT").replaceAll("<amount>", args[0])));
         }
     }
 }
