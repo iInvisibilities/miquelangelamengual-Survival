@@ -24,7 +24,9 @@ public class EntityListener implements Listener {
         if (mainConfig.getBoolean("ENTITIES.GUNPOWDER-BOOST")) {
             if (event.getEntity().getType() == EntityType.CREEPER) {
                 int RANDOMIZER = (int) (Math.random() * (30 - 1)) + 1;
+                int RANDOM2 = (int) (Math.random() * (2 - 1)) + 1;
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, RANDOMIZER));
+                event.getDrops().add(new ItemStack(Material.TNT, RANDOM2));
             }
         }
 
@@ -32,6 +34,22 @@ public class EntityListener implements Listener {
             if (event.getEntity().getType() == EntityType.GHAST) {
                 int RANDOMIZER = (int) (Math.random() * (20 - 1)) + 1;
                 event.getDrops().add(new ItemStack(Material.GHAST_TEAR, RANDOMIZER));
+            }
+        }
+
+        if (mainConfig.getBoolean("ENTITIES.CAT-BOOST")) {
+            if (event.getEntity().getType() == EntityType.CAT) {
+                int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
+                event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
+                event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
+            }
+        }
+
+        if (mainConfig.getBoolean("ENTITIES.BEE-BOOST")) {
+            if (event.getEntity().getType() == EntityType.BEE) {
+                int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
+                event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
+                event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
             }
         }
     }
