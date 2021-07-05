@@ -19,6 +19,7 @@ public final class Survival extends JavaPlugin {
 
     private FileConfig scoreboardConfig;
     private FileConfig mainConfig;
+    private FileConfig commandsConfig;
 
     private Scoreboard scoreboard;
     private CommandManager commandManager;
@@ -48,6 +49,7 @@ public final class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "config.yml");
+        this.commandsConfig = new FileConfig(this, "commands.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
@@ -75,10 +77,11 @@ public final class Survival extends JavaPlugin {
 
     public void loadCommands() {
         new ReloadCommand();
+        new SurvivalCommand();
+        new ToggleCommandsCommand();
         new CamaCoordCommand();
         new CoordsCommand();
         new MoreCommand();
-        new SurvivalCommand();
         new FlyCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
