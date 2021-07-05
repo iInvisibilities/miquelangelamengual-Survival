@@ -50,6 +50,7 @@ public class EntityListener implements Listener {
                 int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
                 event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
                 event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
+                event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
             }
         }
     }
