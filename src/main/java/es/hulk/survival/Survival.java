@@ -79,10 +79,20 @@ public final class Survival extends JavaPlugin {
         new ReloadCommand();
         new SurvivalCommand();
         new ToggleCommandsCommand();
-        new CamaCoordCommand();
-        new CoordsCommand();
-        new MoreCommand();
-        new FlyCommand();
+
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
+            new CamaCoordCommand();
+        }
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.COORDS")) {
+            new CoordsCommand();
+        }
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.MORE")) {
+            new MoreCommand();
+        }
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.FLY")) {
+            new FlyCommand();
+        }
+
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
