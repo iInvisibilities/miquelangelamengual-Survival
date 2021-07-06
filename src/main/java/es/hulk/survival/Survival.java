@@ -79,7 +79,6 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new SurvivalCommand();
-        new ToggleCommandsCommand();
 
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
             new CamaCoordCommand();
