@@ -13,6 +13,10 @@ public class SurvivalCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
+        if (sender.hasPermission("survival.command.reload"))  {
+            sender.sendMessage(Utils.color("&cUsage: /survival reload"));
+            return;
+        }
         sender.sendMessage(Utils.color("&aSurvival plugin made by Hulk#0226"));
     }
 }
