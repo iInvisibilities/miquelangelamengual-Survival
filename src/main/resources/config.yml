@@ -14,7 +14,7 @@ BROADCAST:
 
 CHAT:
   ENABLED: true
-  FORMAT: "%player% &8» &r%message%"
+  FORMAT: "<rank-prefix>%player% &8» &r%message%"
 
 CAMA-COORDS-COMMAND:
     - "&fCoordenadas de tu Cama&7: "
