@@ -28,6 +28,8 @@ public class ScoreboardProvider implements ScoreboardAdapter {
 
         for (String stringList : scoreboardConfig.getStringList("SCOREBOARD.LINES")) {
             lines.add(stringList
+                    .replaceAll("<ping>", String.valueOf(Utils.getPing(player)))
+                    .replaceAll("<player-name>", player.getDisplayName())
                     .replaceAll("<rank-prefix>", LuckPermsAPI.getPrefix(player))
                     .replaceAll("<rank-suffix>", LuckPermsAPI.getSuffix(player))
                     .replaceAll("<rank-name>", LuckPermsAPI.getName(player))
