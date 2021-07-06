@@ -33,6 +33,7 @@ public final class Survival extends JavaPlugin {
             Utils.sendConsole("Author: Hulk");
             Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
             Utils.sendConsole("");
+
             loadConfigs();
             loadScoreboard();
             loadListeners();
@@ -59,9 +60,9 @@ public final class Survival extends JavaPlugin {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
-        } else {
-            Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
+            return;
         }
+        Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
     }
 
     public void loadListeners() {

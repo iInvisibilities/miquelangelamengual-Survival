@@ -50,10 +50,10 @@ public class CoordsCommand extends BaseCommand {
                             .replaceAll("<z-target-player>", String.valueOf(OfflinePlayerLocation.coordinateZ(offlinePlayer)))
                             .replaceAll("<target-world>", OfflinePlayerLocation.getWorld(offlinePlayer)));
                 }
-            } else {
-                player.sendMessage(Utils.color(mainConfig.getString("COORDS.PLAYER-NOT-FOUND").
-                        replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))));
+                return;
             }
+            player.sendMessage(Utils.color(mainConfig.getString("COORDS.PLAYER-NOT-FOUND").
+                    replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))));
         }
     }
 }
