@@ -17,7 +17,7 @@ import java.util.List;
 public class ScoreboardProvider implements ScoreboardAdapter {
 
     private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
-    private RankManager rankManager = Survival.get().getMainManager().getRankManager();
+    private RankManager rankManager = Survival.get().getRankManager();
 
     @Override
     public String getTitle(Player player) {

@@ -1,7 +1,8 @@
 package es.hulk.survival.managers.warp;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,9 +14,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
 public class WarpManager {
 
-    private FileConfig locationsConfig = Survival.get().getLocationsConfig();
     private final Map<String, Warp> warps = new HashMap<>();
     private final Survival plugin;
 
@@ -44,7 +46,9 @@ public class WarpManager {
         this.warps.clear();
     }
 
+
     public void serializeLocation(Warp warp) {
+        FileConfiguration config = plugin.getConfig();
         Location location = warp.getLocation().clone();
 
         String world = location.getWorld().getName();
@@ -54,12 +58,12 @@ public class WarpManager {
         double yaw = location.getYaw();
         double pitch = location.getPitch();
 
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".world", world);
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".x", x);
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".y", y);
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".z", z);
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".yaw", yaw);
-        locationsConfig.getConfiguration().set("warps." + warp.getName() + ".pitch", pitch);
+        config.set("warps." + warp.getName() + ".world", world);
+        config.set("warps." + warp.getName() + ".x", x);
+        config.set("warps." + warp.getName() + ".y", y);
+        config.set("warps." + warp.getName() + ".z", z);
+        config.set("warps." + warp.getName() + ".yaw", yaw);
+        config.set("warps." + warp.getName() + ".pitch", pitch);
 
         plugin.saveConfig();
     }
@@ -72,9 +76,9 @@ public class WarpManager {
 
     public void loadWarps() {
         FileConfiguration config = plugin.getConfig();
-        if (!config.isConfigurationSection("warps")) return;
+        if(!config.isConfigurationSection("warps")) return;
 
-        for (String warpName : config.getConfigurationSection("warps").getKeys(false)) {
+        for(String warpName : config.getConfigurationSection("warps").getKeys(false)){
 
             World world = Bukkit.getWorld(config.getString("warps." + warpName + ".world"));
             double x = config.getDouble("warps." + warpName + ".x");

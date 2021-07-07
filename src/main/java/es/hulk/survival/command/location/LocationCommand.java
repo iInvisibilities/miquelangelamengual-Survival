@@ -36,17 +36,17 @@ public class LocationCommand extends BaseCommand {
                 return;
             }
             player.teleport(warp.getLocation());
-            player.sendMessage(Utils.color(""));
+            player.sendMessage(Utils.color("Succesfully teleported to " + args[0] + " location."));
         }
     }
 
     public void getUsage(CommandSender commandSender) {
-        commandSender.sendMessage(CC.LINE);
+        commandSender.sendMessage(Utils.color(CC.LINE));
         commandSender.sendMessage(Utils.color("&e/setlocation &7- &fSets the coords as your location"));
         commandSender.sendMessage(Utils.color("&e/location help &7- &fshows this help"));
         commandSender.sendMessage(Utils.color("&e/location list &7- &fshows available locations to go"));
         commandSender.sendMessage(Utils.color("&e/location <name> &7- &fGoes to the desired location"));
-        commandSender.sendMessage(CC.LINE);
+        commandSender.sendMessage(Utils.color(CC.LINE));
     }
 
     @Completer(name = "location")

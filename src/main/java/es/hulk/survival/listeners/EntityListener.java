@@ -4,6 +4,7 @@ import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,9 +32,10 @@ public class EntityListener implements Listener {
                 int RANDOM2 = (int) (Math.random() * (2 - 1)) + 1;
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, RANDOMIZER));
 
-                assert player != null;
-                if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
-                    event.getDrops().add(new ItemStack(Material.TNT, RANDOM2));
+                if (event.getEntity() instanceof Player) {
+                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                        event.getDrops().add(new ItemStack(Material.TNT, RANDOM2));
+                    }
                 }
             }
         }
@@ -45,30 +47,32 @@ public class EntityListener implements Listener {
 
                 event.getDrops().add(new ItemStack(Material.GHAST_TEAR, RANDOMIZER));
 
-                assert player != null;
-                if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
-                    event.getDrops().add(new ItemStack(Material.NETHER_STAR, RANDOM2));
+                if (event.getEntity() instanceof Player) {
+                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                        event.getDrops().add(new ItemStack(Material.NETHER_STAR, RANDOM2));
+                    }
                 }
             }
-        }
 
-        if (mainConfig.getBoolean("ENTITIES.CAT-BOOST")) {
-            if (event.getEntity().getType() == EntityType.CAT) {
-                int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
-                event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
-                event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
+            if (mainConfig.getBoolean("ENTITIES.CAT-BOOST")) {
+                if (event.getEntity().getType() == EntityType.CAT) {
+                    int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
+                    event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
+                    event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
+                }
             }
-        }
 
-        if (mainConfig.getBoolean("ENTITIES.BEE-BOOST")) {
-            if (event.getEntity().getType() == EntityType.BEE) {
-                int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
-                event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
-                event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
+            if (mainConfig.getBoolean("ENTITIES.BEE-BOOST")) {
+                if (event.getEntity().getType() == EntityType.BEE) {
+                    int RANDOMIZER = (int) (Math.random() * (6 - 1)) + 1;
+                    event.getDrops().add(new ItemStack(Material.MUTTON, RANDOMIZER));
+                    event.getDrops().add(new ItemStack(Material.LEATHER, RANDOMIZER));
 
-                assert player != null;
-                if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
-                    event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
+                    if (event.getEntity() instanceof Player) {
+                        if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                            event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
+                        }
+                    }
                 }
             }
         }

@@ -12,7 +12,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class ChatListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
-    private final RankManager rankManager = Survival.get().getMainManager().getRankManager();
+    private final RankManager rankManager = Survival.get().getRankManager();
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
