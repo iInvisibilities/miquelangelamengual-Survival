@@ -28,9 +28,9 @@ public final class Survival extends JavaPlugin {
 
     private WarpManager warpManager;
     private RankManager rankManager;
-    private Scoreboard scoreboard;
     private CommandManager commandManager;
-    private LuckPermsAPI luckPermsAPI;
+
+    private Scoreboard scoreboard;
 
     @Override
     public void onEnable() {
