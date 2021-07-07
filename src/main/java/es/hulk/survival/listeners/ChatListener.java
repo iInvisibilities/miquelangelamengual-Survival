@@ -1,8 +1,7 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.rank.RankManager;
-import es.hulk.survival.rank.impl.LuckPermsAPI;
+import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import org.bukkit.entity.Player;
@@ -12,8 +11,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatListener implements Listener {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
-    private RankManager rankManager = Survival.get().getRankManager();
+    private final FileConfig mainConfig = Survival.get().getMainConfig();
+    private final RankManager rankManager = Survival.get().getMainManager().getRankManager();
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {

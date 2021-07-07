@@ -1,6 +1,6 @@
-package es.hulk.survival.rank.impl;
+package es.hulk.survival.managers.rank.impl;
 
-import es.hulk.survival.rank.Rank;
+import es.hulk.survival.managers.rank.Rank;
 import org.bukkit.OfflinePlayer;
 
 public class Default implements Rank {

@@ -1,4 +1,4 @@
-package es.hulk.survival.rank;
+package es.hulk.survival.managers.rank;
 
 import org.bukkit.OfflinePlayer;
 

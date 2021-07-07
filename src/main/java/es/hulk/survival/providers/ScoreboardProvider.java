@@ -1,8 +1,8 @@
 package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.rank.RankManager;
-import es.hulk.survival.rank.impl.LuckPermsAPI;
+import es.hulk.survival.managers.MainManager;
+import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ScoreboardProvider implements ScoreboardAdapter {
 
     private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
-    private RankManager rankManager = Survival.get().getRankManager();
+    private RankManager rankManager = Survival.get().getMainManager().getRankManager();
 
     @Override
     public String getTitle(Player player) {

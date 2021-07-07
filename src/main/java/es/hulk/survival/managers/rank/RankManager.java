@@ -1,7 +1,7 @@
-package es.hulk.survival.rank;
+package es.hulk.survival.managers.rank;
 
-import es.hulk.survival.rank.impl.Default;
-import es.hulk.survival.rank.impl.LuckPermsAPI;
+import es.hulk.survival.managers.rank.impl.Default;
+import es.hulk.survival.managers.rank.impl.LuckPermsAPI;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;

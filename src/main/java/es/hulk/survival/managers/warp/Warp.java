@@ -1,7 +1,6 @@
-package es.hulk.survival.managers;
+package es.hulk.survival.managers.warp;
 
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.jetbrains.annotations.NotNull;
 
 public class Warp {

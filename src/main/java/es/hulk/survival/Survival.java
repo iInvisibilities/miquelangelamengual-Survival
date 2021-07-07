@@ -2,14 +2,10 @@ package es.hulk.survival;
 
 import es.hulk.survival.command.*;
 import es.hulk.survival.listeners.*;
-import es.hulk.survival.managers.WarpManager;
+import es.hulk.survival.managers.MainManager;
 import es.hulk.survival.providers.ScoreboardProvider;
-import es.hulk.survival.rank.Rank;
-import es.hulk.survival.rank.RankManager;
-import es.hulk.survival.rank.impl.LuckPermsAPI;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
-import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,25 +22,22 @@ public final class Survival extends JavaPlugin {
     private FileConfig commandsConfig;
     private FileConfig locationsConfig;
 
-    private WarpManager warpManager;
-    private RankManager rankManager;
-    private CommandManager commandManager;
-
     private Scoreboard scoreboard;
+    private MainManager mainManager;
 
     @Override
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            loadManagers();
-            getRankManager().loadRank();
-            getWarpManager().loadWarps();
+            mainManager.loadManagers();
+            mainManager.getWarpManager().loadWarps();
+            mainManager.getRankManager().loadRank();
 
             Utils.sendConsole("");
             Utils.sendConsole("&aSurvival - 1.17");
             Utils.sendConsole("");
             Utils.sendConsole("Author: Hulk");
             Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
-            Utils.sendConsole("&eRank System&7: &f" + this.getRankManager().getRankSystem());
+            Utils.sendConsole("&eRank System&7: &f" + mainManager.getRankManager().getRankSystem());
             Utils.sendConsole("");
 
             loadConfigs();
@@ -58,12 +51,6 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onDisable() {
-    }
-
-    public void loadManagers() {
-        rankManager = new RankManager(this);
-        commandManager = new CommandManager(this);
-        warpManager = new WarpManager(this);
     }
 
     public void loadConfigs() {
@@ -111,7 +98,6 @@ public final class Survival extends JavaPlugin {
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.FLY")) {
             new FlyCommand();
         }
-
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

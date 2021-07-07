@@ -1,4 +1,4 @@
-package es.hulk.survival.managers;
+package es.hulk.survival.managers.warp;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
