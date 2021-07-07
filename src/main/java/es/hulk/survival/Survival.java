@@ -3,6 +3,9 @@ package es.hulk.survival;
 import es.hulk.survival.command.*;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.providers.ScoreboardProvider;
+import es.hulk.survival.rank.Rank;
+import es.hulk.survival.rank.RankManager;
+import es.hulk.survival.rank.impl.LuckPermsAPI;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
@@ -21,17 +24,23 @@ public final class Survival extends JavaPlugin {
     private FileConfig mainConfig;
     private FileConfig commandsConfig;
 
+    private RankManager rankManager;
     private Scoreboard scoreboard;
     private CommandManager commandManager;
+    private LuckPermsAPI luckPermsAPI;
 
     @Override
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            loadRanks();
+            getRankManager().loadRank();
+
             Utils.sendConsole("");
             Utils.sendConsole("&aSurvival - 1.16.5");
             Utils.sendConsole("");
             Utils.sendConsole("Author: Hulk");
             Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
+            Utils.sendConsole("&eRank System&7: &f" + this.getRankManager().getRankSystem());
             Utils.sendConsole("");
 
             loadConfigs();
@@ -45,6 +54,10 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onDisable() {
+    }
+
+    public void loadRanks() {
+        rankManager = new RankManager(this);
     }
 
     public void loadConfigs() {
