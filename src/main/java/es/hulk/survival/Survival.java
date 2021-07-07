@@ -2,6 +2,7 @@ package es.hulk.survival;
 
 import es.hulk.survival.command.*;
 import es.hulk.survival.listeners.*;
+import es.hulk.survival.managers.WarpManager;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.rank.Rank;
 import es.hulk.survival.rank.RankManager;
@@ -23,7 +24,9 @@ public final class Survival extends JavaPlugin {
     private FileConfig scoreboardConfig;
     private FileConfig mainConfig;
     private FileConfig commandsConfig;
+    private FileConfig locationsConfig;
 
+    private WarpManager warpManager;
     private RankManager rankManager;
     private Scoreboard scoreboard;
     private CommandManager commandManager;
@@ -32,8 +35,9 @@ public final class Survival extends JavaPlugin {
     @Override
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            loadRanks();
+            loadManagers();
             getRankManager().loadRank();
+            getWarpManager().loadWarps();
 
             Utils.sendConsole("");
             Utils.sendConsole("&aSurvival - 1.17");
@@ -56,14 +60,17 @@ public final class Survival extends JavaPlugin {
     public void onDisable() {
     }
 
-    public void loadRanks() {
+    public void loadManagers() {
         rankManager = new RankManager(this);
+        commandManager = new CommandManager(this);
+        warpManager = new WarpManager(this);
     }
 
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "config.yml");
         this.commandsConfig = new FileConfig(this, "commands.yml");
+        this.locationsConfig = new FileConfig(this, "locations.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
@@ -80,7 +87,6 @@ public final class Survival extends JavaPlugin {
 
     public void loadListeners() {
         PluginManager pm = Bukkit.getPluginManager();
-        commandManager = new CommandManager(this);
         pm.registerEvents(new JoinListener(), this);
         pm.registerEvents(new QuitListener(), this);
         pm.registerEvents(new ChatListener(), this);
