@@ -4,6 +4,7 @@ import es.hulk.survival.rank.Rank;
 import org.bukkit.OfflinePlayer;
 
 public class Default implements Rank {
+
     @Override
     public String getName(OfflinePlayer offlinePlayer) {
         return "";
