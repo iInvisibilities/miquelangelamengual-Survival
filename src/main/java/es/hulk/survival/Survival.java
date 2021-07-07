@@ -36,10 +36,10 @@ public final class Survival extends JavaPlugin {
             getRankManager().loadRank();
 
             Utils.sendConsole("");
-            Utils.sendConsole("&aSurvival - 1.16.5");
+            Utils.sendConsole("&aSurvival - 1.17");
             Utils.sendConsole("");
             Utils.sendConsole("Author: Hulk");
-            Utils.sendConsole("Version: 1.16.5 - " + Survival.get().getDescription().getVersion());
+            Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
             Utils.sendConsole("&eRank System&7: &f" + this.getRankManager().getRankSystem());
             Utils.sendConsole("");
 
