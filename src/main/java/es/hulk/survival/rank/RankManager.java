@@ -1,5 +1,6 @@
 package es.hulk.survival.rank;
 
+import es.hulk.survival.rank.impl.Default;
 import es.hulk.survival.rank.impl.LuckPermsAPI;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,7 +28,8 @@ public class RankManager {
             this.setRank(new LuckPermsAPI());
             this.setRankSystem("LuckPerms");
         } else {
-
+            this.setRank(new Default());
+            this.setRankSystem("None");
         }
     }
 }
