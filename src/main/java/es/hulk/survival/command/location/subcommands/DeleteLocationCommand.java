@@ -25,7 +25,6 @@ public class DeleteLocationCommand extends BaseCommand {
         if (args.length > 0) {
             player.sendMessage(Utils.color("&cLocation " + args[0] + " has been succesfuly removed"));
             warpManager.deleteWarpByName(args[0]);
-            warpManager.saveWarps();
         }
     }
 }

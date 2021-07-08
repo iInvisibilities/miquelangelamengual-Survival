@@ -21,6 +21,12 @@ public class WarpManager {
     private ArrayList<String> names = new ArrayList<>();
     private final Survival plugin;
 
+    public void saveNames() {
+        FileConfig config = Survival.get().getLocationsConfig();
+        String aux = names.toString().replace("[", "").replace("]", "");
+        config.getConfiguration().set("WARPNAME", aux);
+    }
+
     public WarpManager(Survival plugin) {
         this.plugin = plugin;
     }
@@ -91,6 +97,7 @@ public class WarpManager {
 
             Location location = new Location(world, x, y, z, yaw, pitch);
             this.warps.put(warpName, new Warp(warpName, location));
+            names.add(warpName);
         }
         config.getConfiguration().set("WARPS", null);
         config.save();

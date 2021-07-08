@@ -26,6 +26,7 @@ public class SetLocationCommand extends BaseCommand {
             player.sendMessage(Utils.color("&aLocation " + args[0] + " has been succesfuly setted"));
             warpManager.createWarp(args[0], player.getLocation());
             warpManager.saveWarps();
+            warpManager.saveNames();
         }
     }
 
