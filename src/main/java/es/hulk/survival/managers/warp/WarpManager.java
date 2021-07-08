@@ -1,13 +1,13 @@
 package es.hulk.survival.managers.warp;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.location.LocationSeralizer;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class WarpManager {
 
 
     public void serializeLocation(Warp warp) {
-        FileConfiguration config = plugin.getConfig();
+        FileConfig config = Survival.get().getLocationsConfig();
         Location location = warp.getLocation().clone();
 
         LocationSeralizer.serializeLocation(location);
@@ -63,12 +63,12 @@ public class WarpManager {
         double yaw = location.getYaw();
         double pitch = location.getPitch();
 
-        config.set("WARPS." + warp.getName() + ".WORLD", world);
-        config.set("WARPS." + warp.getName() + ".X", x);
-        config.set("WARPS." + warp.getName() + ".Y", y);
-        config.set("WARPS." + warp.getName() + ".Z", z);
-        config.set("WARPS." + warp.getName() + ".YAW", yaw);
-        config.set("WARPS." + warp.getName() + ".PITCH", pitch);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".WORLD", world);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".X", x);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".Y", y);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".Z", z);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".YAW", yaw);
+        config.getConfiguration().set("WARPS." + warp.getName() + ".PITCH", pitch);
 
         plugin.saveConfig();
     }
@@ -80,10 +80,10 @@ public class WarpManager {
     }
 
     public void loadWarps() {
-        FileConfiguration config = plugin.getConfig();
-        if(!config.isConfigurationSection("warps")) return;
+        FileConfig config = Survival.get().getLocationsConfig();
+        if(!config.getConfiguration().isConfigurationSection("warps")) return;
 
-        for(String warpName : config.getConfigurationSection("warps").getKeys(false)){
+        for(String warpName : config.getConfiguration().getConfigurationSection("warps").getKeys(false)){
 
             World world = Bukkit.getWorld(config.getString("WARPS." + warpName + ".WORLD"));
             double x = config.getDouble("WARPS." + warpName + ".X");
@@ -95,7 +95,7 @@ public class WarpManager {
             Location location = new Location(world, x, y, z, yaw, pitch);
             this.warps.put(warpName, new Warp(warpName, location));
         }
-        config.set("WARPS", null);
+        config.getConfiguration().set("WARPS", null);
         plugin.saveConfig();
     }
 }

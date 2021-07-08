@@ -19,6 +19,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 @Setter
 @Getter
 public final class Survival extends JavaPlugin {
@@ -37,6 +39,7 @@ public final class Survival extends JavaPlugin {
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             loadManagers();
+            locationsConfig = new FileConfig(this, "locations.yml");
             getWarpManager().loadWarps();
             getRankManager().loadRank();
 
