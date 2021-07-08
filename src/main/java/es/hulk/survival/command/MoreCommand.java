@@ -28,6 +28,7 @@ public class MoreCommand extends BaseCommand {
                 player.sendMessage(Utils.color("&cYou have more amount for this item"));
                 return;
             }
+
             player.getInventory().getItemInMainHand().setAmount(Integer.parseInt(args[0]));
             player.sendMessage(Utils.color(mainConfig.getString("MORE-COMMAND-AMOUNT").replaceAll("<amount>", args[0])));
         }

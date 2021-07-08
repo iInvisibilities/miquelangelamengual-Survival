@@ -16,21 +16,15 @@ public class BedListener implements Listener {
     public void onPlayerJoinBedEvent(PlayerBedEnterEvent event) {
         Player player = event.getPlayer();
 
-        if (!mainConfig.getBoolean("BED-INSTANT-SLEEP")) {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    if (player.isSleeping()) {
-                        player.getWorld().setTime(0L);
-                        player.getWorld().setStorm(false);
-                        player.getWorld().setThundering(false);
-                    }
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (player.isSleeping()) {
+                    player.getWorld().setTime(0L);
+                    player.getWorld().setStorm(false);
+                    player.getWorld().setThundering(false);
                 }
-            }.runTaskLater(Survival.get(), 100L);
-        } else if (player.isSleeping()) {
-            player.getWorld().setTime(0L);
-            player.getWorld().setStorm(false);
-            player.getWorld().setThundering(false);
-        }
+            }
+        }.runTaskLater(Survival.get(), 100L);
     }
 }

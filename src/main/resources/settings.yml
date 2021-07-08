@@ -41,7 +41,6 @@ COORDS:
 
 MORE-COMMAND: "&aThe item you have been holding has been stacked to 64"
 MORE-COMMAND-AMOUNT: "&aThe item you have been holding has been stacked to <amount>"
-BED-INSTANT-SLEEP: false
 
 FLY-COMMAND:
   ENABLED: "&8* &aTu modo de vuelo a sido activado."
