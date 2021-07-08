@@ -72,7 +72,6 @@ public final class Survival extends JavaPlugin {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.commandsConfig = new FileConfig(this, "commands.yml");
-        this.locationsConfig = new FileConfig(this, "locations.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 

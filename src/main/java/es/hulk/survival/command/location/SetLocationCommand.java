@@ -6,11 +6,13 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.*;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SetLocationCommand extends BaseCommand {
 
     private WarpManager warpManager = Survival.get().getWarpManager();
+
     @Command(name = "setlocation")
     @Override
     public void onCommand(CommandArgs command) {
@@ -22,11 +24,8 @@ public class SetLocationCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            List<String> nombres = Survival.get().getConfig().getStringList("WARP.LIST");
             player.sendMessage(Utils.color("&aLocation " + args[0] + " has been succesfuly setted"));
             warpManager.createWarp(args[0], player.getLocation());
-            nombres.add(args[0]);
-            Survival.get().saveConfig();
             warpManager.saveWarps();
         }
     }

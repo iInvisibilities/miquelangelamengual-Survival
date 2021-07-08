@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class CC {
 
-    public static String LINE = "&7&m----------------------------------------";
+    public static String LINE = translate("&7&m----------------------------------------");
 
     public static String translate(String in) {
         return ChatColor.translateAlternateColorCodes('&', in);

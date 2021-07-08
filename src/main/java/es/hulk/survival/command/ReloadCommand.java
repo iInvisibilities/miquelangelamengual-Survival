@@ -20,6 +20,7 @@ public class ReloadCommand extends BaseCommand {
         Player player = command.getPlayer();
         this.mainConfig.reload();
         this.scoreboardConfig.reload();
+        Survival.get().reloadConfig();
         player.sendMessage(Utils.color(mainConfig.getString("FILE-RELOAD")));
     }
 }
