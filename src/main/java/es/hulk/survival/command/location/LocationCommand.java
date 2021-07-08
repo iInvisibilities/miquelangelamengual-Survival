@@ -24,6 +24,7 @@ public class LocationCommand extends BaseCommand {
     }
 
     private WarpManager warpManager = Survival.get().getWarpManager();
+
     @Command(name = "location")
 
     @Override
@@ -42,8 +43,14 @@ public class LocationCommand extends BaseCommand {
                 getUsage(commandSender);
                 return;
             }
-            player.teleport(warp.getLocation());
+
+            if (warp == null) {
+                player.sendMessage(Utils.color("&cThis location dont exist"));
+                return;
+            }
             player.sendMessage(Utils.color("&aSuccesfully teleported to " + args[0] + " location."));
+            player.teleport(warp.getLocation());
+
         }
     }
 

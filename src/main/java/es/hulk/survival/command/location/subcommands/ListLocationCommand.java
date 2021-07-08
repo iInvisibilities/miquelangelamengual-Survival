@@ -17,16 +17,11 @@ public class ListLocationCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        if (warpManager.getNames() == null) {
-            player.sendMessage(Utils.color("&cNo Available Locations"));
+        if (warpManager.getNames().isEmpty()) {
+            player.sendMessage(Utils.color("&cNo Available Locations."));
             return;
         }
 
-        if (warpManager.getNames() != null) {
-            player.sendMessage(Utils.color("&aAvailable Warps&7:"));
-            for (String s : warpManager.getNames()) {
-                player.sendMessage(Utils.color(" &7* &f" + s));
-            }
-        }
+        player.sendMessage(Utils.color("&aAvailable Locations&7: &f" + warpManager.getNames().toString().replace("[", "").replace("]", "")));
     }
 }
