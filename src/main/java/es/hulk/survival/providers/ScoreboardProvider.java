@@ -6,7 +6,6 @@ import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -20,7 +19,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
 
     @Override
     public String getTitle(Player player) {
-        return Utils.color(PlaceholderAPI.setPlaceholders(player, scoreboardConfig.getString("SCOREBOARD.TITLE")));
+        return Utils.color(scoreboardConfig.getString("SCOREBOARD.TITLE"));
     }
 
     @Override

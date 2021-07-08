@@ -3,7 +3,6 @@ package es.hulk.survival.listeners;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +19,7 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
 
         if (mainConfig.getBoolean("BOOLEANS.BORADCAST-JOIN")) {
-            event.setJoinMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName()))));
+            event.setJoinMessage(Utils.color(mainConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
         } else {
             event.setJoinMessage(null);
         }

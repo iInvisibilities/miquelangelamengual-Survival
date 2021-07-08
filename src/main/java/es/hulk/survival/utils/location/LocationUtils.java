@@ -1,6 +1,5 @@
 package es.hulk.survival.utils.location;
 
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.Objects;
