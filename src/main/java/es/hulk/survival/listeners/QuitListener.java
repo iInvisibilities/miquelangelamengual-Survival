@@ -19,9 +19,8 @@ public class QuitListener implements Listener {
 
         if (mainConfig.getBoolean("BOOLEANS.BROADCAST-QUIT")) {
             event.setQuitMessage(Utils.color(PlaceholderAPI.setPlaceholders(player, mainConfig.getString("BROADCAST.QUIT").replaceAll("<player>", player.getDisplayName()))));
-            return;
+        } else {
+            event.setQuitMessage(null);
         }
-
-        event.setQuitMessage(null);
     }
 }
