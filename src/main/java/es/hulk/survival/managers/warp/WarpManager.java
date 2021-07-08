@@ -1,13 +1,13 @@
 package es.hulk.survival.managers.warp;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.utils.location.LocationSeralizer;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,13 +19,13 @@ import java.util.Map;
 public class WarpManager {
 
     private final Map<String, Warp> warps = new HashMap<>();
+    private ArrayList<String> names = new ArrayList<>();
     private final Survival plugin;
 
     public WarpManager(Survival plugin) {
         this.plugin = plugin;
     }
 
-    @Nullable
     public Warp getWarpByName(String name) {
         return this.warps.get(name);
     }
@@ -36,6 +36,7 @@ public class WarpManager {
 
     public void createWarp(String warpName, Location location) {
         this.warps.put(warpName, new Warp(warpName, location));
+        names.add(warpName);
     }
 
     public void deleteWarpByName(String warpName) {
@@ -51,6 +52,8 @@ public class WarpManager {
         FileConfiguration config = plugin.getConfig();
         Location location = warp.getLocation().clone();
 
+        LocationSeralizer.serializeLocation(location);
+
         String world = location.getWorld().getName();
         double x = location.getX();
         double y = location.getY();
@@ -58,12 +61,12 @@ public class WarpManager {
         double yaw = location.getYaw();
         double pitch = location.getPitch();
 
-        config.set("warps." + warp.getName() + ".world", world);
-        config.set("warps." + warp.getName() + ".x", x);
-        config.set("warps." + warp.getName() + ".y", y);
-        config.set("warps." + warp.getName() + ".z", z);
-        config.set("warps." + warp.getName() + ".yaw", yaw);
-        config.set("warps." + warp.getName() + ".pitch", pitch);
+        config.set("WARPS." + warp.getName() + ".WORLD", world);
+        config.set("WARPS." + warp.getName() + ".X", x);
+        config.set("WARPS." + warp.getName() + ".Y", y);
+        config.set("WARPS." + warp.getName() + ".Z", z);
+        config.set("WARPS." + warp.getName() + ".YAW", yaw);
+        config.set("WARPS." + warp.getName() + ".PITCH", pitch);
 
         plugin.saveConfig();
     }
@@ -80,19 +83,17 @@ public class WarpManager {
 
         for(String warpName : config.getConfigurationSection("warps").getKeys(false)){
 
-            World world = Bukkit.getWorld(config.getString("warps." + warpName + ".world"));
-            double x = config.getDouble("warps." + warpName + ".x");
-            double y = config.getDouble("warps." + warpName + ".y");
-            double z = config.getDouble("warps." + warpName + ".z");
-            float yaw = (float) config.getDouble("warps." + warpName + ".yaw");
-            float pitch = (float) config.getDouble("warps." + warpName + ".pitch");
+            World world = Bukkit.getWorld(config.getString("WARPS." + warpName + ".WORLD"));
+            double x = config.getDouble("WARPS." + warpName + ".X");
+            double y = config.getDouble("WARPS." + warpName + ".Y");
+            double z = config.getDouble("WARPS." + warpName + ".Z");
+            float yaw = (float) config.getDouble("WARPS." + warpName + ".YAW");
+            float pitch = (float) config.getDouble("WARPS." + warpName + ".PITCH");
 
             Location location = new Location(world, x, y, z, yaw, pitch);
-
             this.warps.put(warpName, new Warp(warpName, location));
-
         }
-        config.set("warps", null);
+        config.set("WARPS", null);
         plugin.saveConfig();
     }
 }
