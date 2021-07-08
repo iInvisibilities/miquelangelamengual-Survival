@@ -12,6 +12,7 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
+import lombok.Getter;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

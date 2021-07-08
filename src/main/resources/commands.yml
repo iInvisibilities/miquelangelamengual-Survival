@@ -3,3 +3,4 @@ TOGGLE-COMMANDS:
   FLY: true
   COORDS: true
   CAMACOORDS: true
+  LOCATION: true
