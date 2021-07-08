@@ -103,9 +103,6 @@ public final class Survival extends JavaPlugin {
         new ReloadCommand();
         new SurvivalCommand();
         new LocationCommand();
-        new DeleteLocationCommand();
-        new ListLocationCommand();
-        new SetLocationCommand();
 
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
             new CamaCoordCommand();
