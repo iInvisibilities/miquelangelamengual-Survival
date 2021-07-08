@@ -34,7 +34,6 @@ public final class Survival extends JavaPlugin {
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             loadManagers();
-            locationsConfig = new FileConfig(this, "locations.yml");
             getWarpManager().loadWarps();
             getRankManager().loadRank();
 
@@ -70,6 +69,7 @@ public final class Survival extends JavaPlugin {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.commandsConfig = new FileConfig(this, "commands.yml");
+        locationsConfig = new FileConfig(this, "locations.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 

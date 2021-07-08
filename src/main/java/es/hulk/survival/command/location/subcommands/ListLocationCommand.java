@@ -10,13 +10,11 @@ import org.bukkit.entity.Player;
 
 public class ListLocationCommand extends BaseCommand {
 
-    private WarpManager warpManager = Survival.get().getWarpManager();
-
     @Command(name = "location.list")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-
+        WarpManager warpManager = Survival.get().getWarpManager();
         if (warpManager.getNames() == null) {
             player.sendMessage(Utils.color("&cNo Available Locations"));
             return;

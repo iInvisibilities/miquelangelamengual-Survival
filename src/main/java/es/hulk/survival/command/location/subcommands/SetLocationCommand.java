@@ -10,13 +10,12 @@ import org.bukkit.entity.Player;
 
 public class SetLocationCommand extends BaseCommand {
 
-    private WarpManager warpManager = Survival.get().getWarpManager();
-
     @Command(name = "setlocation")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        WarpManager warpManager = Survival.get().getWarpManager();
 
         if (args.length == 0) {
             player.sendMessage(Utils.color("&cUsage: /setlocation <name>"));

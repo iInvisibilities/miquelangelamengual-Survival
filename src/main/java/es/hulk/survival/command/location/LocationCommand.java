@@ -23,8 +23,6 @@ public class LocationCommand extends BaseCommand {
         new ListLocationCommand();
         new ClearLocationsCommand();
     }
-
-    private WarpManager warpManager = Survival.get().getWarpManager();
     @Command(name = "location")
 
     @Override
@@ -32,6 +30,7 @@ public class LocationCommand extends BaseCommand {
         CommandSender commandSender = command.getSender();
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        WarpManager warpManager = Survival.get().getWarpManager();
 
         if (args.length == 0) {
             getUsage(commandSender);
