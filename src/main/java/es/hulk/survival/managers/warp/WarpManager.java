@@ -2,7 +2,6 @@ package es.hulk.survival.managers.warp;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
-import es.hulk.survival.utils.location.LocationSeralizer;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -11,6 +10,7 @@ import org.bukkit.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -27,6 +27,10 @@ public class WarpManager {
 
     public Warp getWarpByName(String name) {
         return this.warps.get(name);
+    }
+
+    public List<String> getWarpListByName() {
+        return new ArrayList<>(this.warps.keySet());
     }
 
     public void createWarp(String warpName, Location location) {
@@ -48,8 +52,6 @@ public class WarpManager {
     public void serializeLocation(Warp warp) {
         FileConfig config = Survival.get().getLocationsConfig();
         Location location = warp.getLocation().clone();
-
-        LocationSeralizer.serializeLocation(location);
 
         String world = location.getWorld().getName();
         double x = location.getX();
@@ -76,9 +78,9 @@ public class WarpManager {
 
     public void loadWarps() {
         FileConfig config = Survival.get().getLocationsConfig();
-        if(!config.getConfiguration().isConfigurationSection("warps")) return;
+        if(!config.getConfiguration().isConfigurationSection("WARPS")) return;
 
-        for(String warpName : config.getConfiguration().getConfigurationSection("warps").getKeys(false)){
+        for(String warpName : config.getConfiguration().getConfigurationSection("WARPS").getKeys(false)){
 
             World world = Bukkit.getWorld(config.getString("WARPS." + warpName + ".WORLD"));
             double x = config.getDouble("WARPS." + warpName + ".X");

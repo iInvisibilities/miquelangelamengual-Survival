@@ -7,7 +7,6 @@ import es.hulk.survival.command.location.subcommands.ListLocationCommand;
 import es.hulk.survival.command.location.subcommands.SetLocationCommand;
 import es.hulk.survival.managers.warp.Warp;
 import es.hulk.survival.managers.warp.WarpManager;
-import es.hulk.survival.utils.CC;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -23,6 +22,8 @@ public class LocationCommand extends BaseCommand {
         new ListLocationCommand();
         new ClearLocationsCommand();
     }
+
+    private WarpManager warpManager = Survival.get().getWarpManager();
     @Command(name = "location")
 
     @Override
@@ -30,7 +31,6 @@ public class LocationCommand extends BaseCommand {
         CommandSender commandSender = command.getSender();
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-        WarpManager warpManager = Survival.get().getWarpManager();
 
         if (args.length == 0) {
             getUsage(commandSender);
@@ -48,7 +48,7 @@ public class LocationCommand extends BaseCommand {
     }
 
     public void getUsage(CommandSender commandSender) {
-        commandSender.sendMessage(CC.LINE);
+        commandSender.sendMessage(Utils.LINE);
         commandSender.sendMessage(Utils.color("&e/setlocation <name> &7- &fSets your current location"));
         commandSender.sendMessage(Utils.color("&e/deletelocation <name> &7- &fRemoves the location you want"));
         commandSender.sendMessage(Utils.color("&e/location help &7- &fshows this help"));
@@ -57,6 +57,6 @@ public class LocationCommand extends BaseCommand {
         if (commandSender.hasPermission("survival.command.warp.admin")) {
             commandSender.sendMessage(Utils.color("&e/location clear &7- &fClear all the saved locations"));
         }
-        commandSender.sendMessage(CC.LINE);
+        commandSender.sendMessage(Utils.LINE);
     }
 }

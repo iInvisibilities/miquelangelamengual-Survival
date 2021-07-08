@@ -1,6 +1,6 @@
 package es.hulk.survival.utils.command;
 
-import es.hulk.survival.utils.CC;
+import es.hulk.survival.utils.Utils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -73,11 +73,11 @@ public class CommandManager implements CommandExecutor {
                 Command command = method.getAnnotation(Command.class);
 
                 if (!command.permission().equals("") && (!sender.hasPermission(command.permission()))) {
-                    sender.sendMessage(CC.translate("&cNo permission.")); // TODO change
+                    sender.sendMessage(Utils.color("&cNo permission.")); // TODO change
                     return true;
                 }
                 if (command.inGameOnly() && !(sender instanceof Player)) {
-                    sender.sendMessage(CC.translate("&cThis command in only executable in game."));
+                    sender.sendMessage(Utils.color("&cThis command in only executable in game."));
                     return true;
                 }
 

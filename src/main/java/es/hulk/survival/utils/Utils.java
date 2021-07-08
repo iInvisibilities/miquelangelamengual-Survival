@@ -6,6 +6,8 @@ import org.bukkit.entity.Player;
 
 public class Utils {
 
+    public static String LINE = Utils.color("&7&m----------------------------------------");
+
     public static void sendConsole(String message) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
     }

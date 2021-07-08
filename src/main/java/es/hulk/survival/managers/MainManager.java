@@ -22,4 +22,10 @@ public class MainManager {
         this.commandManager = commandManager;
     }
 
+    public void loadManagers() {
+        warpManager = new WarpManager(plugin);
+        rankManager = new RankManager(plugin);
+        commandManager = new CommandManager(plugin);
+    }
+
 }

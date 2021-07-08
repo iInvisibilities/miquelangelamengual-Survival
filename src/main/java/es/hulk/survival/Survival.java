@@ -2,6 +2,9 @@ package es.hulk.survival;
 
 import es.hulk.survival.command.*;
 import es.hulk.survival.command.location.LocationCommand;
+import es.hulk.survival.command.location.subcommands.DeleteLocationCommand;
+import es.hulk.survival.command.location.subcommands.ListLocationCommand;
+import es.hulk.survival.command.location.subcommands.SetLocationCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.warp.WarpManager;
@@ -15,6 +18,8 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 @Setter
 @Getter
@@ -32,26 +37,23 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            loadManagers();
-            getWarpManager().loadWarps();
-            getRankManager().loadRank();
+        loadManagers();
+        locationsConfig = new FileConfig(this, "locations.yml");
+        getWarpManager().loadWarps();
+        getRankManager().loadRank();
 
-            Utils.sendConsole("");
-            Utils.sendConsole("&aSurvival - 1.17");
-            Utils.sendConsole("");
-            Utils.sendConsole("Author: Hulk");
-            Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
-            Utils.sendConsole("&eRank System&7: &f" + getRankManager().getRankSystem());
-            Utils.sendConsole("");
+        Utils.sendConsole("");
+        Utils.sendConsole("&aSurvival - 1.17");
+        Utils.sendConsole("");
+        Utils.sendConsole("Author: Hulk");
+        Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
+        Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
+        Utils.sendConsole("");
 
-            loadConfigs();
-            loadScoreboard();
-            loadListeners();
-            loadCommands();
-        } else {
-            Bukkit.getPluginManager().disablePlugin(this);
-        }
+        loadConfigs();
+        loadScoreboard();
+        loadListeners();
+        loadCommands();
     }
 
     @Override
@@ -69,7 +71,6 @@ public final class Survival extends JavaPlugin {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.commandsConfig = new FileConfig(this, "commands.yml");
-        locationsConfig = new FileConfig(this, "locations.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
@@ -97,10 +98,7 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new SurvivalCommand();
-
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.LOCATION")) {
-            new LocationCommand();
-        }
+        new LocationCommand();
 
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
             new CamaCoordCommand();
