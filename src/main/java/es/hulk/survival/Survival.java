@@ -1,10 +1,10 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.*;
-import es.hulk.survival.command.location.DeleteLocationCommand;
-import es.hulk.survival.command.location.ListLocationCommand;
 import es.hulk.survival.command.location.LocationCommand;
-import es.hulk.survival.command.location.SetLocationCommand;
+import es.hulk.survival.command.location.subcommands.DeleteLocationCommand;
+import es.hulk.survival.command.location.subcommands.ListLocationCommand;
+import es.hulk.survival.command.location.subcommands.SetLocationCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.warp.WarpManager;

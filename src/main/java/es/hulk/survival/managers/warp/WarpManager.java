@@ -41,10 +41,12 @@ public class WarpManager {
 
     public void deleteWarpByName(String warpName) {
         this.warps.remove(warpName);
+        names.remove(warpName);
     }
 
     public void clearWarp() {
         this.warps.clear();
+        names.clear();
     }
 
 

@@ -1,4 +1,4 @@
-package es.hulk.survival.command.location;
+package es.hulk.survival.command.location.subcommands;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.managers.warp.WarpManager;

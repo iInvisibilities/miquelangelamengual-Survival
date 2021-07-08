@@ -1,7 +1,6 @@
 package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.managers.MainManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;

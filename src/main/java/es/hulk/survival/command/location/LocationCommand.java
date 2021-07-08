@@ -8,11 +8,8 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
-import es.hulk.survival.utils.command.Completer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.List;
 
 public class LocationCommand extends BaseCommand {
 
@@ -46,6 +43,9 @@ public class LocationCommand extends BaseCommand {
         commandSender.sendMessage(Utils.color("&e/location help &7- &fshows this help"));
         commandSender.sendMessage(Utils.color("&e/location list &7- &fshows available locations to go"));
         commandSender.sendMessage(Utils.color("&e/location <name> &7- &fGoes to the desired location"));
+        if (commandSender.hasPermission("survival.command.clearlocations")) {
+            commandSender.sendMessage(Utils.color("&e/location clear &7- &fClear all the saved locations"));
+        }
         commandSender.sendMessage(CC.LINE);
     }
 }

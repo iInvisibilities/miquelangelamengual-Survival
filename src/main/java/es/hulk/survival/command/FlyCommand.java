@@ -1,7 +1,6 @@
 package es.hulk.survival.command;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.CC;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
