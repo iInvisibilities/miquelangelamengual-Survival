@@ -70,7 +70,7 @@ public class WarpManager {
         config.getConfiguration().set("WARPS." + warp.getName() + ".YAW", yaw);
         config.getConfiguration().set("WARPS." + warp.getName() + ".PITCH", pitch);
 
-        plugin.saveConfig();
+        config.save();
     }
 
     public void saveWarps() {
@@ -96,6 +96,6 @@ public class WarpManager {
             this.warps.put(warpName, new Warp(warpName, location));
         }
         config.getConfiguration().set("WARPS", null);
-        plugin.saveConfig();
+        config.save();
     }
 }
