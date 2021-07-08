@@ -102,7 +102,10 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new SurvivalCommand();
-        new LocationCommand();
+
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.LOCATION")) {
+            new LocationCommand();
+        }
 
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
             new CamaCoordCommand();
