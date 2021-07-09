@@ -1,4 +1,4 @@
-package es.hulk.survival.command;
+package es.hulk.survival.command.essential;
 
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;

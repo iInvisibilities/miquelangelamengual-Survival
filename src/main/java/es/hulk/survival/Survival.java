@@ -1,6 +1,8 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.*;
+import es.hulk.survival.command.admin.ReloadCommand;
+import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.listeners.*;
@@ -100,6 +102,9 @@ public final class Survival extends JavaPlugin {
         new ReloadCommand();
         new SurvivalCommand();
 
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.ITEM")) {
+            new ItemCommand();
+        }
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.LOCATION")) {
             new LocationCommand();
         }

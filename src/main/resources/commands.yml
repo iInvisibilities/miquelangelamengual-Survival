@@ -5,3 +5,4 @@ TOGGLE-COMMANDS:
   CAMACOORDS: true
   LOCATION: true
   MODES: true
+  ITEM: true

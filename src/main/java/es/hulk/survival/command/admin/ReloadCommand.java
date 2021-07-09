@@ -1,4 +1,4 @@
-package es.hulk.survival.command;
+package es.hulk.survival.command.admin;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
