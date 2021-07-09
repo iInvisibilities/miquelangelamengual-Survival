@@ -8,6 +8,8 @@ import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
+import java.util.Locale;
+
 public class SetLocationCommand extends BaseCommand {
 
     private WarpManager warpManager = Survival.get().getWarpManager();
@@ -24,7 +26,7 @@ public class SetLocationCommand extends BaseCommand {
 
         if (args.length > 0) {
             player.sendMessage(Utils.color("&aLocation " + args[0] + " has been succesfuly setted"));
-            warpManager.createWarp(args[0], player.getLocation());
+            warpManager.createWarp(args[0].toLowerCase(Locale.ROOT), player.getLocation());
             warpManager.saveWarps();
         }
     }

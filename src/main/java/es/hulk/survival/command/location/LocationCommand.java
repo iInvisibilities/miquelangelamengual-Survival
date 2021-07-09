@@ -14,6 +14,8 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Locale;
+
 public class LocationCommand extends BaseCommand {
 
     public LocationCommand() {
@@ -38,7 +40,7 @@ public class LocationCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            Warp warp = warpManager.getWarpByName(args[0]);
+            Warp warp = warpManager.getWarpByName(args[0].toLowerCase(Locale.ROOT));
             if (args[0].equalsIgnoreCase("help")) {
                 getUsage(commandSender);
                 return;
