@@ -4,3 +4,4 @@ TOGGLE-COMMANDS:
   COORDS: true
   CAMACOORDS: true
   LOCATION: true
+  MODES: true
