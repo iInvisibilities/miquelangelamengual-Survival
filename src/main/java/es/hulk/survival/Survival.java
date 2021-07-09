@@ -2,10 +2,8 @@ package es.hulk.survival;
 
 import es.hulk.survival.command.*;
 import es.hulk.survival.command.location.LocationCommand;
-import es.hulk.survival.command.location.subcommands.DeleteLocationCommand;
-import es.hulk.survival.command.location.subcommands.ListLocationCommand;
-import es.hulk.survival.command.location.subcommands.SetLocationCommand;
 import es.hulk.survival.listeners.*;
+import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.warp.WarpManager;
 import es.hulk.survival.providers.ScoreboardProvider;
@@ -19,8 +17,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-
 @Setter
 @Getter
 public final class Survival extends JavaPlugin {
@@ -29,7 +25,9 @@ public final class Survival extends JavaPlugin {
     private FileConfig mainConfig;
     private FileConfig commandsConfig;
     private FileConfig locationsConfig;
+    private FileConfig spawnConfig;
 
+    private SpawnManager spawnManager;
     private Scoreboard scoreboard;
     private WarpManager warpManager;
     private RankManager rankManager;
@@ -62,6 +60,7 @@ public final class Survival extends JavaPlugin {
     }
 
     public void loadManagers() {
+        spawnManager = new SpawnManager();
         warpManager = new WarpManager(this);
         rankManager = new RankManager(this);
         commandManager = new CommandManager(this);
@@ -71,6 +70,7 @@ public final class Survival extends JavaPlugin {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.commandsConfig = new FileConfig(this, "commands.yml");
+        this.spawnConfig = new FileConfig(this, "spawn.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
