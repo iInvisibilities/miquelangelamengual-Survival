@@ -1,6 +1,7 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.*;
+import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.SpawnManager;
@@ -98,8 +99,13 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new SurvivalCommand();
-        new LocationCommand();
 
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.LOCATION")) {
+            new LocationCommand();
+        }
+        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.MODES")) {
+            new GamemodeCommand();
+        }
         if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
             new CamaCoordCommand();
         }
