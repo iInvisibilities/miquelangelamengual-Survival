@@ -12,6 +12,7 @@ public class ReloadCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
+    private final FileConfig commandsConfig = Survival.get().getCommandsConfig();
 
     @Command(name = "survival.reload", permission = "survival.command.reload")
 
@@ -20,7 +21,7 @@ public class ReloadCommand extends BaseCommand {
         Player player = command.getPlayer();
         this.mainConfig.reload();
         this.scoreboardConfig.reload();
-        Survival.get().reloadConfig();
+        this.commandsConfig.reload();
         player.sendMessage(Utils.color(mainConfig.getString("FILE-RELOAD")));
     }
 }
