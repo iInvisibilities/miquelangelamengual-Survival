@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class SurvivalCommand extends BaseCommand {
 
-    @Command(name = "survival", aliases = "s")
+    @Command(name = "survivalm", aliases = "s")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();

@@ -2,13 +2,15 @@ package es.hulk.survival.command.essential;
 
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
+import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
-import jdk.jfr.internal.tool.PrettyWriter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class ItemCommand extends BaseCommand {
+
+    @Command(name = "giveitem", permission = "survival.command.giveitem")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();

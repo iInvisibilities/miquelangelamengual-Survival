@@ -53,7 +53,7 @@ public class GamemodeCommand extends BaseCommand {
 
     public void getUsage(CommandSender commandSender) {
         commandSender.sendMessage(Utils.LINE);
-        commandSender.sendMessage(Utils.color("&e/mode <survival/camers> &7- &fits put you in the mode u want"));
+        commandSender.sendMessage(Utils.color("&e/mode <survivalm/camera> &7- &fits put you in the mode u want"));
         commandSender.sendMessage(Utils.color("&e/camera &7- &fPuts the player into spectator mode (can use /c)"));
         commandSender.sendMessage(Utils.color("&e/survival &7- &fPuts the player into survival mode (can use /s)"));
         if (commandSender.hasPermission("survival.command.creative")) {
