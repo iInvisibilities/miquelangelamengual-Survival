@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
@@ -54,12 +55,26 @@ public class RecipeManager {
     }
 
     public void enchantedElytra() {
+        ItemStack item = new ItemStack(Material.ELYTRA);
+        ItemMeta meta = item.getItemMeta();
 
+        meta.setUnbreakable(true);
+        meta.setDisplayName(Utils.color("&aUnbreakable God Elytra"));
+
+        item.setItemMeta(meta);
+
+        ShapedRecipe recipe = new ShapedRecipe(item);
+        recipe.shape("NNN", "NEN", "NNN");
+        recipe.setIngredient('N', Material.NETHERITE_BLOCK);
+        recipe.setIngredient('E', Material.ELYTRA);
+
+        Bukkit.addRecipe(recipe);
     }
 
     public void loadRecipes() {
         customExperienceBottle();
         customSword();
+        enchantedElytra();
     }
 
 }
