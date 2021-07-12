@@ -6,6 +6,7 @@ import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.listeners.*;
+import es.hulk.survival.managers.RecipeManager;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.warp.WarpManager;
@@ -17,6 +18,7 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.inventory.Recipe;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -35,6 +37,7 @@ public final class Survival extends JavaPlugin {
     private WarpManager warpManager;
     private RankManager rankManager;
     private CommandManager commandManager;
+    private RecipeManager recipeManager;
 
     @Override
     public void onEnable() {
@@ -42,6 +45,7 @@ public final class Survival extends JavaPlugin {
         locationsConfig = new FileConfig(this, "locations.yml");
         getWarpManager().loadWarps();
         getRankManager().loadRank();
+        getRecipeManager().loadRecipes();
 
         Utils.sendConsole("");
         Utils.sendConsole("&aSurvival - 1.17");
@@ -63,10 +67,15 @@ public final class Survival extends JavaPlugin {
     }
 
     public void loadManagers() {
+        recipeManager = new RecipeManager();
         spawnManager = new SpawnManager();
         warpManager = new WarpManager(this);
         rankManager = new RankManager(this);
         commandManager = new CommandManager(this);
+    }
+
+    public void loadRecipes() {
+        recipeManager.loadRecipes();
     }
 
     public void loadConfigs() {
