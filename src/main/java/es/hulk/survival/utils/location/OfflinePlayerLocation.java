@@ -5,13 +5,9 @@ import org.bukkit.entity.Player;
 
 public class OfflinePlayerLocation {
 
-    private static String getWorldName(Player player) {
-        return LocationUtils.getWorld(player);
-    }
-
     public static String getWorld(OfflinePlayer offlinePlayer) {
         Player player = offlinePlayer.getPlayer();
-        switch (getWorldName(player)) {
+        switch (LocationUtils.getWorld(player)) {
             case "world":
                 return "Overworld";
             case "world_nether":

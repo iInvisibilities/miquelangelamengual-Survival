@@ -7,7 +7,6 @@ import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import es.hulk.survival.utils.location.OfflinePlayerLocation;
-import es.hulk.survival.utils.location.PlayerLocation;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -26,10 +25,10 @@ public class CoordsCommand extends BaseCommand {
         if (args.length == 0) {
             for (String stringList : mainConfig.getStringList("COORDS.YOUR-COORDS")) {
                 player.sendMessage(stringList
-                        .replaceAll("<x-coord>", String.valueOf(PlayerLocation.coordinateX(player)))
-                        .replaceAll("<y-coord>", String.valueOf(PlayerLocation.coordinateY(player)))
-                        .replaceAll("<z-coord>", String.valueOf(PlayerLocation.coordinateZ(player)))
-                        .replaceAll("<world>", PlayerLocation.getWorld(player)));
+                        .replaceAll("<x-coord>", String.valueOf(OfflinePlayerLocation.coordinateX(player)))
+                        .replaceAll("<y-coord>", String.valueOf(OfflinePlayerLocation.coordinateY(player)))
+                        .replaceAll("<z-coord>", String.valueOf(OfflinePlayerLocation.coordinateZ(player)))
+                        .replaceAll("<world>", OfflinePlayerLocation.getWorld(player)));
             }
         }
 

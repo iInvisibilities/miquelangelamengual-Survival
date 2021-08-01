@@ -28,7 +28,6 @@ public final class Survival extends JavaPlugin {
 
     private FileConfig scoreboardConfig;
     private FileConfig mainConfig;
-    private FileConfig commandsConfig;
     private FileConfig locationsConfig;
     private FileConfig spawnConfig;
 
@@ -81,7 +80,6 @@ public final class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
-        this.commandsConfig = new FileConfig(this, "commands.yml");
         this.spawnConfig = new FileConfig(this, "spawn.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
@@ -110,28 +108,14 @@ public final class Survival extends JavaPlugin {
     public void loadCommands() {
         new ReloadCommand();
         new SurvivalCommand();
+        new ItemCommand();
+        new LocationCommand();
+        new GamemodeCommand();
+        new CamaCoordCommand();
+        new CoordsCommand();
+        new MoreCommand();
+        new FlyCommand();
 
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.ITEM")) {
-            new ItemCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.LOCATION")) {
-            new LocationCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.MODES")) {
-            new GamemodeCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.CAMACOORDS")) {
-            new CamaCoordCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.COORDS")) {
-            new CoordsCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.MORE")) {
-            new MoreCommand();
-        }
-        if (commandsConfig.getBoolean("TOGGLE-COMMANDS.FLY")) {
-            new FlyCommand();
-        }
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
