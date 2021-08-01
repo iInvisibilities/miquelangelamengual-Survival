@@ -6,9 +6,9 @@ import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.listeners.*;
-import es.hulk.survival.managers.RecipeManager;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
+import es.hulk.survival.managers.recipe.RecipeManager;
 import es.hulk.survival.managers.warp.WarpManager;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.FileConfig;
@@ -18,7 +18,6 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.inventory.Recipe;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
