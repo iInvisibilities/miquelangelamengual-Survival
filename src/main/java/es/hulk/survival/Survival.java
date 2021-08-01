@@ -1,6 +1,6 @@
 package es.hulk.survival;
 
-import es.hulk.survival.command.*;
+import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.ReloadCommand;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
@@ -101,6 +101,7 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new EntityListener(), this);
         pm.registerEvents(new BedListener(), this);
+        pm.registerEvents(new ArmorListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 

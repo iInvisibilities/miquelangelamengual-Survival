@@ -6,8 +6,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 
-public class ArmorUnEquipEvent extends Event implements Cancellable
-{
+public class ArmorUnEquipEvent extends Event implements Cancellable {
     private static final HandlerList handlers;
     private final Player player;
     private final ItemStack item;
