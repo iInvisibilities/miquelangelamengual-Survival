@@ -20,6 +20,8 @@ public class EnchantedPickaxe {
 
         meta.setDisplayName(Utils.color("&aLe pickaxe"));
 
+        pickaxe.setItemMeta(meta);
+
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 20);
         pickaxe.addUnsafeEnchantment(Enchantment.MENDING, 1);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 10);

@@ -18,6 +18,9 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -101,7 +104,6 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new EntityListener(), this);
         pm.registerEvents(new BedListener(), this);
-        pm.registerEvents(new ArmorListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
