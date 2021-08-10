@@ -17,7 +17,7 @@ public class BedLocation {
     }
 
     public static String getBedWorld(Player player) {
-        switch (LocationUtils.getWorld(player)) {
+        switch (player.getBedSpawnLocation().getWorld().getName()) {
             case "world":
                 return "Overworld";
             case "world_nether":
