@@ -32,6 +32,7 @@ public final class Survival extends JavaPlugin {
     private FileConfig mainConfig;
     private FileConfig locationsConfig;
     private FileConfig spawnConfig;
+    private FileConfig messagesConfig;
 
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
@@ -83,6 +84,7 @@ public final class Survival extends JavaPlugin {
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.spawnConfig = new FileConfig(this, "spawn.yml");
+        this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 

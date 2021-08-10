@@ -86,5 +86,15 @@
             <version>5.3</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>text-api</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>text-adapter-bukkit</artifactId>
+            <version>3.0.3</version>
+        </dependency>
     </dependencies>
 </project>

@@ -7,7 +7,7 @@ public class OfflinePlayerLocation {
 
     public static String getWorld(OfflinePlayer offlinePlayer) {
         Player player = offlinePlayer.getPlayer();
-        switch (LocationUtils.getWorld(player)) {
+        switch (player.getWorld().getName()) {
             case "world":
                 return "Overworld";
             case "world_nether":

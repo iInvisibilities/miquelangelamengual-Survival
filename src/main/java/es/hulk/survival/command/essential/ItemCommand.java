@@ -8,9 +8,11 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Locale;
+
 public class ItemCommand extends BaseCommand {
 
-    @Command(name = "giveitem", permission = "survival.command.giveitem")
+    @Command(name = "giveitem", aliases = "i", permission = "survival.command.giveitem")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
@@ -23,17 +25,17 @@ public class ItemCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            if (Material.valueOf(args[0]) != Material.getMaterial(args[0])) {
+            if (Material.valueOf(args[0].toUpperCase(Locale.ROOT)) != Material.getMaterial(args[0])) {
                 player.sendMessage(Utils.color("&cItem " + args[0] + " doesnt exist."));
                 return;
             }
 
             if (args[1].isEmpty()) {
-                player.getInventory().addItem(new ItemStack(Material.valueOf(args[0]), amount));
+                player.getInventory().addItem(new ItemStack(Material.valueOf(args[0].toUpperCase(Locale.ROOT)), amount));
                 player.sendMessage(Utils.color("&aYou recived " + args[0] + " x" + amount));
                 return;
             }
-            player.getInventory().addItem(new ItemStack(Material.valueOf(args[0]), Integer.parseInt(args[1])));
+            player.getInventory().addItem(new ItemStack(Material.valueOf(args[0].toUpperCase(Locale.ROOT)), Integer.parseInt(args[1])));
             player.sendMessage(Utils.color("&aYou recived " + args[0] + " x" + args[1]));
 
         }
