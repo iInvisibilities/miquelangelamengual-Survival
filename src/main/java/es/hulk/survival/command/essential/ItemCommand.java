@@ -25,18 +25,19 @@ public class ItemCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            if (Material.valueOf(args[0].toUpperCase(Locale.ROOT)) != Material.getMaterial(args[0])) {
-                player.sendMessage(Utils.color("&cItem " + args[0] + " doesnt exist."));
+            String args0 = command.getArgs(0).toUpperCase(Locale.ROOT);
+            if (Material.valueOf(args0) != Material.getMaterial(args0)) {
+                player.sendMessage(Utils.color("&cItem " + args0 + " doesnt exist."));
                 return;
             }
 
             if (args[1].isEmpty()) {
-                player.getInventory().addItem(new ItemStack(Material.valueOf(args[0].toUpperCase(Locale.ROOT)), amount));
-                player.sendMessage(Utils.color("&aYou recived " + args[0] + " x" + amount));
+                player.getInventory().addItem(new ItemStack(Material.valueOf(args0), amount));
+                player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + amount));
                 return;
             }
-            player.getInventory().addItem(new ItemStack(Material.valueOf(args[0].toUpperCase(Locale.ROOT)), Integer.parseInt(args[1])));
-            player.sendMessage(Utils.color("&aYou recived " + args[0] + " x" + args[1]));
+            player.getInventory().addItem(new ItemStack(Material.valueOf(args0), Integer.parseInt(args[1])));
+            player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + args[1]));
 
         }
     }
