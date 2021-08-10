@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class CoordsCommand extends BaseCommand {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @Command(name = "coords")
     @SuppressWarnings("deprecation")
@@ -23,7 +23,7 @@ public class CoordsCommand extends BaseCommand {
         Player player = command.getPlayer();
 
         if (args.length == 0) {
-            for (String stringList : mainConfig.getStringList("COORDS.YOUR-COORDS")) {
+            for (String stringList : messagesConfig.getStringList("COORDS_COMMAND.YOURS")) {
                 player.sendMessage(stringList
                         .replaceAll("<x-coord>", String.valueOf(OfflinePlayerLocation.coordinateX(player)))
                         .replaceAll("<y-coord>", String.valueOf(OfflinePlayerLocation.coordinateY(player)))
@@ -37,22 +37,22 @@ public class CoordsCommand extends BaseCommand {
 
             if (offlinePlayer == null || !offlinePlayer.hasPlayedBefore()) {
                 offlinePlayer = Bukkit.getServer().getOfflinePlayer(args[0]);
-                player.sendMessage(mainConfig.getString("COORDS.PLAYER-NO-EXIST").replaceAll("<target_player>", String.valueOf(offlinePlayer.getName())));
+                player.sendMessage(messagesConfig.getString("COORDS_COMMAND.NO_EXIST").replaceAll("<player>", String.valueOf(offlinePlayer.getName())));
                 return;
             }
             if (offlinePlayer.isOnline()) {
-                for (String stringList : mainConfig.getStringList("COORDS.OTHER-PLAYER-COORDS")) {
+                for (String stringList : messagesConfig.getStringList("COORDS_COMMAND.OTHER_PLAYER")) {
                     player.sendMessage(stringList
-                            .replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))
-                            .replaceAll("<x-target-player>", String.valueOf(OfflinePlayerLocation.coordinateX(offlinePlayer)))
-                            .replaceAll("<y-target-player>", String.valueOf(OfflinePlayerLocation.coordinateY(offlinePlayer)))
-                            .replaceAll("<z-target-player>", String.valueOf(OfflinePlayerLocation.coordinateZ(offlinePlayer)))
-                            .replaceAll("<target-world>", OfflinePlayerLocation.getWorld(offlinePlayer)));
+                            .replaceAll("<player>", String.valueOf(offlinePlayer.getName()))
+                            .replaceAll("<x-coord>", String.valueOf(OfflinePlayerLocation.coordinateX(offlinePlayer)))
+                            .replaceAll("<y-coord>", String.valueOf(OfflinePlayerLocation.coordinateY(offlinePlayer)))
+                            .replaceAll("<z-coord>", String.valueOf(OfflinePlayerLocation.coordinateZ(offlinePlayer)))
+                            .replaceAll("<world>", OfflinePlayerLocation.getWorld(offlinePlayer)));
                 }
                 return;
             }
-            player.sendMessage(Utils.color(mainConfig.getString("COORDS.PLAYER-NOT-FOUND").
-                    replaceAll("<target_player>", String.valueOf(offlinePlayer.getName()))));
+            player.sendMessage(Utils.color(messagesConfig.getString("COORDS_COMMAND.NOT_FOUND").
+                    replaceAll("<player>", String.valueOf(offlinePlayer.getName()))));
         }
     }
 }

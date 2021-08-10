@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class FlyCommand extends BaseCommand {
 
-    private final FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @Command(name = "fly")
 
@@ -20,11 +20,11 @@ public class FlyCommand extends BaseCommand {
         if (!player.getAllowFlight()) {
             player.setAllowFlight(true);
             player.setFlying(true);
-            player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.ENABLED")));
+            player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.ENABLED")));
         } else {
             player.setFlying(false);
             player.setAllowFlight(false);
-            player.sendMessage(Utils.color(mainConfig.getString("FLY-COMMAND.DISABLED")));
+            player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.DISABLED")));
         }
     }
 }

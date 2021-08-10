@@ -10,14 +10,14 @@ import org.bukkit.entity.Player;
 
 public class CamaCoordCommand extends BaseCommand {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @Command(name = "camacoords")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        for (String stringList : mainConfig.getStringList("CAMA-COORDS-COMMAND")) {
+        for (String stringList : messagesConfig.getStringList("CAMA_COORDS")) {
             player.sendMessage(stringList
                     .replaceAll("<bed-x-coord>", String.valueOf(BedLocation.bedCoordinateX(player)))
                     .replaceAll("<bed-y-coord>", String.valueOf(BedLocation.bedCoordinateY(player)))

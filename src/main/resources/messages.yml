@@ -1,0 +1,30 @@
+MORE_COMMAND:
+  STACKED: "&aThe item you have been holding has been stacked to 64"
+  AMOUNT: "&aThe item you have been holding has been stacked to <amount>"
+
+FLY_COMMAND:
+  ENABLED: "&8* &aTu modo de vuelo a sido activado."
+  DISABLED: "&8* &cTu modo de vuelo a sido desactivado."
+
+CAMA_COORDS:
+  - "&fCoordenadas de tu Cama&7: "
+  - " &8» &aMundo - <bed-world>"
+  - " &8» &aX - <bed-x-coord>"
+  - " &8» &aY - <bed-y-coord>"
+  - " &8» &aZ - <bed-z-coord>"
+
+COORDS_COMMAND:
+  YOURS:
+    - "&aTus Coordenadas&7: "
+    - " &8» &aMundo&7: <world>"
+    - " &8» &aX&7: <x-coord>"
+    - " &8» &aY&7: <y-coord>"
+    - " &8» &aZ&7: <z-coord>"
+  OTHER_PLAYER:
+    - "&aCoordenadas de <player>&7:"
+    - " &8» &aMundo&7: <world>"
+    - " &8» &aX&7: <x-coord>"
+    - " &8» &aY&7: <y-coord>"
+    - " &8» &aZ&7: <z-coord>"
+  NOT_FOUND: "&cJugador <player> no esta en linea actualmente"
+  NO_EXIST: "&CJugador <player> no existe"
