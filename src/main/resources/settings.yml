@@ -1,4 +1,3 @@
-FILE-RELOAD: "&aConfig Reloaded"
 JOIN-MESSAGE:
   ENABLE: true
   LINES:

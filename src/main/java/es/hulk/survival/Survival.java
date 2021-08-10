@@ -1,7 +1,7 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.SurvivalCommand;
-import es.hulk.survival.command.admin.ReloadCommand;
+import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
@@ -18,9 +18,6 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
