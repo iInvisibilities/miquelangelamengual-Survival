@@ -34,7 +34,7 @@ public class EntityListener implements Listener {
 
                 if (event.getEntity() instanceof Player) {
                     if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
-                        event.getDrops().add(new ItemStack(Material.TNT, random.nextInt(2)));
+                        event.getDrops().add(new ItemStack(Material.TNT));
                     }
                 }
             }
