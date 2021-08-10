@@ -9,11 +9,20 @@ public class RecipeManager {
 
     public void loadRecipes() {
         EnchantedPickaxe.enchantedPickaxe();
+        EnchantedAxe.recipe();
+        EnchantedShovel.recipe();
+        EnchantedSword.recipe();
+
         CustomExperienceBottle.customExperienceBottle();
+
         UnbreakablePickaxe.recipe();
+        UnbreakableAxe.recipe();
+        UnbreakableShovel.recipe();
+        UnbreakableSword.recipe();
+
         FortuneSword.recipe();
         FortuntePickaxe.recipe();
-        EnchantedAxe.recipe();
+
         ObsidianDestroyer.recipe();
     }
 

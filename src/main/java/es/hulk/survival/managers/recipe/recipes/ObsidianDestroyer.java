@@ -29,7 +29,7 @@ public class ObsidianDestroyer {
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape("OOO", "ONO", "OOO");
         recipe.setIngredient('O', Material.NETHERITE_BLOCK);
-        recipe.setIngredient('N', Material.DIAMOND_PICKAXE);
+        recipe.setIngredient('N', Material.NETHERITE_PICKAXE);
 
         Bukkit.addRecipe(recipe);
     }
