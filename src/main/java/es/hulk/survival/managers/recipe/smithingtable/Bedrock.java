@@ -11,8 +11,8 @@ import org.bukkit.inventory.SmithingRecipe;
 public class Bedrock {
 
     public static void recipe() {
-        RecipeChoice choice = new RecipeChoice.ExactChoice(new ItemStack(Material.OBSIDIAN));
-        RecipeChoice choice1 = new RecipeChoice.ExactChoice(new ItemStack(Material.NETHERITE_BLOCK));
+        RecipeChoice choice = new RecipeChoice.ExactChoice(new ItemStack(Material.OBSIDIAN, 64));
+        RecipeChoice choice1 = new RecipeChoice.ExactChoice(new ItemStack(Material.NETHERITE_BLOCK, 64));
 
         ItemStack result = new ItemStack(Material.BEDROCK);
 
