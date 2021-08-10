@@ -5,6 +5,8 @@ import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.location.LocationCommand;
+import es.hulk.survival.command.spawn.SetSpawnCommand;
+import es.hulk.survival.command.spawn.SpawnCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
@@ -45,7 +47,7 @@ public final class Survival extends JavaPlugin {
         locationsConfig = new FileConfig(this, "locations.yml");
         getWarpManager().loadWarps();
         getRankManager().loadRank();
-        getRecipeManager().loadRecipes();
+        getRecipeManager().load();
         setGamerule();
 
         Utils.sendConsole("");
@@ -118,7 +120,8 @@ public final class Survival extends JavaPlugin {
         new CoordsCommand();
         new MoreCommand();
         new FlyCommand();
-
+        new SpawnCommand();
+        new SetSpawnCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

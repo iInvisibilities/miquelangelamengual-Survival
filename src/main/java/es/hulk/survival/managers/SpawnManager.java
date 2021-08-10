@@ -8,7 +8,7 @@ import org.bukkit.World;
 
 public class SpawnManager {
 
-    private FileConfig spawnConfig = Survival.get().getSpawnConfig();
+    private final FileConfig spawnConfig = Survival.get().getSpawnConfig();
 
     public boolean hasSpawn() {
         return !spawnConfig.getConfiguration().getConfigurationSection("SPAWN_LOCATION").getKeys(false).isEmpty();

@@ -2,10 +2,16 @@ package es.hulk.survival.managers.recipe;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.managers.recipe.recipes.*;
+import es.hulk.survival.managers.recipe.smithingtable.Bedrock;
 
 public class RecipeManager {
 
     private Survival plugin;
+
+    public void load() {
+        loadRecipes();
+        loadSmithingRecipes();
+    }
 
     public void loadRecipes() {
         EnchantedPickaxe.enchantedPickaxe();
@@ -24,6 +30,10 @@ public class RecipeManager {
         FortuntePickaxe.recipe();
 
         ObsidianDestroyer.recipe();
+    }
+
+    public void loadSmithingRecipes() {
+        Bedrock.recipe();
     }
 
 }

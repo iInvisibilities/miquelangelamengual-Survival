@@ -1,1 +1,7 @@
-SPAWN_LOCATION: {}
+SPAWN_LOCATION:
+  WORLD:
+  X:
+  Y:
+  Z:
+  YAW:
+  PITCH:

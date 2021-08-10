@@ -1,7 +1,7 @@
 JOIN-MESSAGE:
   ENABLE: true
   LINES:
-    - "&6Bienvenido &f%player_name% &6a &fSurvival 1.17"
+    - "&6Bienvenido &f<player> &6a &fSurvival 1.17"
 
 BOOLEANS:
   BROADCAST-QUIT: false
