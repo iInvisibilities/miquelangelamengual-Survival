@@ -13,6 +13,8 @@ public class RecipeManager {
         UnbreakablePickaxe.recipe();
         FortuneSword.recipe();
         FortuntePickaxe.recipe();
+        EnchantedAxe.recipe();
+        ObsidianDestroyer.recipe();
     }
 
 }
