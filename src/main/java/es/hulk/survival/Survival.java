@@ -18,6 +18,7 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,6 +46,7 @@ public final class Survival extends JavaPlugin {
         getWarpManager().loadWarps();
         getRankManager().loadRank();
         getRecipeManager().loadRecipes();
+        setGamerule();
 
         Utils.sendConsole("");
         Utils.sendConsole("&aSurvival - 1.17");
@@ -118,6 +120,13 @@ public final class Survival extends JavaPlugin {
         new FlyCommand();
 
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
+    }
+
+    public void setGamerule() {
+        Bukkit.getWorld("world").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Bukkit.getWorld("world_nether").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Bukkit.getWorld("world_the_end").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
     }
 
     public static Survival get() {
