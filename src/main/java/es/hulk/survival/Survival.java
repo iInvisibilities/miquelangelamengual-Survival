@@ -43,8 +43,8 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        loadConfigs();
         loadManagers();
-        locationsConfig = new FileConfig(this, "locations.yml");
         getWarpManager().loadWarps();
         getRankManager().loadRank();
         getRecipeManager().load();
@@ -58,7 +58,6 @@ public final class Survival extends JavaPlugin {
         Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
 
-        loadConfigs();
         loadScoreboard();
         loadListeners();
         loadCommands();
@@ -82,6 +81,7 @@ public final class Survival extends JavaPlugin {
     }
 
     public void loadConfigs() {
+        this.locationsConfig = new FileConfig(this, "locations.yml");
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.spawnConfig = new FileConfig(this, "spawn.yml");

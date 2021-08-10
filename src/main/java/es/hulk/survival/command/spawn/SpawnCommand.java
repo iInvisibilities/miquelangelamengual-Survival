@@ -9,17 +9,16 @@ import org.bukkit.entity.Player;
 
 public class SpawnCommand extends BaseCommand {
 
+    private final Survival plugin = Survival.get();
+
     @Command(name = "spawn")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        if (Survival.get().getSpawnManager().hasSpawn()) {
-            player.teleport(Survival.get().getSpawnManager().getSpawnLocation());
-            player.sendMessage(Utils.color("&cRetard, the spawn location hasnt setted up, now go cry"));
-            return;
-        }
-        player.teleport(Survival.get().getSpawnManager().getSpawnLocation());
+        if (plugin.getSpawnManager().hasSpawn()) player.teleport(plugin.getSpawnManager().getSpawnLocation());
+        else player.getWorld().getSpawnLocation();
+
         player.sendMessage(Utils.color("&aTeleported to Spawn"));
     }
 }

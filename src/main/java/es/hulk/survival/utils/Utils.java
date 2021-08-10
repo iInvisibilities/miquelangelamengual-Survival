@@ -22,8 +22,7 @@ public class Utils {
             player = Bukkit.getPlayer(player.getUniqueId()); //cast to org.bukkit.entity.Player
         }
         try {
-            int ping = player.getPing();
-            return ping;
+            return player.getPing();
         } catch (Exception e) {
             e.printStackTrace();
         }
