@@ -20,9 +20,13 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
+
+import java.lang.annotation.ElementType;
 
 @Setter
 @Getter
@@ -128,8 +132,12 @@ public final class Survival extends JavaPlugin {
 
     public void setGamerule() {
         Bukkit.getWorld("world").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Bukkit.getWorld("world").setDifficulty(Difficulty.HARD);
         Bukkit.getWorld("world_nether").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Bukkit.getWorld("world_nether").setDifficulty(Difficulty.HARD);
         Bukkit.getWorld("world_the_end").setGameRule(GameRule.KEEP_INVENTORY, true);
+        Bukkit.getWorld("world_the_end").setDifficulty(Difficulty.HARD);
+
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
     }
 
