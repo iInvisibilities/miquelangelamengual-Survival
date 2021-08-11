@@ -19,6 +19,11 @@ public class RecipeManager {
         EnchantedShovel.recipe();
         EnchantedSword.recipe();
 
+        IronAxe.recipe();
+        IronPickaxe.recipe();
+        IronShovel.recipe();
+        IronSword.recipe();
+
         CustomExperienceBottle.customExperienceBottle();
 
         UnbreakablePickaxe.recipe();

