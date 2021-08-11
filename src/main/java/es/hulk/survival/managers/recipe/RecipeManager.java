@@ -19,6 +19,11 @@ public class RecipeManager {
         EnchantedShovel.recipe();
         EnchantedSword.recipe();
 
+        EnchantedHelmet.recipe();
+        EnchantedChestplate.recipe();
+        EnchantedLeggings.recipe();
+        EnchantedBoots.recipe();
+
         IronAxe.recipe();
         IronPickaxe.recipe();
         IronShovel.recipe();

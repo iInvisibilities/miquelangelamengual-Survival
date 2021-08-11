@@ -13,7 +13,7 @@ public class KillCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        player.setHealthScale(0.0D);
+        player.setHealth(0.0D);
         player.sendMessage(Utils.color("&aTe has muerto de cancer rata"));
     }
 }

