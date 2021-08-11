@@ -122,6 +122,7 @@ public final class Survival extends JavaPlugin {
         new FlyCommand();
         new SpawnCommand();
         new SetSpawnCommand();
+        new KillCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

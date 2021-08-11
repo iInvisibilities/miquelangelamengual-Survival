@@ -13,28 +13,32 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class BedListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @EventHandler
     public void onPlayerJoinBedEvent(PlayerBedEnterEvent event) {
         Player player = event.getPlayer();
 
-        if (!mainConfig.getBoolean("BED-INSTANT-SLEEP")) {
-            Bukkit.broadcastMessage(Utils.color("&6* &aEl jugador " + player.getDisplayName() + " se ha ido a dormir"));
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    if (player.isSleeping()) {
-                        player.getWorld().setTime(0L);
-                        player.getWorld().setStorm(false);
-                        player.getWorld().setThundering(false);
+        if (Bukkit.getWorld("world").getTime() >= 13000) {
+            if (!mainConfig.getBoolean("BED-INSTANT-SLEEP")) {
+                Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("BED_LISTENER.MESSAGE").replaceAll("<player>", player.getDisplayName())));
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        if (player.isSleeping()) {
+                            player.getWorld().setTime(0L);
+                            player.getWorld().setStorm(false);
+                            player.getWorld().setThundering(false);
+                        }
                     }
-                }
-            }.runTaskLater(Survival.get(), 100L);
-            Bukkit.broadcastMessage(Utils.color("&6* &aEl jugador " + player.getDisplayName() + " ha dormido"));
-        } else if (player.isSleeping()) {
-            player.getWorld().setTime(0L);
-            player.getWorld().setStorm(false);
-            player.getWorld().setThundering(false);
+                }.runTaskLater(Survival.get(), 100L);
+            } else if (player.isSleeping()) {
+                player.getWorld().setTime(0L);
+                player.getWorld().setStorm(false);
+                player.getWorld().setThundering(false);
+            }
+        } else {
+            player.sendMessage(Utils.color(messagesConfig.getString("BED_LISTENER.ERROR")));
         }
     }
 }

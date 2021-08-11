@@ -28,3 +28,7 @@ COORDS_COMMAND:
     - " &8» &aZ&7: <z-coord>"
   NOT_FOUND: "&cJugador <player> no esta en linea actualmente"
   NO_EXIST: "&CJugador <player> no existe"
+
+BED_LISTENER:
+  MESSAGE: "&7[&aSurvival&7] &aEl Jugador &e<player> &ase ha ido a dormir"
+  ERROR: "&7[&aSurvival&7] &aQue cojones haces intentando dormir por la mañana? Estas bien de la cabeza? te falta algun tornillo o que?"
