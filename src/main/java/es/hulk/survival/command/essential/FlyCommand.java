@@ -17,14 +17,19 @@ public class FlyCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        if (!player.getAllowFlight()) {
-            player.setAllowFlight(true);
-            player.setFlying(true);
-            player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.ENABLED")));
+        if (player.getPlayerTime() == 10.00) {
+            if (!player.getAllowFlight()) {
+                player.setAllowFlight(true);
+                player.setFlying(true);
+                player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.ENABLED")));
+            } else {
+                player.setFlying(false);
+                player.setAllowFlight(false);
+                player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.DISABLED")));
+            }
         } else {
-            player.setFlying(false);
-            player.setAllowFlight(false);
-            player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.DISABLED")));
+            player.sendMessage(Utils.color("&cNoup."));
         }
+
     }
 }
