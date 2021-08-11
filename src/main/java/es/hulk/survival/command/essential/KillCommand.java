@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class KillCommand extends BaseCommand {
 
-    @Command(name = "mekill")
+    @Command(name = "mekill", aliases = "suicide")
 
     @Override
     public void onCommand(CommandArgs command) {

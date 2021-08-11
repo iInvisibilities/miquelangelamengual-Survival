@@ -11,6 +11,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class CoordsCommand extends BaseCommand {
 
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
@@ -41,6 +43,16 @@ public class CoordsCommand extends BaseCommand {
                 return;
             }
             if (offlinePlayer.isOnline()) {
+                if (Objects.equals(offlinePlayer.getName(), player.getName())) {
+                    for (String stringList : messagesConfig.getStringList("COORDS_COMMAND.YOURS")) {
+                        player.sendMessage(stringList
+                                .replaceAll("<x-coord>", String.valueOf(OfflinePlayerLocation.coordinateX(player)))
+                                .replaceAll("<y-coord>", String.valueOf(OfflinePlayerLocation.coordinateY(player)))
+                                .replaceAll("<z-coord>", String.valueOf(OfflinePlayerLocation.coordinateZ(player)))
+                                .replaceAll("<world>", OfflinePlayerLocation.getWorld(player)));
+                    }
+                    return;
+                }
                 for (String stringList : messagesConfig.getStringList("COORDS_COMMAND.OTHER_PLAYER")) {
                     player.sendMessage(stringList
                             .replaceAll("<player>", String.valueOf(offlinePlayer.getName()))

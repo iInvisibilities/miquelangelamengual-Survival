@@ -3,6 +3,7 @@ package es.hulk.survival.managers.recipe;
 import es.hulk.survival.Survival;
 import es.hulk.survival.managers.recipe.recipes.*;
 import es.hulk.survival.managers.recipe.smithingtable.Bedrock;
+import es.hulk.survival.managers.recipe.smithingtable.EnchantedGoldenApple;
 
 public class RecipeManager {
 
@@ -44,6 +45,7 @@ public class RecipeManager {
 
     public void loadSmithingRecipes() {
         Bedrock.recipe();
+        EnchantedGoldenApple.recipe();
     }
 
 }
