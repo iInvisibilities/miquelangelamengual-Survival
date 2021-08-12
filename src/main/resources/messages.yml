@@ -51,3 +51,10 @@ KILL_COMMAND:
   BROADCAST: "&7[&aSurvival&7] &e<player> &ase ha suicidado. F en el chat por el jugador/a caido/a"
   KICK-MESSAGE: "&7[&aSurvival&7] &e<player> &ase ha ido del servidor, nos vemos."
   KICK: "&4Porque te suicidas eh? te faltan tornillos o que? Entra y juega gilipollas."
+
+DISCORD_COMMAND:
+  MESSAGE:
+    - "&aPara enterarte de todos los crafteos customs que hay dentro del servidor"
+    - "&aTe recomendamos entrar a nuestro discord"
+    - ""
+    - "https://discord.gg/sdceYcKtN7"
