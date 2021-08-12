@@ -20,5 +20,9 @@ public class UUIDs {
         return UUID.fromString("b3acc6d0-7e46-4e6f-95ba-dd5acb58883e");
     }
 
+    public static UUID nadalUUID() {
+        return UUID.fromString("e05a1ef2-95cc-48eb-b847-18ab10048e91");
+    }
+
 
 }

@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 public class Utils {
 
     public static String LINE = Utils.color("&7&m----------------------------------------");
+    public static String PREFIX = Utils.color("&7[&aSurvival&7] ");
 
     public static void sendConsole(String message) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
@@ -27,5 +28,15 @@ public class Utils {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static String formatLongHour(long time) {
+        long totalSecs = time / 1000L;
+
+        long seconds = totalSecs % 60L;
+        long minutes = totalSecs % 3600L / 60L;
+        long hours = totalSecs / 3600L;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 }
