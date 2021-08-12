@@ -19,7 +19,7 @@ public class BedListener implements Listener {
     public void onPlayerJoinBedEvent(PlayerBedEnterEvent event) {
         Player player = event.getPlayer();
 
-        if (Bukkit.getWorld("world").getTime() >= 13000) {
+        if (Bukkit.getWorld("world").getTime() >= 12500) {
             if (!mainConfig.getBoolean("BED-INSTANT-SLEEP")) {
                 Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("BED_LISTENER.MESSAGE").replaceAll("<player>", player.getDisplayName())));
                 new BukkitRunnable() {

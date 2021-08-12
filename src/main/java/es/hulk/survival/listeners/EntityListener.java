@@ -33,7 +33,7 @@ public class EntityListener implements Listener {
                 event.getDrops().add(new ItemStack(Material.GUNPOWDER, random.nextInt(30)));
 
                 if (event.getEntity() instanceof Player) {
-                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) >= 3) {
                         event.getDrops().add(new ItemStack(Material.TNT));
                     }
                 }
@@ -46,7 +46,7 @@ public class EntityListener implements Listener {
                 event.getDrops().add(new ItemStack(Material.GHAST_TEAR, random.nextInt(20)));
 
                 if (event.getEntity() instanceof Player) {
-                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                    if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) >= 3) {
                         event.getDrops().add(new ItemStack(Material.NETHER_STAR, random.nextInt(2)));
                     }
                 }
@@ -65,7 +65,7 @@ public class EntityListener implements Listener {
                     event.getDrops().add(new ItemStack(Material.LEATHER, random.nextInt(6)));
 
                     if (event.getEntity() instanceof Player) {
-                        if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) == 3) {
+                        if (player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS) >= 3) {
                             event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
                         }
                     }

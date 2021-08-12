@@ -16,5 +16,9 @@ public class UUIDs {
         return UUID.fromString("b7be8875-a5c4-4854-a1db-c68626373c5c");
     }
 
+    public static UUID jaumeUUID() {
+        return UUID.fromString("b3acc6d0-7e46-4e6f-95ba-dd5acb58883e");
+    }
+
 
 }

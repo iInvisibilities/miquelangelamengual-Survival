@@ -13,16 +13,13 @@ import org.bukkit.inventory.ItemStack;
 public class JoinListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if (mainConfig.getBoolean("BOOLEANS.BORADCAST-JOIN")) {
-            event.setJoinMessage(Utils.color(mainConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
-        } else {
-            event.setJoinMessage(null);
-        }
+        event.setJoinMessage(Utils.color(messagesConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
 
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             for (String lines : mainConfig.getStringList("JOIN-MESSAGE.LINES")) {

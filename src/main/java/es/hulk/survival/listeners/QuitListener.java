@@ -10,16 +10,12 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class QuitListener implements Listener {
 
-    private FileConfig mainConfig = Survival.get().getMainConfig();
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
 
-        if (mainConfig.getBoolean("BOOLEANS.BROADCAST-QUIT")) {
-            event.setQuitMessage(Utils.color(mainConfig.getString("BROADCAST.QUIT").replaceAll("<player>", player.getDisplayName())));
-        } else {
-            event.setQuitMessage(null);
-        }
+        event.setQuitMessage(Utils.color(messagesConfig.getString("BROADCAST.QUIT").replaceAll("<player>", player.getDisplayName())));
     }
 }

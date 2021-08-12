@@ -1,5 +1,7 @@
 package es.hulk.survival.command.essential;
 
+import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -10,16 +12,17 @@ import org.bukkit.entity.Player;
 
 public class KillCommand extends BaseCommand {
 
+    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     @Command(name = "mekill", aliases = "suicide")
 
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.setHealth(0.0D);
-        player.sendMessage(Utils.color("&aTe has muerto de cancer rata"));
-        if (player.getUniqueId().equals(UUIDs.rafaUUID())) {
-            Bukkit.broadcastMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &ase ha suicidado. F en el chat por el hombre caido"));
-            player.kickPlayer(Utils.color("Te has suicidado cabron"));
+        Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("KILL_COMMAND.BROADCAST")).replace("<player>", player.getDisplayName()));
+        if (player.getUniqueId().equals(UUIDs.rafaUUID()) || player.getUniqueId().equals(UUIDs.jaumeUUID())) {
+            player.kickPlayer(Utils.color(Utils.color(messagesConfig.getString("KILL_COMMAND.KICK")).replace("<player>", player.getDisplayName())));
+            Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("KILL_COMMAND.KICK-MESSAGE")).replace("<player>", player.getDisplayName()));
         }
     }
 }

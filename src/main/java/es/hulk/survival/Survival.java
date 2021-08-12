@@ -127,6 +127,8 @@ public final class Survival extends JavaPlugin {
         new SpawnCommand();
         new SetSpawnCommand();
         new KillCommand();
+        new PingCommand();
+        new HealthCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

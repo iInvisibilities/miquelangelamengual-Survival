@@ -3,14 +3,6 @@ JOIN-MESSAGE:
   LINES:
     - "&6Bienvenido &f<player> &6a &fSurvival 1.17"
 
-BOOLEANS:
-  BROADCAST-QUIT: false
-  BROADCAST-JON: false
-
-BROADCAST:
-  JOIN: "<player> has joined"
-  QUIT: "<player> has left"
-
 CHAT:
   ENABLED: true
   FORMAT: "<rank-prefix>%player% &8» &r%message%"
