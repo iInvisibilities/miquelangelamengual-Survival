@@ -1,5 +1,6 @@
 package es.hulk.survival;
 
+import es.hulk.survival.command.HelpCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.essential.*;
@@ -129,6 +130,9 @@ public final class Survival extends JavaPlugin {
         new KillCommand();
         new PingCommand();
         new HealthCommand();
+        new DiscordCommand();
+        new PlayTimeCommand();
+        new HelpCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
