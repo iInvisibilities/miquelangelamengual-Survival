@@ -39,14 +39,15 @@ PING_COMMAND:
   OTHER: "&aEl ping del jugador &e<target> &aes de &e<ping>ms&a."
 
 BROADCAST:
-  JOIN: "<player> has joined"
-  QUIT: "<player> has left"
+  JOIN: "&7[&aSurvival&7] &e<player> &aa entrado al servidor para jugar un poquito."
+  QUIT: "&7[&aSurvival&7] &e<player> &cse a ido del servidor para irse a otra cosa a jugar."
 
 HEALTH_COMMAND:
-  YOURS: "&eTu tienes <health>&c❤"
-  ERROR: "<target> no encontrado"
-  OTHER: "<player> tiene <health>&c❤"
+  YOURS: "&7[&aSurvival&7] &aTu tienes &e<health>&c❤"
+  ERROR: "&7[&aSurvival&7] &cJugador &e<target> &cno ha sido encontrado dentro del servidor."
+  OTHER: "&7[&aSurvival&7] &aEl Jugador &e<player> &atiene &e<health>&c❤"
 
 KILL_COMMAND:
   BROADCAST: "&7[&aSurvival&7] &e<player> &ase ha suicidado. F en el chat por el jugador/a caido/a"
-  KICK: "&7[&aSurvival&7] &e<player> &ase ha ido del servidor, nos vemos."
+  KICK-MESSAGE: "&7[&aSurvival&7] &e<player> &ase ha ido del servidor, nos vemos."
+  KICK: "&4Porque te suicidas eh? te faltan tornillos o que? Entra y juega gilipollas."
