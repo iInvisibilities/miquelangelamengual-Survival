@@ -38,7 +38,7 @@ public class ItemCommand extends BaseCommand {
             }
             player.getInventory().addItem(new ItemStack(Material.valueOf(args0), Integer.parseInt(args[1])));
             player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + args[1]));
-
+            player.updateInventory();
         }
     }
 
