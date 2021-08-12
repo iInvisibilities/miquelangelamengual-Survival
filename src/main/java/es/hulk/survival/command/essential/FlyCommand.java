@@ -6,6 +6,7 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
 public class FlyCommand extends BaseCommand {
@@ -17,7 +18,7 @@ public class FlyCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        if (player.getPlayerTime() == 10.00) {
+        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 720000) {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);
                 player.setFlying(true);
