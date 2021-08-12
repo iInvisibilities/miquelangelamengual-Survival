@@ -58,3 +58,10 @@ DISCORD_COMMAND:
     - "&aTe recomendamos entrar a nuestro discord"
     - ""
     - "https://discord.gg/sdceYcKtN7"
+
+SETNAME_COMMAND:
+  YOURS: "&7[&aSurvival&7] &aTu nombre a sido cambiado a &e<name>&a."
+  OTHER: "&7[&aSurvival&7] &aHas cambiado el nombre al jugador &e<target> &apor el nombre &e<name>&a."
+  RESET: "&7[&aSurvival&7] &aHas resetado tu nombre al predeterminado"
+  RESET-OTHER: "&7[&aSurvival&7] &aHas resetado el nombre del jugador &e<target> &aal predeterminado."
+  ERROR: "&7[&aSurvival&7] &cEl Jugador &e<target> &ano existe o no esta conectado."
