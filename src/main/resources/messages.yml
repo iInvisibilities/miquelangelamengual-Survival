@@ -51,6 +51,7 @@ KILL_COMMAND:
   BROADCAST: "&7[&aSurvival&7] &e<player> &ase ha suicidado. F en el chat por el jugador/a caido/a"
   KICK-MESSAGE: "&7[&aSurvival&7] &e<player> &ase ha ido del servidor, nos vemos."
   KICK: "&4Porque te suicidas eh? te faltan tornillos o que? Entra y juega gilipollas."
+  ALL: "&7[&aSurvival&7] &4HABEIS MUERTO TODOS HIJOS DE PUTA"
 
 DISCORD_COMMAND:
   MESSAGE:
