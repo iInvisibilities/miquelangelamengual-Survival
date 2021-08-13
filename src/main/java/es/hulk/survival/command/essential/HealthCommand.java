@@ -30,6 +30,11 @@ public class HealthCommand extends BaseCommand {
                 player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.ERROR").replace("<target>", args[0])));
                 return;
             }
+
+            if (target.equals(player)) {
+                player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.YOURS").replace("<health>", String.valueOf((int) player.getHealth()))));
+                return;
+            }
             player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.OTHER").replace("<health>", String.valueOf((int) target.getHealth())).replace("<player>", target.getDisplayName())));
         }
     }

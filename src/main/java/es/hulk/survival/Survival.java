@@ -27,6 +27,7 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
