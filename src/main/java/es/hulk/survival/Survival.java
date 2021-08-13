@@ -3,11 +3,17 @@ package es.hulk.survival;
 import es.hulk.survival.command.HelpCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.ReloadCommand;
+import es.hulk.survival.command.admin.*;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
+import es.hulk.survival.command.kill.KillCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
+import es.hulk.survival.command.teleport.TeleportAllCommand;
+import es.hulk.survival.command.teleport.TeleportCommand;
+import es.hulk.survival.command.teleport.TeleportCoordsCommand;
+import es.hulk.survival.command.teleport.TeleportHereCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.managers.rank.RankManager;
@@ -25,9 +31,6 @@ import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitTask;
-
-import java.lang.annotation.ElementType;
 
 @Setter
 @Getter
@@ -133,6 +136,16 @@ public final class Survival extends JavaPlugin {
         new DiscordCommand();
         new PlayTimeCommand();
         new SetNameCommand();
+        new BedTPCommand();
+        new KillAllCommand();
+
+        new TeleportCommand();
+        new TeleportHereCommand();
+        new TeleportAllCommand();
+        new TeleportCoordsCommand();
+
+        new ClearServerCommand();
+
         new HelpCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
