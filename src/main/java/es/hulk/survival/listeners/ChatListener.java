@@ -5,13 +5,15 @@ import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.location.BedLocation;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
-import java.util.UUID;
+import org.bukkit.event.player.PlayerChatEvent;
 
 public class ChatListener implements Listener {
 
@@ -53,5 +55,22 @@ public class ChatListener implements Listener {
                 event.setCancelled(true);
             }
         }
+     }
+
+     @EventHandler
+     public void chatEvent(PlayerChatEvent event) {
+        Player player = event.getPlayer();
+
+         if (event.getMessage().contains("tpeame a mi cama")) {
+             if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) == 1440000) {
+                 Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
+
+                 player.teleport(location);
+             } else {
+                 event.setCancelled(true);
+                 player.sendMessage(Utils.color("&cNoup."));
+             }
+         }
+
      }
 }
