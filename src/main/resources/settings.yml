@@ -1,7 +1,19 @@
 JOIN-MESSAGE:
   ENABLE: true
   LINES:
+    - "&7&m----------------------------------------------------"
     - "&6Bienvenido &f<player> &6a &fSurvival 1.17"
+    - ""
+    - "&eSe te recomienda como jugador novato mirar el comando /help"
+    - "&epara enterarte de lo que puedes llegar a hacer"
+    - ""
+    - "&eTambien se te recomienda que entres a nuestro discord"
+    - "&epara que puedas ver los crafteos que hay creados"
+    - ""
+    - "&eEn el canal survival-crafteos puedes verlos todos"
+    - ""
+    - "&ahttps://discord.gg/zDn7yN2j9T"
+    - "&7&m----------------------------------------------------"
 
 CHAT:
   ENABLED: true
