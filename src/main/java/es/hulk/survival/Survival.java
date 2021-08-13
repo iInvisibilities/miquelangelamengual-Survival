@@ -84,10 +84,6 @@ public final class Survival extends JavaPlugin {
         commandManager = new CommandManager(this);
     }
 
-    public void loadRecipes() {
-        recipeManager.loadRecipes();
-    }
-
     public void loadConfigs() {
         this.locationsConfig = new FileConfig(this, "locations.yml");
         this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
@@ -138,6 +134,7 @@ public final class Survival extends JavaPlugin {
         new SetNameCommand();
         new BedTPCommand();
         new KillAllCommand();
+        new EnderChestCommand();
 
         new TeleportCommand();
         new TeleportHereCommand();
