@@ -1,4 +1,4 @@
-package es.hulk.survival.managers.recipe.recipes;
+package es.hulk.survival.managers.recipe.recipes.ultimate;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
@@ -13,22 +13,24 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class UltimateFortunePickaxe {
 
     public static void recipe() {
-        ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aFortune Pickaxe"));
+        meta.setDisplayName(Utils.color("&eUltimate Fortune Pickaxe"));
+        meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.MENDING, 2);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 50);
-        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 8);
-        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 4);
+        pickaxe.addUnsafeEnchantment(Enchantment.MENDING, 10);
+        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 80);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 40);
+        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 60);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "fortune_ultimate_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
-        recipe.shape("LLL", "LNL", "LLL");
+        recipe.shape("NNN", "LIL", " I ");
         recipe.setIngredient('L', Material.LAPIS_BLOCK);
-        recipe.setIngredient('N', Material.NETHERITE_PICKAXE);
+        recipe.setIngredient('N', Material.NETHERITE_BLOCK);
+        recipe.setIngredient('I', Material.STICK);
 
         Bukkit.addRecipe(recipe);
     }

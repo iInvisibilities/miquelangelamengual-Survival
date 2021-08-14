@@ -1,4 +1,4 @@
-package es.hulk.survival.managers.recipe.recipes;
+package es.hulk.survival.managers.recipe.recipes.ultimate;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
@@ -16,14 +16,15 @@ public class UltimateSword {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aUltimate Sword"));
+        meta.setDisplayName(Utils.color("&eUltimate Sword"));
+        meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ARTHROPODS, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.MENDING, 1);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 30);
+        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 30);
         pickaxe.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
         pickaxe.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 5);

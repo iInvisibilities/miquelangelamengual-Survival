@@ -1,4 +1,4 @@
-package es.hulk.survival.managers.recipe.recipes;
+package es.hulk.survival.managers.recipe.recipes.ultimate;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
@@ -16,10 +16,10 @@ public class UltimateBow {
         ItemStack pickaxe = new ItemStack(Material.BOW);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aUltimate Bow"));
+        meta.setDisplayName(Utils.color("&eUltimate Bow"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 50);
+        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 80);
         pickaxe.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 50);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 30);
