@@ -1,4 +1,4 @@
-package es.hulk.survival.managers.recipe.recipes;
+package es.hulk.survival.managers.recipe.recipes.enchanted;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;

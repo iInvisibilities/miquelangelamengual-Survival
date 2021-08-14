@@ -1,4 +1,4 @@
-package es.hulk.survival.managers.recipe.recipes;
+package es.hulk.survival.managers.recipe.recipes.enchanted.armor;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
@@ -10,13 +10,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class EnchantedLeggings {
+public class EnchantedBoots {
 
     public static void recipe() {
-        ItemStack item = new ItemStack(Material.DIAMOND_LEGGINGS);
+        ItemStack item = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Leggings"));
+        meta.setDisplayName(Utils.color("&aEnchanted Boots"));
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 20);
@@ -24,10 +24,12 @@ public class EnchantedLeggings {
         item.addUnsafeEnchantment(Enchantment.OXYGEN, 20);
         item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 10);
         item.addUnsafeEnchantment(Enchantment.DURABILITY, 30);
+        item.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 10);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 20);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "DIAMOND_BLOCK_LEGGINGS");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "DIAMOND_BLOCK_BOOTS");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
-        recipe.shape("DDD", "D D", "D D");
+        recipe.shape("   ", "D D", "D D");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
 
         Bukkit.addRecipe(recipe);
