@@ -13,7 +13,7 @@ import java.util.List;
 public class SettingsManager {
 
     private final FileConfig menuConfig = Survival.get().getMenuConfig();
-    private final List<SettingsMenu> items = new ArrayList<>();
+    private final List<Settings> items = new ArrayList<>();
 
     public void load() {
         items.clear();
@@ -26,7 +26,7 @@ public class SettingsManager {
             int data = menuConfig.getInt("SETTINGS_MENU.ITEMS." + item + ".DATA");
             int slot = menuConfig.getInt("SETTINGS_MENU.ITEMS." + item + ".SLOT");
 
-            items.add(new SettingsMenu(displayName, description, material, data, slot));
+            items.add(new Settings(displayName, description, material, data, slot));
         });
     }
 

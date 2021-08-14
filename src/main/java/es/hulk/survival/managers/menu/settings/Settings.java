@@ -8,7 +8,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
-public class SettingsMenu {
+public class Settings {
 
     private String displayName;
     private List<String> description;
