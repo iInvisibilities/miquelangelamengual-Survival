@@ -15,5 +15,5 @@ public class Settings {
     private Material material;
     private int data;
     private int slot;
-
+    private String action;
 }

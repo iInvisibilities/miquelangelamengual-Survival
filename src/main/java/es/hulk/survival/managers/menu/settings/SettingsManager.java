@@ -25,8 +25,9 @@ public class SettingsManager {
             Material material = Material.valueOf(menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".MATERIAL"));
             int data = menuConfig.getInt("SETTINGS_MENU.ITEMS." + item + ".DATA");
             int slot = menuConfig.getInt("SETTINGS_MENU.ITEMS." + item + ".SLOT");
+            String action = menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".ACTION");
 
-            items.add(new Settings(displayName, description, material, data, slot));
+            items.add(new Settings(displayName, description, material, data,slot , action));
         });
     }
 

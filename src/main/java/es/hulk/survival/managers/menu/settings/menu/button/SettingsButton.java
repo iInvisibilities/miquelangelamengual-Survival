@@ -26,5 +26,17 @@ public class SettingsButton extends Button {
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
 
+        if (settings.getAction().equals("HELLO_WORLD")) {
+            player.sendMessage("Hello World");
+            return;
+        }
+
+        if (settings.getAction().equals("HELLO_WORLD2")) {
+            player.sendMessage("Hello World 2");
+            return;
+        }
+
+        player.sendMessage("Hola");
+
     }
 }

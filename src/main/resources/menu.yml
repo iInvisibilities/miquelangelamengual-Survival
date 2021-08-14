@@ -9,3 +9,4 @@ SETTINGS_MENU:
       LORE:
         - "Lore"
       SLOT: 0
+      ACTION: HELLO_WORLD
