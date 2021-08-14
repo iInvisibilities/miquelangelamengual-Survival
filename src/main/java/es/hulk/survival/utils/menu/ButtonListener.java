@@ -1,16 +1,10 @@
 package es.hulk.survival.utils.menu;
 
-import org.bukkit.plugin.*;
-import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.*;
 import org.bukkit.event.inventory.*;
 
-public class ButtonListener implements Listener
-{
-    public ButtonListener(final Plugin plugin) {
-        Bukkit.getPluginManager().registerEvents((Listener)this, plugin);
-    }
+public class ButtonListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onButtonPress(final InventoryClickEvent event) {

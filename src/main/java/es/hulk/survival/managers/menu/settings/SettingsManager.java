@@ -19,7 +19,7 @@ public class SettingsManager {
         items.clear();
         ConfigurationSection section = menuConfig.getConfiguration().getConfigurationSection("SETTINGS_MENU.ITEMS");
 
-        section.getKeys(false).forEach(item -> {
+        for (String item : section.getKeys(false)) {
             String displayName = menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".DISPLAYNAME");
             List<String> description = menuConfig.getStringList("SETTINGS_MENU.ITEMS." + item + ".LORE");
             Material material = Material.valueOf(menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".MATERIAL"));
@@ -28,7 +28,7 @@ public class SettingsManager {
             String action = menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".ACTION");
 
             items.add(new Settings(displayName, description, material, data,slot , action));
-        });
+        }
     }
 
 }

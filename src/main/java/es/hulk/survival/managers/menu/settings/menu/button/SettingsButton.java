@@ -1,5 +1,7 @@
 package es.hulk.survival.managers.menu.settings.menu.button;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import com.sun.org.apache.bcel.internal.generic.RET;
 import es.hulk.survival.managers.menu.settings.Settings;
 import es.hulk.survival.utils.ItemBuilder;
 import es.hulk.survival.utils.menu.Button;
@@ -26,17 +28,64 @@ public class SettingsButton extends Button {
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
 
-        if (settings.getAction().equals("HELLO_WORLD")) {
-            player.sendMessage("Hello World");
+        if (settings.getAction().equals("TOGGLEFLY")) {
+            player.performCommand("fly");
             return;
         }
 
-        if (settings.getAction().equals("HELLO_WORLD2")) {
-            player.sendMessage("Hello World 2");
+        if (settings.getAction().equals("TP_TO_BED")) {
+            player.performCommand("tptobed");
             return;
         }
 
-        player.sendMessage("Hola");
+        if (settings.getAction().equals("SEED_COMMAND")) {
+            player.performCommand("semilla");
+            return;
+        }
 
+        if (settings.getAction().equals("PLAYIME_COMMAND")) {
+            player.performCommand("playtime");
+            return;
+        }
+
+        if (settings.getAction().equals("COORDS_COMMAND")) {
+            player.performCommand("coords");
+            return;
+        }
+
+        if (settings.getAction().equals("BEDCOORDS_COMMAND")) {
+            player.performCommand("camacoords");
+            return;
+        }
+
+        if (settings.getAction().equals("OPEN_ENDERCHEST")) {
+            player.openInventory(player.getEnderChest());
+            return;
+        }
+
+        if (settings.getAction().equals("SUICIDE_COMMAND")) {
+            player.performCommand("suicide");
+            return;
+        }
+
+        if (settings.getAction().equals("PING_COMMAND")) {
+            player.performCommand("ping");
+            return;
+        }
+
+        if (settings.getAction().equals("DISCORD_COMMAND")) {
+            player.performCommand("discord");
+            return;
+        }
+
+        if (settings.getAction().equals("SPAWN_COMMAND")) {
+            player.performCommand("spawn");
+            return;
+        }
+
+        if (settings.getAction().equals("HELP_COMMAND")) {
+            player.performCommand("help");
+            return;
+        }
     }
 }
