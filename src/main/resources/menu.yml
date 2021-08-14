@@ -1,0 +1,11 @@
+SETTINGS_MENU:
+  DISPLAYNAME: "&cNombre"
+  SIZE: 27
+  ITEMS:
+    FIRST_ITEM:
+      DISPLAYNAME: "Displayname"
+      MATERIAL: RED_WOOL
+      DATA: 0
+      LORE:
+        - "Lore"
+      SLOT: 0
