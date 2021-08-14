@@ -19,6 +19,9 @@ CHAT:
   ENABLED: true
   FORMAT: "<rank-prefix>%player% &8» &r%message%"
 
+BOOLEANS:
+  TAB: true
+
 ENTITIES:
   POPPY-DROP: false
   GUNPOWDER-BOOST: true
