@@ -23,7 +23,7 @@ public class UnbreakablePickaxe {
         NamespacedKey key = new NamespacedKey(Survival.get(), "unbreakable_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape("NNN", "NPN", "NNN");
-        recipe.setIngredient('N', Material.NETHERITE_BLOCK);
+        recipe.setIngredient('N', Material.OBSIDIAN);
         recipe.setIngredient('P', Material.DIAMOND_PICKAXE);
 
         Bukkit.addRecipe(recipe);
