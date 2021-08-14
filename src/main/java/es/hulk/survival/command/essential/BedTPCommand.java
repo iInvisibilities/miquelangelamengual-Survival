@@ -17,7 +17,7 @@ public class BedTPCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) == 1440000) {
+        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1440000) {
             Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
 
             player.teleport(location);

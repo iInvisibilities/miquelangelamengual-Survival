@@ -4,6 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Utils {
 
     public static String LINE = Utils.color("&7&m----------------------------------------");
@@ -15,6 +18,10 @@ public class Utils {
 
     public static String color(String text) {
         return ChatColor.translateAlternateColorCodes('&', text);
+    }
+
+    public static List<String> translate(List<String> in) {
+        return in.stream().map(Utils::color).collect(Collectors.toList());
     }
 
     public static int getPing(Player player) {

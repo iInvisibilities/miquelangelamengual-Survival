@@ -8,6 +8,7 @@ import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
 import es.hulk.survival.command.kill.KillCommand;
 import es.hulk.survival.command.location.LocationCommand;
+import es.hulk.survival.command.menu.SettingsMenuCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
@@ -16,6 +17,7 @@ import es.hulk.survival.command.teleport.TeleportCoordsCommand;
 import es.hulk.survival.command.teleport.TeleportHereCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.SpawnManager;
+import es.hulk.survival.managers.menu.settings.SettingsManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.recipe.RecipeManager;
 import es.hulk.survival.managers.warp.WarpManager;
@@ -27,7 +29,6 @@ import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
@@ -42,6 +43,8 @@ public final class Survival extends JavaPlugin {
     private FileConfig locationsConfig;
     private FileConfig spawnConfig;
     private FileConfig messagesConfig;
+    private FileConfig menuConfig;
+    private FileConfig serverConfig;
 
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
@@ -49,6 +52,7 @@ public final class Survival extends JavaPlugin {
     private RankManager rankManager;
     private CommandManager commandManager;
     private RecipeManager recipeManager;
+    private SettingsManager settingsManager;
 
     @Override
     public void onEnable() {
@@ -67,6 +71,8 @@ public final class Survival extends JavaPlugin {
         Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
 
+        this.getSettingsManager().load();
+
         loadScoreboard();
         loadListeners();
         loadCommands();
@@ -83,6 +89,7 @@ public final class Survival extends JavaPlugin {
         warpManager = new WarpManager(this);
         rankManager = new RankManager(this);
         commandManager = new CommandManager(this);
+        this.settingsManager = new SettingsManager();
     }
 
     public void loadConfigs() {
@@ -91,6 +98,7 @@ public final class Survival extends JavaPlugin {
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.spawnConfig = new FileConfig(this, "spawn.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
+        this.menuConfig = new FileConfig(this, "menu.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
@@ -145,6 +153,8 @@ public final class Survival extends JavaPlugin {
         new ClearServerCommand();
 
         new HelpCommand();
+        new SeedCommand();
+        new SettingsMenuCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

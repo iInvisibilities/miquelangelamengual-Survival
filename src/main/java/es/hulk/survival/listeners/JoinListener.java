@@ -27,6 +27,11 @@ public class JoinListener implements Listener {
             }
         }
 
+        if (mainConfig.getBoolean("BOOLEANS.TAB")) {
+            player.setPlayerListHeader(Utils.color(messagesConfig.getString("TAB.HEADER").replace("<nl>", "\n")));
+            player.setPlayerListFooter(Utils.color(messagesConfig.getString("TAB.FOOTER").replace("<nl>", "\n")));
+        }
+
         if (!player.hasPlayedBefore()) {
             player.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
             player.getInventory().addItem(new ItemStack(Material.STONE_PICKAXE));

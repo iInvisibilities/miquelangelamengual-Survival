@@ -61,8 +61,8 @@ public class ChatListener implements Listener {
      public void chatEvent(PlayerChatEvent event) {
         Player player = event.getPlayer();
 
-         if (event.getMessage().contains("tpeame a mi cama")) {
-             if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) == 1440000) {
+         if (event.getMessage().contains("tpeame a mi cama") || event.getMessage().contains("tpeame a mi casa")) {
+             if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1440000) {
                  Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
 
                  player.teleport(location);
