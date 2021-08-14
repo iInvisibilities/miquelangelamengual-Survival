@@ -1,5 +1,6 @@
 package es.hulk.survival.command.essential;
 
+import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
@@ -14,6 +15,8 @@ public class SeedCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        player.sendMessage(String.valueOf(Bukkit.getWorlds().get(0).getSeed()));
+        String seed = String.valueOf(Bukkit.getWorlds().get(0).getSeed());
+
+        player.sendMessage(Utils.color(Utils.PREFIX + "&aLa seed del juego es &e" + seed));
     }
 }
