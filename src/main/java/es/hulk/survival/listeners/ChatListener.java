@@ -55,22 +55,22 @@ public class ChatListener implements Listener {
                 event.setCancelled(true);
             }
         }
-     }
+    }
 
-     @EventHandler
-     public void chatEvent(PlayerChatEvent event) {
+    @EventHandler
+    public void chatEvent(PlayerChatEvent event) {
         Player player = event.getPlayer();
 
-         if (event.getMessage().contains("tpeame a mi cama") || event.getMessage().contains("tpeame a mi casa")) {
-             if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1440000) {
-                 Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
+        if (event.getMessage().contains("tpeame a mi cama") || event.getMessage().contains("tpeame a mi casa")) {
+            if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1440000) {
+                Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
 
-                 player.teleport(location);
-             } else {
-                 event.setCancelled(true);
-                 player.sendMessage(Utils.color("&cNoup."));
-             }
-         }
+                player.teleport(location);
+            } else {
+                event.setCancelled(true);
+                player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
+            }
+        }
 
-     }
+    }
 }

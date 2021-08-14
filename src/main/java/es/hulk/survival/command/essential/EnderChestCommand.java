@@ -16,28 +16,28 @@ public class EnderChestCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-
-        if (args.length == 0) {
-            if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1080000) {
-                player.openInventory(player.getEnderChest());
-            } else {
-                player.sendMessage(Utils.color("&cNoup"));
-            }
-        }
-
-        if (args.length > 0) {
-            Player target = Bukkit.getPlayer(args[0]);
-
-            if (target == null) {
+        
+        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1080000) {
+            if (args.length == 0) {
                 player.openInventory(player.getEnderChest());
             }
 
-            if (player.hasPermission("survival.command.enderchest")) {
-                player.openInventory(target.getEnderChest());
-                return;
-            }
+            if (args.length > 0) {
+                Player target = Bukkit.getPlayer(args[0]);
 
-            player.openInventory(player.getEnderChest());
+                if (target == null) {
+                    player.openInventory(player.getEnderChest());
+                }
+
+                if (player.hasPermission("survival.command.enderchest")) {
+                    player.openInventory(target.getEnderChest());
+                    return;
+                }
+
+                player.openInventory(player.getEnderChest());
+            }
+        } else {
+            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 15h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
         }
     }
 }

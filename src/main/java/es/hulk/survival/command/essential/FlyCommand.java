@@ -29,7 +29,7 @@ public class FlyCommand extends BaseCommand {
                 player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.DISABLED")));
             }
         } else {
-            player.sendMessage(Utils.color("&cNoup."));
+            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 10h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
         }
 
     }
