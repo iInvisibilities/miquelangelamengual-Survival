@@ -1,14 +1,11 @@
 package es.hulk.survival.managers.recipe;
 
-import es.hulk.survival.Survival;
 import es.hulk.survival.managers.recipe.recipes.*;
 import es.hulk.survival.managers.recipe.smithingtable.Bedrock;
 import es.hulk.survival.managers.recipe.smithingtable.EnchantedGoldenApple;
 import es.hulk.survival.managers.recipe.smithingtable.NameTag;
 
 public class RecipeManager {
-
-    private Survival plugin;
 
     public void load() {
         loadRecipes();
@@ -44,6 +41,12 @@ public class RecipeManager {
         ObsidianDestroyer.recipe();
 
         UltimateFortunePickaxe.recipe();
+        UltimateBow.recipe();
+        UltimateSword.recipe();
+
+        Bow.recipe();
+
+        KnockbackStick.recipe();
     }
 
     public void loadSmithingRecipes() {
