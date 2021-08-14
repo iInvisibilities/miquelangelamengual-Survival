@@ -160,6 +160,7 @@ public final class Survival extends JavaPlugin {
         new SettingsMenuCommand();
 
         new DropItemsCommand();
+        new GetPlayerInformationCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
