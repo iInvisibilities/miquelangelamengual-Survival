@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Random;
@@ -72,5 +73,14 @@ public class EntityListener implements Listener {
                 }
             }
         }
+    }
+
+    @EventHandler
+    public void entityExplode(EntityExplodeEvent event) {
+        if (event.getEntity().getType() == EntityType.CREEPER) {
+            event.setCancelled(true);
+            return;
+        }
+        event.setCancelled(false);
     }
 }
