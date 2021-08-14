@@ -10,3 +10,8 @@ SETTINGS_MENU:
         - "Lore"
       SLOT: 0
       ACTION: HELLO_WORLD
+
+LOCATION_MENU:
+  NAME: "name"
+  SIZE: 36
+  WARPS:

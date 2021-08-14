@@ -25,6 +25,8 @@ import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
+import es.hulk.survival.utils.menu.Button;
+import es.hulk.survival.utils.menu.ButtonListener;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
 import lombok.Setter;
@@ -120,6 +122,7 @@ public final class Survival extends JavaPlugin {
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new EntityListener(), this);
         pm.registerEvents(new BedListener(), this);
+        pm.registerEvents(new ButtonListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
