@@ -158,6 +158,8 @@ public final class Survival extends JavaPlugin {
         new HelpCommand();
         new SeedCommand();
         new SettingsMenuCommand();
+
+        new DropItemsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 

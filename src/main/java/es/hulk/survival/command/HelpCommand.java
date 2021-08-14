@@ -36,6 +36,7 @@ public class HelpCommand extends BaseCommand {
             sender.sendMessage(Utils.color(""));
             sender.sendMessage(Utils.color("&a/survival reload &7- &fRecargas las configs del servidor"));
             sender.sendMessage(Utils.color("&a/more [cantidad] &7- &fTe multiplica el item a lo que quieras"));
+            sender.sendMessage(Utils.color("&a/dropitems [player] &7- &fDropa los items de un jugador en concreto"));
             sender.sendMessage(Utils.color("&a/i <item> <cantidad> &7- &fTe da el item que quieras"));
             sender.sendMessage(Utils.color("&a/setname &7- &fTe da su propia ayuda"));
             sender.sendMessage(Utils.color("&a/defora &7- &fKicka a todo el servidor"));

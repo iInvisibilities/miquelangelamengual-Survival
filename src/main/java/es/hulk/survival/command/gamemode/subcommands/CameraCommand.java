@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class CameraCommand extends BaseCommand {
 
-    @Command(name = "camera", aliases = "c")
+    @Command(name = "camera", aliases = "cm")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
