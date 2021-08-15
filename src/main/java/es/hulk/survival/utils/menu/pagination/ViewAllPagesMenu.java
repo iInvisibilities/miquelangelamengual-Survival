@@ -3,8 +3,8 @@ package es.hulk.survival.utils.menu.pagination;
 import es.hulk.survival.utils.menu.Button;
 import es.hulk.survival.utils.menu.Menu;
 import es.hulk.survival.utils.menu.buttons.BackButton;
-import lombok.*;
-import org.bukkit.entity.*;
+import lombok.NonNull;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;

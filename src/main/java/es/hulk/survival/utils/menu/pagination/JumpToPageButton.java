@@ -3,9 +3,9 @@ package es.hulk.survival.utils.menu.pagination;
 import es.hulk.survival.utils.ItemBuilder;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.menu.Button;
-import org.bukkit.entity.*;
-import org.bukkit.*;
-import org.bukkit.event.inventory.*;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 public class JumpToPageButton extends Button

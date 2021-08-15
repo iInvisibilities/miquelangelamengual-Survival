@@ -1,7 +1,5 @@
 package es.hulk.survival.managers.menu.settings.menu.button;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import com.sun.org.apache.bcel.internal.generic.RET;
 import es.hulk.survival.managers.menu.settings.Settings;
 import es.hulk.survival.utils.ItemBuilder;
 import es.hulk.survival.utils.menu.Button;

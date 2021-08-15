@@ -1,9 +1,10 @@
 package es.hulk.survival.utils.menu;
 
 import es.hulk.survival.utils.ItemBuilder;
-import org.bukkit.entity.*;
-import org.bukkit.*;
-import org.bukkit.event.inventory.*;
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 public abstract class Button

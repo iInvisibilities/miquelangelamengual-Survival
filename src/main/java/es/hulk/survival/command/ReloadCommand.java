@@ -6,7 +6,6 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class ReloadCommand extends BaseCommand {

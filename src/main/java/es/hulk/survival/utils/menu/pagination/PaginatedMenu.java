@@ -2,8 +2,10 @@ package es.hulk.survival.utils.menu.pagination;
 
 import es.hulk.survival.utils.menu.Button;
 import es.hulk.survival.utils.menu.Menu;
-import org.bukkit.entity.*;
-import java.util.*;
+import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class PaginatedMenu extends Menu
 {

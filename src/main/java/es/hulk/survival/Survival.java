@@ -1,8 +1,8 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.HelpCommand;
-import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.ReloadCommand;
+import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
@@ -25,7 +25,6 @@ import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
-import es.hulk.survival.utils.menu.Button;
 import es.hulk.survival.utils.menu.ButtonListener;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
 import lombok.Getter;
