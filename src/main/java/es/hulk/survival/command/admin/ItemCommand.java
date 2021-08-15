@@ -24,16 +24,21 @@ public class ItemCommand extends BaseCommand {
             player.sendMessage(Utils.color("&cUsage: /item <name> <amount>"));
         }
 
-        if (args.length > 0) {
+        if (args.length == 1) {
             String args0 = command.getArgs(0).toUpperCase(Locale.ROOT);
-            if (Material.valueOf(args0) != Material.getMaterial(args0)) {
+            if (Material.getMaterial(args0) == null) {
                 player.sendMessage(Utils.color("&cItem " + args0 + " doesnt exist."));
                 return;
             }
+            player.getInventory().addItem(new ItemStack(Material.valueOf(args0), amount));
+            player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + amount));
+            player.updateInventory();
+        }
 
-            if (args[1].isEmpty()) {
-                player.getInventory().addItem(new ItemStack(Material.valueOf(args0), amount));
-                player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + amount));
+        if (args.length == 2) {
+            String args0 = command.getArgs(0).toUpperCase(Locale.ROOT);
+            if (Material.getMaterial(args0) == null) {
+                player.sendMessage(Utils.color("&cItem " + args0 + " doesnt exist."));
                 return;
             }
             player.getInventory().addItem(new ItemStack(Material.valueOf(args0), Integer.parseInt(args[1])));
