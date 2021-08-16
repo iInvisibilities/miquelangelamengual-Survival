@@ -8,6 +8,7 @@ import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.GameMode;
+import org.bukkit.Statistic;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -26,36 +27,40 @@ public class GamemodeCommand extends BaseCommand {
         String[] args = command.getArgs();
         Player player = command.getPlayer();
 
-        if (args.length == 0) {
-            getUsage(commandSender);
-        }
-
-        if (args.length > 0) {
-            if (args[0].equalsIgnoreCase("camera")) {
-                player.setGameMode(GameMode.SPECTATOR);
-                player.sendMessage(Utils.color("&aYou are being putted into Camera Mode"));
-                return;
-            }
-
-            if (args[0].equalsIgnoreCase("survival")) {
-                player.setGameMode(GameMode.SURVIVAL);
-                player.sendMessage(Utils.color("&aYou are being putted into Survival Mode"));
-                return;
-            }
-
-            getUsage(commandSender);
-
-            if (args[0].isEmpty()) {
+        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 2160000) {
+            if (args.length == 0) {
                 getUsage(commandSender);
             }
+
+            if (args.length > 0) {
+                if (args[0].equalsIgnoreCase("camera")) {
+                    player.setGameMode(GameMode.SPECTATOR);
+                    player.sendMessage(Utils.color(Utils.PREFIX + "&aYou are being putted into Camera Mode"));
+                    return;
+                }
+
+                if (args[0].equalsIgnoreCase("survival")) {
+                    player.setGameMode(GameMode.SURVIVAL);
+                    player.sendMessage(Utils.color(Utils.PREFIX + "&aYou are being putted into Survival Mode"));
+                    return;
+                }
+
+                getUsage(commandSender);
+
+                if (args[0].isEmpty()) {
+                    getUsage(commandSender);
+                }
+            }
+        } else {
+            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
         }
     }
 
     public void getUsage(CommandSender commandSender) {
         commandSender.sendMessage(Utils.LINE);
         commandSender.sendMessage(Utils.color("&e/mode <survivalm/camera> &7- &fits put you in the mode u want"));
-        commandSender.sendMessage(Utils.color("&e/camera &7- &fPuts the player into spectator mode (can use /cm)"));
-        commandSender.sendMessage(Utils.color("&e/survival &7- &fPuts the player into survival mode (can use /sm)"));
+        commandSender.sendMessage(Utils.color("&e/cameram &7- &fPuts the player into spectator mode (can use /cm)"));
+        commandSender.sendMessage(Utils.color("&e/survivalm &7- &fPuts the player into survival mode (can use /sm)"));
         if (commandSender.hasPermission("survival.command.creative")) {
             commandSender.sendMessage(Utils.color("&e/creative &7- &fPuts the player into creative mode"));
         }

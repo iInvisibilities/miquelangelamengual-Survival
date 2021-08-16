@@ -28,6 +28,7 @@ public class HelpCommand extends BaseCommand {
         sender.sendMessage(Utils.color("&a/playtime [player] &7- &fVer el tiempo jugado tuyo o de un jugador"));
         sender.sendMessage(Utils.color("&a/enderchest &7- &fTe abre el enderchest &7(Necesitas 15h dentro del juego)"));
         sender.sendMessage(Utils.color("&a/tptobed &7- &fTe tpea a las coords de tu cama &7(Necesitas 20h dentro del juego)"));
+        sender.sendMessage(Utils.color("&a/mode &7- &fte manda una ayuda para poder cambiar entre modo espectador y survival &7(Necesitas 30h dentro del servidor)"));
         sender.sendMessage(Utils.color(""));
         sender.sendMessage(Utils.color("[player] es opcional "));
         sender.sendMessage(Utils.color(""));
