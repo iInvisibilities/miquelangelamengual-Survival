@@ -1,7 +1,6 @@
 package es.hulk.survival.command.gamemode;
 
 import es.hulk.survival.command.gamemode.subcommands.CameraCommand;
-import es.hulk.survival.command.gamemode.subcommands.CreativeCommand;
 import es.hulk.survival.command.gamemode.subcommands.SurvivalCommand;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -17,7 +16,6 @@ public class GamemodeCommand extends BaseCommand {
     public GamemodeCommand() {
         new CameraCommand();
         new SurvivalCommand();
-        new CreativeCommand();
     }
 
     @Command(name = "mode")
@@ -61,9 +59,6 @@ public class GamemodeCommand extends BaseCommand {
         commandSender.sendMessage(Utils.color("&e/mode <survivalm/camera> &7- &fits put you in the mode u want"));
         commandSender.sendMessage(Utils.color("&e/cameram &7- &fPuts the player into spectator mode (can use /cm)"));
         commandSender.sendMessage(Utils.color("&e/survivalm &7- &fPuts the player into survival mode (can use /sm)"));
-        if (commandSender.hasPermission("survival.command.creative")) {
-            commandSender.sendMessage(Utils.color("&e/creative &7- &fPuts the player into creative mode"));
-        }
         commandSender.sendMessage(Utils.LINE);
 
     }

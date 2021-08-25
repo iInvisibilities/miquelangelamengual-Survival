@@ -1,14 +1,13 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.HelpCommand;
-import es.hulk.survival.command.ReloadCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
-import es.hulk.survival.command.kill.KillCommand;
+import es.hulk.survival.command.essential.KillCommand;
 import es.hulk.survival.command.location.LocationCommand;
-import es.hulk.survival.command.menu.SettingsMenuCommand;
+import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
@@ -85,12 +84,13 @@ public final class Survival extends JavaPlugin {
     }
 
     public void loadManagers() {
-        recipeManager = new RecipeManager();
-        spawnManager = new SpawnManager();
-        warpManager = new WarpManager(this);
-        rankManager = new RankManager(this);
-        commandManager = new CommandManager(this);
+        this.recipeManager = new RecipeManager();
+        this.spawnManager = new SpawnManager();
+        this.warpManager = new WarpManager(this);
+        this.rankManager = new RankManager(this);
+        this.commandManager = new CommandManager(this);
         this.settingsManager = new SettingsManager();
+        Utils.sendConsole("&8[&aSurvival&8] &eManagers loaded");
     }
 
     public void loadConfigs() {
@@ -156,7 +156,7 @@ public final class Survival extends JavaPlugin {
 
         new HelpCommand();
         new SeedCommand();
-        new SettingsMenuCommand();
+        new SettingsCommand();
 
         new DropItemsCommand();
         new GetPlayerInformationCommand();

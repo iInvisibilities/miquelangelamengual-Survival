@@ -1,4 +1,4 @@
-package es.hulk.survival.command.kill;
+package es.hulk.survival.command.essential;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
