@@ -107,7 +107,7 @@ public final class Survival extends JavaPlugin {
 
 
     public void loadScoreboard() {
-        if (mainConfig.getBoolean("SCOREBOARD.ENABLED")) {
+        if (scoreboardConfig.getBoolean("SCOREBOARD.ENABLED")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
