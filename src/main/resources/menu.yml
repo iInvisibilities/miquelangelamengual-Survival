@@ -1,17 +1,88 @@
 SETTINGS_MENU:
-  DISPLAYNAME: "&cNombre"
-  SIZE: 27
+  DISPLAYNAME: "Menu de Ajustes"
+  SIZE: 45
   ITEMS:
-    FIRST_ITEM:
-      DISPLAYNAME: "Displayname"
-      MATERIAL: RED_WOOL
+    TOGGLE_FLY:
+      DISPLAYNAME: "Toggle Fly"
+      MATERIAL: PAPER
       DATA: 0
-      LORE:
-        - "Lore"
-      SLOT: 0
-      ACTION: HELLO_WORLD
-
-LOCATION_MENU:
-  NAME: "name"
-  SIZE: 36
-  WARPS:
+      LORE: {}
+      SLOT: 10
+      ACTION: TOGGLEFLY
+    TP_TO_BED:
+      DISPLAYNAME: "&ATp a tu cama"
+      MATERIAL: RED_BED
+      DATA: 0
+      LORE: {}
+      SLOT: 11
+      ACTION: TP_TO_BED
+    SEED:
+      DISPLAYNAME: "&ASeed del mundo"
+      MATERIAL: GRASS_BLOCK
+      DATA: 0
+      LORE: {}
+      SLOT: 12
+      ACTION: SEED_COMMAND
+    ENDER_CHEST:
+      DISPLAYNAME: "&aTe permite abrir el enderchest"
+      MATERIAL: ENDER_CHEST
+      DATA: 0
+      LORE: {}
+      SLOT: 14
+      ACTION: OPEN_ENDERCHEST
+    BEDCOORDS_COMMAND:
+      DISPLAYNAME: "&aTe dice las coords de tu cama"
+      MATERIAL: WHITE_BED
+      DATA: 0
+      LORE: {}
+      SLOT: 15
+      ACTION: BEDCOORDS_COMMAND
+    COORDS_COMMAND:
+      DISPLAYNAME: "&aTe dice tus coords actuales"
+      MATERIAL: MAP
+      DATA: 0
+      LORE: {}
+      SLOT: 16
+      ACTION: COORDS_COMMAND
+    PLAYTIME:
+      DISPLAYNAME: "&aPlaytime comando"
+      MATERIAL: CLOCK
+      DATA: 0
+      LORE: {}
+      SLOT: 28
+      ACTION: PLAYIME_COMMAND
+    SUICIDE:
+      DISPLAYNAME: "&ASuicide"
+      MATERIAL: BONE
+      DATA: 0
+      LORE: {}
+      SLOT: 29
+      ACTION: SUICIDE_COMMAND
+    PING:
+      DISPLAYNAME: "&APing"
+      MATERIAL: HOPPER
+      DATA: 0
+      LORE: {}
+      SLOT: 30
+      ACTION: PING_COMMAND
+    DISCORD:
+      DISPLAYNAME: "&aDiscord"
+      MATERIAL: NAME_TAG
+      DATA: 0
+      LORE: {}
+      SLOT: 32
+      ACTION: DISCORD_COMMAND
+    SPAWN:
+      DISPLAYNAME: "&aSpawnchunks"
+      MATERIAL: STONE
+      DATA: 0
+      LORE: {}
+      SLOT: 33
+      ACTION: SPAWN_COMMAND
+    HELP_COMMAND:
+      DISPLAYNAME: "&aPor si necesitas ayuda"
+      MATERIAL: ENCHANTED_BOOK
+      DATA: 0
+      LORE: {}
+      SLOT: 34
+      ACTION: HELP_COMMAND
