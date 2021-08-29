@@ -2,6 +2,7 @@ package es.hulk.survival.command.essential;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -18,7 +19,7 @@ public class FlyCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
-        if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 720000) {
+        if (PlayerUtils.getPlayerStatistic(player, Statistic.PLAY_ONE_MINUTE) >= 720000) {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);
                 player.setFlying(true);

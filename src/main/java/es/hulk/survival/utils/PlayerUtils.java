@@ -30,4 +30,8 @@ public class PlayerUtils {
         return Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getMaxPlayers();
     }
 
+    public static int getPlayerStatistic(Player player, Statistic statistic) {
+        return player.getStatistic(statistic);
+    }
+
 }
