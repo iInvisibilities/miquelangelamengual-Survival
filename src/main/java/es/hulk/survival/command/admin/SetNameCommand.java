@@ -9,11 +9,14 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.awt.*;
+
 public class SetNameCommand extends BaseCommand {
 
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     @Command(name = "setname", permission = "survival.command.setname")
 
+    @Deprecated
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
@@ -35,6 +38,7 @@ public class SetNameCommand extends BaseCommand {
             if (args[0].equalsIgnoreCase("reset")) {
                 player.setDisplayName(player.getName());
                 player.setPlayerListName(player.getName());
+                Utils.changeName(player.getName(), player);
                 player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.RESET")));
                 return;
             }
@@ -45,19 +49,20 @@ public class SetNameCommand extends BaseCommand {
         }
 
         if (args.length > 0) {
-            Player name = Bukkit.getPlayer(args[1]);
+            Player target = Bukkit.getPlayer(args[1]);
 
             if (args[0].equalsIgnoreCase("reset")) {
 
-                if (name == null) {
+                if (target == null) {
                     player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.ERROR").replace("<player>", args[1])));
                     return;
                 }
 
-                name.setDisplayName(name.getName());
-                name.setPlayerListName(name.getName());
+                target.setDisplayName(target.getName());
+                target.setPlayerListName(target.getName());
+                Utils.changeName(target.getName(), target);
                 player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.RESET-OTHER")
-                        .replace("<target>", name.getName())));
+                        .replace("<target>", target.getName())));
                 return;
             }
         }
@@ -72,6 +77,7 @@ public class SetNameCommand extends BaseCommand {
 
             target.setDisplayName(args[1]);
             target.setPlayerListName(args[1]);
+            Utils.changeName(args[1], target);
             player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.OTHER").replace("<target>", target.getName()).replace("<name>", args[1])));
         }
     }

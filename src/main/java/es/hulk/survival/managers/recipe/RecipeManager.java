@@ -14,7 +14,6 @@ import es.hulk.survival.managers.recipe.recipes.ultimate.armor.UltimateBoots;
 import es.hulk.survival.managers.recipe.recipes.ultimate.armor.UltimateChestplate;
 import es.hulk.survival.managers.recipe.recipes.ultimate.armor.UltimateHelmet;
 import es.hulk.survival.managers.recipe.recipes.ultimate.armor.UltimateLeggings;
-import es.hulk.survival.managers.recipe.smithingtable.Bedrock;
 import es.hulk.survival.managers.recipe.smithingtable.EnchantedGoldenApple;
 import es.hulk.survival.managers.recipe.smithingtable.NameTag;
 
@@ -76,7 +75,6 @@ public class RecipeManager {
     }
 
     public void loadSmithingRecipes() {
-        Bedrock.recipe();
         EnchantedGoldenApple.recipe();
         NameTag.recipe();
     }
