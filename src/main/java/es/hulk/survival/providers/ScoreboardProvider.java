@@ -3,12 +3,14 @@ package es.hulk.survival.providers;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
+import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ScoreboardProvider implements ScoreboardAdapter {
@@ -32,7 +34,8 @@ public class ScoreboardProvider implements ScoreboardAdapter {
                     .replaceAll("<deaths>", String.valueOf(PlayerUtils.getPlayerDeaths(player)))
                     .replaceAll("<playtime>", PlayerUtils.getPlayTime(player))
                     .replaceAll("<mobKills>", String.valueOf(PlayerUtils.getMobKills(player)))
-                    .replaceAll("<players>", PlayerUtils.getOnlinePlayers()));
+                    .replaceAll("<players>", PlayerUtils.getOnlinePlayers())
+                    .replaceAll("<tps>", Arrays.toString(TPSUtil.getRecentTps())));
         }
 
         return lines;
