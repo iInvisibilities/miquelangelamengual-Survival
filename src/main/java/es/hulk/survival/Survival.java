@@ -22,6 +22,7 @@ import es.hulk.survival.managers.recipe.RecipeManager;
 import es.hulk.survival.managers.warp.WarpManager;
 import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
@@ -55,6 +56,9 @@ public final class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RecipeManager recipeManager;
     private SettingsManager settingsManager;
+    private TPSUtil tpsUtil;
+
+    private boolean PlaceholderAPI;
 
     @Override
     public void onEnable() {
@@ -92,6 +96,7 @@ public final class Survival extends JavaPlugin {
         this.rankManager = new RankManager(this);
         this.commandManager = new CommandManager(this);
         this.settingsManager = new SettingsManager();
+        this.tpsUtil = new TPSUtil(this);
         Utils.sendConsole("&8[&aSurvival&8] &eManagers loaded");
     }
 

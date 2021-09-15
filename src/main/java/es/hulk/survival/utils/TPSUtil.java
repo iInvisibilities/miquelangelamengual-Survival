@@ -1,38 +1,47 @@
 package es.hulk.survival.utils;
 
 import es.hulk.survival.Survival;
-import org.bukkit.Bukkit;
-import org.bukkit.Server;
+import org.bukkit.scheduler.BukkitRunnable;
 
-import java.lang.reflect.Field;
+import java.util.ArrayDeque;
+import java.util.Collections;
+import java.util.Deque;
 
-public class TPSUtil {
+public class TPSUtil extends BukkitRunnable {
 
-    private static Object minecraftServer;
-    private static Field recentTps;
+    private long lastTick;
+    private Deque<Long> tickIntervals;
+    int resolution = 40;
 
-    public static double[] getRecentTps() {
-        try {
-            Survival.get().getLogger().info("Using reflection-based recentTps");
-            return getRecentTpsRefl();
-        } catch (Throwable throwable) {
-            return new double[]{20, 20, 20};
-        }
+    public TPSUtil(Survival plugin) {
+        lastTick = System.currentTimeMillis();
+        tickIntervals = new ArrayDeque<>(Collections.nCopies(resolution, 50L));
+        this.runTaskTimer(plugin, 1, 1);
     }
 
+    @Override
+    public void run() {
+        long curr = System.currentTimeMillis();
+        long delta = curr - lastTick;
+        lastTick = curr;
+        tickIntervals.removeFirst();
+        tickIntervals.addLast(delta);
+    }
 
-    private static double[] getRecentTpsRefl() throws Throwable {
-        if (minecraftServer == null) {
-            Server server = Bukkit.getServer();
-            Field consoleField = server.getClass().getDeclaredField("console");
-            consoleField.setAccessible(true);
-            minecraftServer = consoleField.get(server);
+    public double getTPS() {
+        int base = 0;
+        for (long delta : tickIntervals) {
+            base += delta;
         }
-        if (recentTps == null) {
-            recentTps = minecraftServer.getClass().getSuperclass().getDeclaredField("recentTps");
-            recentTps.setAccessible(true);
+        return 1000D / ((double) base / resolution);
+    }
+
+    public double getRoundedTPS() {
+        if (getTPS() <= 20) {
+            return getTPS();
+        } else {
+            return 20;
         }
-        return (double[]) recentTps.get(minecraftServer);
     }
 
 }
