@@ -34,7 +34,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
                     .replaceAll("<ping>", String.valueOf(player.getPing()))
                     .replaceAll("<playerkills>", String.valueOf(PlayerUtils.getPlayerKills(player)))
                     .replaceAll("<deaths>", String.valueOf(PlayerUtils.getPlayerDeaths(player)))
-                    .replaceAll("<playtime>", PlayerUtils.getPlayTime(player))
+                    .replaceAll("<playtime>", PlayerUtils.getScoreboardPlayTime(player))
                     .replaceAll("<mobkills>", String.valueOf(PlayerUtils.getMobKills(player)))
                     .replaceAll("<players>", PlayerUtils.getOnlinePlayers())
                     .replaceAll("<tps>", String.valueOf(TPS)));

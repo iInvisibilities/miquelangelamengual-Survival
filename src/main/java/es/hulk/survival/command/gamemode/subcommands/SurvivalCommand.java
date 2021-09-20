@@ -19,7 +19,7 @@ public class SurvivalCommand extends BaseCommand {
             player.setGameMode(GameMode.SURVIVAL);
             player.sendMessage(Utils.color("&aYou are being putted into Survival Mode"));
         } else {
-            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
         }
     }
 

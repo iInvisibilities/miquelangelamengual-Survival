@@ -7,6 +7,10 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+
 public class SeedCommand extends BaseCommand {
 
     @Command(name = "semilla")
@@ -17,6 +21,11 @@ public class SeedCommand extends BaseCommand {
 
         String seed = String.valueOf(Bukkit.getWorlds().get(0).getSeed());
 
-        player.sendMessage(Utils.color(Utils.PREFIX + "&aLa seed del juego es &e" + seed));
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Clipboard clipboard = toolkit.getSystemClipboard();
+        StringSelection strSel = new StringSelection(seed);
+        clipboard.setContents(strSel, null);
+
+        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aLa seed del juego es &e" + seed));
     }
 }

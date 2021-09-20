@@ -29,6 +29,6 @@ public class TeleportCommand extends BaseCommand {
         }
 
         player.teleport(target.getLocation());
-        player.sendMessage(Utils.color(Utils.PREFIX + "&aTe has teletransportado a &e" + target.getDisplayName()));
+        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &e" + target.getDisplayName()));
     }
 }

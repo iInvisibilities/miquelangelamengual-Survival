@@ -1,6 +1,7 @@
 package es.hulk.survival.utils;
 
 import com.mojang.authlib.GameProfile;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -13,8 +14,8 @@ import java.util.stream.Collectors;
 
 public class Utils {
 
-    public static String LINE = Utils.color("&7&m----------------------------------------");
-    public static String PREFIX = Utils.color("&7[&aSurvival&7] ");
+    @Getter private static String LINE = Utils.color("&7&m----------------------------------------");
+    @Getter private static String PREFIX = Utils.color("&7[&aSurvival&7] ");
 
     public static void sendConsole(String message) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', message));

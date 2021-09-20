@@ -37,7 +37,7 @@ public class EnderChestCommand extends BaseCommand {
                 player.openInventory(player.getEnderChest());
             }
         } else {
-            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 15h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 15h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
         }
     }
 }

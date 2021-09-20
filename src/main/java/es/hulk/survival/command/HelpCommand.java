@@ -13,7 +13,7 @@ public class HelpCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
 
-        sender.sendMessage(Utils.LINE);
+        sender.sendMessage(Utils.getLINE());
         sender.sendMessage(Utils.color("&aSurvival Help"));
         sender.sendMessage(Utils.color(""));
         sender.sendMessage(Utils.color("&a/ping [player]&7- &fPuedes ver tu ping o el de los demas."));
@@ -43,6 +43,6 @@ public class HelpCommand extends BaseCommand {
             sender.sendMessage(Utils.color("&a/defora &7- &fKicka a todo el servidor"));
             sender.sendMessage(Utils.color(""));
         }
-        sender.sendMessage(Utils.LINE);
+        sender.sendMessage(Utils.getLINE());
     }
 }

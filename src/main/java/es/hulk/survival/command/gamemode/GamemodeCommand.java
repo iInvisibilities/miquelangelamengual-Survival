@@ -33,13 +33,13 @@ public class GamemodeCommand extends BaseCommand {
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("camera")) {
                     player.setGameMode(GameMode.SPECTATOR);
-                    player.sendMessage(Utils.color(Utils.PREFIX + "&aYou are being putted into Camera Mode"));
+                    player.sendMessage(Utils.color(Utils.getPREFIX() + "&aYou are being putted into Camera Mode"));
                     return;
                 }
 
                 if (args[0].equalsIgnoreCase("survival")) {
                     player.setGameMode(GameMode.SURVIVAL);
-                    player.sendMessage(Utils.color(Utils.PREFIX + "&aYou are being putted into Survival Mode"));
+                    player.sendMessage(Utils.color(Utils.getPREFIX() + "&aYou are being putted into Survival Mode"));
                     return;
                 }
 
@@ -50,16 +50,16 @@ public class GamemodeCommand extends BaseCommand {
                 }
             }
         } else {
-            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
         }
     }
 
     public void getUsage(CommandSender commandSender) {
-        commandSender.sendMessage(Utils.LINE);
+        commandSender.sendMessage(Utils.getLINE());
         commandSender.sendMessage(Utils.color("&e/mode <survivalm/camera> &7- &fits put you in the mode u want"));
         commandSender.sendMessage(Utils.color("&e/cameram &7- &fPuts the player into spectator mode (can use /cm)"));
         commandSender.sendMessage(Utils.color("&e/survivalm &7- &fPuts the player into survival mode (can use /sm)"));
-        commandSender.sendMessage(Utils.LINE);
+        commandSender.sendMessage(Utils.getLINE());
 
     }
 

@@ -19,7 +19,7 @@ public class CameraCommand extends BaseCommand {
             player.setGameMode(GameMode.SPECTATOR);
             player.sendMessage(Utils.color("&aYou are being putted into Camera Mode"));
         } else {
-            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 30h dentro del servidor &7(Usa el comando /playtime para ver el tiempo que llevas jugado)"));
         }
     }
 }

@@ -29,11 +29,9 @@ public class TeleportCoordsCommand extends BaseCommand {
             return;
         }
 
-        if (args.length == 3) {
-            Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
-            player.teleport(location);
-            player.sendMessage(Utils.color(Utils.PREFIX + "&aTe has teletransportado a &ex: " + args[0] + " y: " + args[1] + " z: " + args[2]));
-        }
+        Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
+        player.teleport(location);
+        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &ex: " + args[0] + " y: " + args[1] + " z: " + args[2]));
 
     }
 }

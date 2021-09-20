@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 
 public class TeleportHereCommand extends BaseCommand {
 
-    private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     @Command(name = "teleporthere", aliases = {"tphere", "s"})
     @Override
     public void onCommand(CommandArgs command) {
@@ -31,7 +30,7 @@ public class TeleportHereCommand extends BaseCommand {
         }
 
         target.teleport(player.getLocation());
-        player.sendMessage(Utils.color(Utils.PREFIX + "&aHas teletransportado a &e" + target.getDisplayName() + " &aa tu posicion."));
-        target.sendMessage(Utils.color(Utils.PREFIX + "&aHas sido teletransportado a &e" + player.getDisplayName()) + "&a.");
+        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aHas teletransportado a &e" + target.getDisplayName() + " &aa tu posicion."));
+        target.sendMessage(Utils.color(Utils.getPREFIX() + "&aHas sido teletransportado a &e" + player.getDisplayName()) + "&a.");
     }
 }

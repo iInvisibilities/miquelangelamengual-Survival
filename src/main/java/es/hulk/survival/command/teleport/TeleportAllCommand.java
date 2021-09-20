@@ -17,6 +17,6 @@ public class TeleportAllCommand extends BaseCommand {
             online.teleport(player.getLocation());
         }
 
-        player.sendMessage(Utils.color(Utils.PREFIX + "&aHabeis sido teletransportado a la localizacion de &e" + player.getDisplayName()));
+        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aHabeis sido teletransportado a la localizacion de &e" + player.getDisplayName()));
     }
 }

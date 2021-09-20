@@ -1,5 +1,6 @@
 package es.hulk.survival.command.essential;
 
+import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -19,33 +20,17 @@ public class PlayTimeCommand extends BaseCommand {
 
         if (args.length == 0) {
 
-            long ticks = player.getStatistic(Statistic.PLAY_ONE_MINUTE);
-
-            long hour = ((ticks / 20) / 60) / 60;
-            long minute = ticks / 1200 - hour * 60;
-
-            long fakeminute = ticks / 1200;
-            long seconds = ticks / 20 - fakeminute * 60;
-
-            player.sendMessage(Utils.color(Utils.PREFIX + "&aHas jugado un total de &e" + hour + ":" + minute + ":" + seconds + " &adentro del Servidor."));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aHas jugado un total de &e" + PlayerUtils.getPlayTime(player) + " &adentro del Servidor."));
         }
 
         if (args.length > 0) {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                player.sendMessage("Not Found");
+                player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl jugador &4" + target.getName() + " &cno se ha encontrado."));
             }
 
-            long ticks = target.getStatistic(Statistic.PLAY_ONE_MINUTE);
-
-            long hour = ((ticks / 20) / 60) / 60;
-            long minute = ticks / 1200 - hour * 60;
-
-            long fakeminute = ticks / 1200;
-            long seconds = ticks / 20 - fakeminute * 60;
-
-            player.sendMessage(Utils.color(Utils.PREFIX + "&aEl Jugador &e" + target.getDisplayName() + " &aha jugado un total de &e" + hour + ":" + minute + ":" + seconds + " &adentro del Servidor."));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aEl Jugador &e" + target.getDisplayName() + " &aha jugado un total de &e" + PlayerUtils.getPlayTime(target) + " &adentro del Servidor."));
         }
     }
 }

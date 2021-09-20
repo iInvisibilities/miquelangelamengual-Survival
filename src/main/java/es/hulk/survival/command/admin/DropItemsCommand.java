@@ -25,7 +25,7 @@ public class DropItemsCommand extends BaseCommand {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                player.sendMessage(Utils.color(Utils.PREFIX + "&cEl Jugador " + args[0] + " no esta en linea o no existe."));
+                player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl Jugador " + args[0] + " no esta en linea o no existe."));
                 return;
             }
 
@@ -38,7 +38,7 @@ public class DropItemsCommand extends BaseCommand {
                 }
             }
 
-            player.sendMessage(Utils.color(Utils.PREFIX + "&aLos items del jugador &e" + target.getDisplayName() + " &ahan sido dropeados."));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aLos items del jugador &e" + target.getDisplayName() + " &ahan sido dropeados."));
         }
     }
 }

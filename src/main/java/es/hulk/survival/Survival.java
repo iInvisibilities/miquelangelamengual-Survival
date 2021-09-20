@@ -39,7 +39,7 @@ import java.util.Objects;
 
 @Setter
 @Getter
-public final class Survival extends JavaPlugin {
+public class Survival extends JavaPlugin {
 
     private FileConfig mainConfig;
     private FileConfig locationsConfig;

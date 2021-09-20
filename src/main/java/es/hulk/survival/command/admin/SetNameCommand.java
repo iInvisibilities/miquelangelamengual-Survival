@@ -23,7 +23,7 @@ public class SetNameCommand extends BaseCommand {
         String[] args = command.getArgs();
 
         if (args.length == 0) {
-            player.sendMessage(Utils.LINE);
+            player.sendMessage(Utils.getLINE());
             player.sendMessage(Utils.color("&aSetName Help"));
             player.sendMessage(Utils.color(""));
             player.sendMessage(Utils.color("&a/setname <player> <name> &7- &fSets the name for a player"));
@@ -31,7 +31,7 @@ public class SetNameCommand extends BaseCommand {
             player.sendMessage(Utils.color("&a/setname reset [player] &7- &fResets to the default name"));
             player.sendMessage(Utils.color(""));
             player.sendMessage(Utils.color("[player] es opcional "));
-            player.sendMessage(Utils.LINE);
+            player.sendMessage(Utils.getLINE());
         }
 
         if (args.length == 1) {

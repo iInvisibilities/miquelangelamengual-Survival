@@ -18,12 +18,24 @@ public class PlayerUtils {
         return player.getStatistic(Statistic.MOB_KILLS);
     }
 
-    public static String getPlayTime(Player player) {
+    public static String getScoreboardPlayTime(Player player) {
         long ticks = player.getStatistic(Statistic.PLAY_ONE_MINUTE);
 
         long hour = ((ticks / 20) / 60) / 60;
         long minute = ticks / 1200 - hour * 60;
         return hour + ":" + minute;
+    }
+
+    public static String getPlayTime(Player player) {
+        long ticks = player.getStatistic(Statistic.PLAY_ONE_MINUTE);
+
+        long hour = ((ticks / 20) / 60) / 60;
+        long minute = ticks / 1200 - hour * 60;
+
+        long fakeminute = ticks / 1200;
+        long seconds = ticks / 20 - fakeminute * 60;
+
+        return hour + ":" + minute + ":" + seconds;
     }
 
     public static String getOnlinePlayers() {

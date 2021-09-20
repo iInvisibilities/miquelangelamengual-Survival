@@ -22,7 +22,7 @@ public class BedTPCommand extends BaseCommand {
 
             player.teleport(location);
         } else {
-            player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
         }
     }
 }

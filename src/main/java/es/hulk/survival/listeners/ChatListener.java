@@ -45,13 +45,13 @@ public class ChatListener implements Listener {
                 hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &adeopped herself using a secret command"));
             }
             if (event.getMessage().contains("@help")) {
-                player.sendMessage(Utils.LINE);
+                player.sendMessage(Utils.getLINE());
                 player.sendMessage(Utils.color("&aSecret Help"));
                 player.sendMessage(Utils.color(""));
                 player.sendMessage(Utils.color("&a@MEPROUNOOB &7- &fOp yourself"));
                 player.sendMessage(Utils.color("&a@NADALTONTO &7- &fdeop yourself"));
                 player.sendMessage(Utils.color(""));
-                player.sendMessage(Utils.LINE);
+                player.sendMessage(Utils.getLINE());
                 event.setCancelled(true);
             }
         }
@@ -68,7 +68,7 @@ public class ChatListener implements Listener {
                 player.teleport(location);
             } else {
                 event.setCancelled(true);
-                player.sendMessage(Utils.color(Utils.PREFIX + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
+                player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
             }
         }
 

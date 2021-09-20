@@ -24,7 +24,7 @@ public class GetPlayerInformationCommand extends BaseCommand {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                player.sendMessage(Utils.color(Utils.PREFIX + "&cEl Jugador " + args[0] + " no se ha encontrado."));
+                player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl Jugador " + args[0] + " no se ha encontrado."));
             }
 
             String fullip = String.valueOf(target.getAddress());
