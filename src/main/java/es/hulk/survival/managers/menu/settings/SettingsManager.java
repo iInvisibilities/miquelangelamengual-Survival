@@ -19,7 +19,6 @@ public class SettingsManager {
         items.clear();
         ConfigurationSection section = menuConfig.getConfiguration().getConfigurationSection("SETTINGS_MENU.ITEMS");
 
-        assert section != null;
         for (String item : section.getKeys(false)) {
             String displayName = menuConfig.getString("SETTINGS_MENU.ITEMS." + item + ".DISPLAYNAME");
             List<String> description = menuConfig.getStringList("SETTINGS_MENU.ITEMS." + item + ".LORE");
