@@ -24,5 +24,4 @@ public class UUIDs {
         return UUID.fromString("e05a1ef2-95cc-48eb-b847-18ab10048e91");
     }
 
-
 }

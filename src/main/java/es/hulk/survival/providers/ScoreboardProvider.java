@@ -7,6 +7,7 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import org.bukkit.Bukkit;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -25,20 +26,11 @@ public class ScoreboardProvider implements ScoreboardAdapter {
     public List<String> getLines(Player player) {
         List<String> lines = new ArrayList<>();
 
-        float FLOAT_TPS = (float) Survival.get().getTpsUtil().getRoundedTPS();
-        int TPS = (int) FLOAT_TPS;
-
-        for (String string : scoreboard.getStringList("SCOREBOARD.LINES")) {
-            lines.add(string
-                    .replaceAll("<displayname>", player.getDisplayName())
-                    .replaceAll("<ping>", String.valueOf(player.getPing()))
-                    .replaceAll("<playerkills>", String.valueOf(PlayerUtils.getPlayerKills(player)))
-                    .replaceAll("<deaths>", String.valueOf(PlayerUtils.getPlayerDeaths(player)))
-                    .replaceAll("<playtime>", PlayerUtils.getScoreboardPlayTime(player))
-                    .replaceAll("<mobkills>", String.valueOf(PlayerUtils.getMobKills(player)))
-                    .replaceAll("<players>", PlayerUtils.getOnlinePlayers())
-                    .replaceAll("<tps>", String.valueOf(TPS)));
+        lines.add("");
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            lines.add(online.getName() + ": " + online.getStatistic(Statistic.DEATHS));
         }
+        lines.add("");
 
         return lines;
     }

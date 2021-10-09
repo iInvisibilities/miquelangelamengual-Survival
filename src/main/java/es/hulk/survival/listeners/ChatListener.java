@@ -29,8 +29,8 @@ public class ChatListener implements Listener {
             event.setFormat(Utils.color(mainConfig.getString("CHAT.FORMAT")
                     .replaceAll("<rank-suffix>", rankManager.getRank().getSuffix(player))
                     .replaceAll("<rank-prefix>", rankManager.getRank().getPrefix(player))
-                    .replaceAll("%player%", player.getDisplayName())
-                    .replace("%message%", "%2$s")));
+                    .replaceAll("<player>", player.getDisplayName())
+                    .replace("<message>", "%2$s")));
         }
 
         if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {

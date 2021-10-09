@@ -2,6 +2,7 @@ package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -18,6 +19,16 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+
+        if (mainConfig.getBoolean("SEAL-KICK")) {
+            if (player.getUniqueId().equals(UUIDs.nadalUUID())) {
+                player.kickPlayer(Utils.color(
+                        "&cYou are not allowed to join this server! " +
+                        "\n " +
+                        "\nBecause you are a fucking retarded i dont want u in this server\n" +
+                        "Have fun and go cry retard"));
+            }
+        }
 
         event.setJoinMessage(Utils.color(messagesConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
 

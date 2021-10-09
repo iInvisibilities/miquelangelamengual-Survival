@@ -17,10 +17,12 @@ JOIN-MESSAGE:
 
 CHAT:
   ENABLED: true
-  FORMAT: "<rank-prefix>%player% &8» &r%message%"
+  FORMAT: "<rank-prefix><player> &8» &r<message>"
 
 BOOLEANS:
   TAB: true
+
+SEAL-KICK: true
 
 ENTITIES:
   POPPY-DROP: false
