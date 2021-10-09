@@ -83,7 +83,6 @@ public class SettingsButton extends Button {
 
         if (settings.getAction().equals("HELP_COMMAND")) {
             player.performCommand("help");
-            return;
         }
     }
 }
