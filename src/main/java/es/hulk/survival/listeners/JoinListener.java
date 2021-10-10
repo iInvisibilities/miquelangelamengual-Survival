@@ -1,6 +1,7 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.managers.TablistHandler;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
@@ -10,6 +11,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class JoinListener implements Listener {
 
@@ -39,8 +43,11 @@ public class JoinListener implements Listener {
         }
 
         if (mainConfig.getBoolean("BOOLEANS.TAB")) {
-            player.setPlayerListHeader(Utils.color(messagesConfig.getString("TAB.HEADER").replace("<nl>", "\n")));
-            player.setPlayerListFooter(Utils.color(messagesConfig.getString("TAB.FOOTER").replace("<nl>", "\n")));
+
+            List<String> header = new ArrayList<>(messagesConfig.getStringList("TABLIST.HEADER"));
+            List<String> footer = new ArrayList<>(messagesConfig.getStringList("TABLIST.FOOTER"));
+
+            TablistHandler.updateHeaderAndFooter(player, header, footer);
         }
 
         if (!player.hasPlayedBefore()) {

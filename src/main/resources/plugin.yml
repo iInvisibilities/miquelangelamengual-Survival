@@ -1,5 +1,5 @@
 name: Survival
 version: ${project.version}
 main: es.hulk.survival.Survival
-depend: [LuckPerms]
-api-version: 1.16
+depend: [LuckPerms, ProtocolLib]
+api-version: 1.17
