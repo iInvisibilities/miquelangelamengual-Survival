@@ -15,24 +15,24 @@ import java.util.List;
 
 public class ScoreboardProvider implements ScoreboardAdapter {
 
-    private final FileConfig scoreboard = Survival.get().getScoreboardConfig();
-
     @Override
     public String getTitle(Player player) {
-        return Utils.color(scoreboard.getString("SCOREBOARD.TITLE"));
+        return Utils.color("&aEstadisticas");
     }
 
     @Override
     public List<String> getLines(Player player) {
         List<String> lines = new ArrayList<>();
-
         lines.add("");
         for (Player online : Bukkit.getOnlinePlayers()) {
-            lines.add(online.getName() + ": " + online.getStatistic(Statistic.DEATHS));
+            lines.add("&b" + online.getName());
+            lines.add(" &7* &aAsesinatos&7: &e" + online.getStatistic(Statistic.MOB_KILLS));
+            lines.add(" &7* &aMuertes&7: &e" + online.getStatistic(Statistic.DEATHS));
+            lines.add("");
         }
-        lines.add("");
+        lines.add("&7frostpvp.net");
 
-        return lines;
+        return Utils.translate(lines);
     }
 
     @Override

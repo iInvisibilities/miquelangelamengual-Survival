@@ -21,6 +21,7 @@ CHAT:
 
 BOOLEANS:
   TAB: true
+  SCOREBOARD: true
 
 SEAL-KICK: true
 

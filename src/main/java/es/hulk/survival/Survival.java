@@ -47,7 +47,6 @@ public class Survival extends JavaPlugin {
     private FileConfig messagesConfig;
     private FileConfig menuConfig;
     private FileConfig serverConfig;
-    private FileConfig scoreboardConfig;
 
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
@@ -106,13 +105,12 @@ public class Survival extends JavaPlugin {
         this.spawnConfig = new FileConfig(this, "spawn.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
         this.menuConfig = new FileConfig(this, "menu.yml");
-        this.scoreboardConfig = new FileConfig(this, "scoreboard.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
 
     public void loadScoreboard() {
-        if (scoreboardConfig.getBoolean("SCOREBOARD.ENABLED")) {
+        if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
