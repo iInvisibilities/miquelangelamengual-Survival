@@ -97,8 +97,8 @@ public class Survival extends JavaPlugin {
 
     public void loadConfigs() {
         this.locationsConfig = new FileConfig(this, "data/locations.yml");
-        this.mainConfig = new FileConfig(this, "settings.yml");
         this.spawnConfig = new FileConfig(this, "data/spawn.yml");
+        this.mainConfig = new FileConfig(this, "settings.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
