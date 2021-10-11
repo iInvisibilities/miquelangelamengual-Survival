@@ -177,14 +177,14 @@ public class SettingsMenu extends Menu {
         buttons.put(33, new Button() {
             @Override
             public ItemStack getButtonItem(Player p0) {
-                return new ItemBuilder(Material.NAME_TAG)
-                        .data(0).name("&aTe manda la invitacion del discord")
+                return new ItemBuilder(Material.STONE)
+                        .data(0).name("&aTe manda al spawn del servidor")
                         .build();
             }
 
             @Override
             public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
-                player.performCommand("discord");
+                player.performCommand("spawn");
             }
         });
 
