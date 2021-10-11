@@ -16,7 +16,7 @@ public class DiamondBoots {
         ItemStack item = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Boots"));
+        meta.setDisplayName(Utils.color("&bDiamond Boots"));
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);

@@ -16,7 +16,7 @@ public class DiamondShovel {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_SHOVEL);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Shovel"));
+        meta.setDisplayName(Utils.color("&bDiamond Shovel"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);

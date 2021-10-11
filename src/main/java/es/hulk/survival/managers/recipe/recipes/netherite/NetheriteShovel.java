@@ -16,7 +16,7 @@ public class NetheriteShovel {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_SHOVEL);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Shovel"));
+        meta.setDisplayName(Utils.color("&dNetherite Shovel"));
         meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 

@@ -16,7 +16,7 @@ public class DiamondSword {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Sword"));
+        meta.setDisplayName(Utils.color("&bDiamond Sword"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);

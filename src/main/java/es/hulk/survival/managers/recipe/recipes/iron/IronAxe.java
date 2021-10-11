@@ -16,7 +16,7 @@ public class IronAxe {
         ItemStack pickaxe = new ItemStack(Material.IRON_AXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aIron Enchanted Axe"));
+        meta.setDisplayName(Utils.color("&fIron Axe"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 4);

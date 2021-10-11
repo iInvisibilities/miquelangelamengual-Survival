@@ -18,7 +18,7 @@ public class DiamondPickaxe {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Pickaxe"));
+        meta.setDisplayName(Utils.color("&bDiamond Pickaxe"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);

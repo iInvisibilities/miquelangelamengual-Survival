@@ -16,7 +16,7 @@ public class IronSword {
         ItemStack pickaxe = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aIron Enchanted Sword"));
+        meta.setDisplayName(Utils.color("&fIron Sword"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);

@@ -16,7 +16,7 @@ public class NetheriteSilkPickaxe {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Silk Touch Pickaxe"));
+        meta.setDisplayName(Utils.color("&dNetherite Silk Touch Pickaxe"));
         meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 

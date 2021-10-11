@@ -16,7 +16,7 @@ public class DiamondHelmet {
         ItemStack item = new ItemStack(Material.DIAMOND_HELMET);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Helmet"));
+        meta.setDisplayName(Utils.color("&bDiamond Helmet"));
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);

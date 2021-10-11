@@ -16,7 +16,7 @@ public class NetheriteSword {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Sword"));
+        meta.setDisplayName(Utils.color("&dNetherite Sword"));
         meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 

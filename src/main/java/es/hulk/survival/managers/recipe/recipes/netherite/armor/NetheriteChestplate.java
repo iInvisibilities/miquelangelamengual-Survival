@@ -16,7 +16,7 @@ public class NetheriteChestplate {
         ItemStack item = new ItemStack(Material.NETHERITE_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Chestplate"));
+        meta.setDisplayName(Utils.color("&dNetherite Chestplate"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 

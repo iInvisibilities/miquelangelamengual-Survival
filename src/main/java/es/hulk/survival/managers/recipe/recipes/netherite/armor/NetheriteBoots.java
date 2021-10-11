@@ -16,7 +16,7 @@ public class NetheriteBoots {
         ItemStack item = new ItemStack(Material.NETHERITE_BOOTS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Boots"));
+        meta.setDisplayName(Utils.color("&dNetherite Boots"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 

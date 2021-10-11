@@ -16,7 +16,7 @@ public class NetheriteFortunePickaxe {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Fortune Pickaxe"));
+        meta.setDisplayName(Utils.color("&dNetherite Fortune Pickaxe"));
         meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 

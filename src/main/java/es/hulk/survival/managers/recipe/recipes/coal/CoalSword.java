@@ -16,7 +16,7 @@ public class CoalSword {
         ItemStack pickaxe = new ItemStack(Material.STONE_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&0Coal Sword"));
+        meta.setDisplayName(Utils.color("&7Coal Sword"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
@@ -25,7 +25,7 @@ public class CoalSword {
         NamespacedKey key = new NamespacedKey(Survival.get(), "coal_block_sword");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" D ", " D ", " I ");
-        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('D', Material.COAL_BLOCK);
         recipe.setIngredient('I', Material.STICK);
 
         Bukkit.addRecipe(recipe);

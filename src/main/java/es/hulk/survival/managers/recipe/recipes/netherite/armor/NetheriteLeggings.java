@@ -16,7 +16,7 @@ public class NetheriteLeggings {
         ItemStack item = new ItemStack(Material.NETHERITE_LEGGINGS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Leggings"));
+        meta.setDisplayName(Utils.color("&dNetherite Leggings"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 

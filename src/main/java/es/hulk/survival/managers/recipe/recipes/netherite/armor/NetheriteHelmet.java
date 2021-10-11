@@ -16,7 +16,7 @@ public class NetheriteHelmet {
         ItemStack item = new ItemStack(Material.NETHERITE_HELMET);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Helmet"));
+        meta.setDisplayName(Utils.color("&dNetherite Helmet"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 

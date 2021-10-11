@@ -16,7 +16,7 @@ public class DiamondLeggings {
         ItemStack item = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Leggings"));
+        meta.setDisplayName(Utils.color("&bDiamond Leggings"));
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);

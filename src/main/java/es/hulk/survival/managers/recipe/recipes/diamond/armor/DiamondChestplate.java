@@ -16,7 +16,7 @@ public class DiamondChestplate {
         ItemStack item = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Chestplate"));
+        meta.setDisplayName(Utils.color("&bDiamond Chestplate"));
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
