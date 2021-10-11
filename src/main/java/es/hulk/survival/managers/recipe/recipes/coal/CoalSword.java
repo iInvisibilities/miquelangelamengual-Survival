@@ -16,14 +16,13 @@ public class CoalSword {
         ItemStack pickaxe = new ItemStack(Material.STONE_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Sword"));
+        meta.setDisplayName(Utils.color("&0Coal Sword"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 5);
-        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 4);
+        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
+        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "diamond_block_sword");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "coal_block_sword");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" D ", " D ", " I ");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);

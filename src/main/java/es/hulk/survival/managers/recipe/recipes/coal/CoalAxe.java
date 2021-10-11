@@ -16,14 +16,13 @@ public class CoalAxe {
         ItemStack pickaxe = new ItemStack(Material.STONE_AXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Axe"));
+        meta.setDisplayName(Utils.color("&0Coal Axe"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 8);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 6);
-        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 3);
+        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "diamond_block_axe");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "coal_block_axe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" DD", " ID", " I ");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
