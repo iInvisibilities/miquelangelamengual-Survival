@@ -56,7 +56,7 @@ public class Survival extends JavaPlugin {
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
 
-    private boolean PlaceholderAPI;
+    private boolean isPlaceholderAPI;
 
     @Override
     public void onEnable() {
@@ -66,6 +66,10 @@ public class Survival extends JavaPlugin {
         getRankManager().loadRank();
         getRecipeManager().load();
         setGamerule();
+
+        if (Bukkit.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            isPlaceholderAPI = true;
+        }
 
         Utils.sendConsole("");
         Utils.sendConsole("&aSurvival - 1.17");
