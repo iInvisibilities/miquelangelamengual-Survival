@@ -19,7 +19,7 @@ public class FortuneSword {
         meta.setDisplayName(Utils.color("&aLooting Sword"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 20);
+        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 30);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "looting_sword");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);

@@ -19,7 +19,7 @@ public class KnockbackStick {
         meta.setDisplayName(Utils.color("&aKnockback Stick"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.KNOCKBACK, 100);
+        pickaxe.addUnsafeEnchantment(Enchantment.KNOCKBACK, 1000);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "knockback_stick");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);

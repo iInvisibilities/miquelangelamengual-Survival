@@ -16,17 +16,16 @@ public class UltimateBow {
         ItemStack pickaxe = new ItemStack(Material.BOW);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Bow"));
+        meta.setDisplayName(Utils.color("&9The Edshot Machine"));
+        meta.setUnbreakable(true);
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 80);
-        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 50);
-        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 50);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 30);
-        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 30);
-        pickaxe.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
+        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1000);
+        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 1000);
+        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 100);
+        pickaxe.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "ultimate_bow");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "THE_EDSHOT_MACHINE");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape("SSS", "MOM", "BBB");
         recipe.setIngredient('O', Material.BOW);

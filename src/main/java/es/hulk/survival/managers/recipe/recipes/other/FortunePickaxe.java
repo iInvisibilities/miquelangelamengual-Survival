@@ -19,7 +19,7 @@ public class FortunePickaxe {
         meta.setDisplayName(Utils.color("&aFortune Pickaxe"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 20);
+        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 30);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "fortune_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
