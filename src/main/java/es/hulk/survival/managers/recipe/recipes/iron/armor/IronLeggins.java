@@ -19,7 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class IronLeggins {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack item = new ItemStack(Material.IRON_LEGGINGS);
         ItemMeta meta = item.getItemMeta();
 

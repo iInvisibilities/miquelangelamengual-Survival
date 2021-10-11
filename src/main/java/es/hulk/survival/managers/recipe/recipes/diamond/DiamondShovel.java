@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class DiamondShovel {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_SHOVEL);
         ItemMeta meta = pickaxe.getItemMeta();
 

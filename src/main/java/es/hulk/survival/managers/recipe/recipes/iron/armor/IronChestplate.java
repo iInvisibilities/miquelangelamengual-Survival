@@ -19,8 +19,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class IronChestplate {
 
-    public static void recipe() {
-        ItemStack item = new ItemStack(Material.DIAMOND_CHESTPLATE);
+    public static void load() {
+        ItemStack item = new ItemStack(Material.IRON_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName(Utils.color("&fIron Chestplate"));
@@ -32,7 +32,7 @@ public class IronChestplate {
         NamespacedKey key = new NamespacedKey(Survival.get(), "IRON_BLOCK_CHESTPLATE");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
         recipe.shape("D D", "DDD", "DDD");
-        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('D', Material.IRON_BLOCK);
 
         Bukkit.addRecipe(recipe);
     }

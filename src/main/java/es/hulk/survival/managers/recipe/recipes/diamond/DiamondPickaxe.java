@@ -14,7 +14,7 @@ public class DiamondPickaxe {
 
     private static final Survival plugin = Survival.get();
 
-    public static void enchantedPickaxe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 

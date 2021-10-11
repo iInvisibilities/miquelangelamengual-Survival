@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class DiamondChestplate {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack item = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
