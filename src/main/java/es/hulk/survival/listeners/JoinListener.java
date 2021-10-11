@@ -1,6 +1,7 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
@@ -16,6 +17,7 @@ public class JoinListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
+    private Survival plugin = Survival.get();
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
@@ -25,9 +27,9 @@ public class JoinListener implements Listener {
             if (player.getUniqueId().equals(UUIDs.nadalUUID())) {
                 player.kickPlayer(Utils.color(
                         "&cYou are not allowed to join this server! " +
-                        "\n " +
-                        "\nBecause you are a fucking retarded i dont want u in this server\n" +
-                        "Have fun and go cry retard"));
+                                "\n " +
+                                "\nBecause you are a fucking retarded i dont want u in this server\n" +
+                                "Have fun and go cry retard"));
             }
         }
 
