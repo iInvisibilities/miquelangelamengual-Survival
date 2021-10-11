@@ -11,7 +11,6 @@ import org.bukkit.command.CommandSender;
 public class SurvivalCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
-    private final FileConfig scoreboardConfig = Survival.get().getScoreboardConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
     private final FileConfig menuConfig = Survival.get().getMenuConfig();
 
@@ -36,7 +35,6 @@ public class SurvivalCommand extends BaseCommand {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (sender.hasPermission("survival.command.reload")) {
                     this.mainConfig.reload();
-                    this.scoreboardConfig.reload();
                     this.messagesConfig.reload();
                     this.menuConfig.reload();
 
