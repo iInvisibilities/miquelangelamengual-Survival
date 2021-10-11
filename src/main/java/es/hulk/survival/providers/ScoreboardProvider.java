@@ -1,8 +1,5 @@
 package es.hulk.survival.providers;
 
-import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
-import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
@@ -25,7 +22,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         List<String> lines = new ArrayList<>();
         lines.add("");
         for (Player online : Bukkit.getOnlinePlayers()) {
-            lines.add("&b" + online.getName());
+            lines.add("&b" + online.getName() + " &7| &c" + (int) online.getHealth() + "❤");
             lines.add(" &7* &aAsesinatos&7: &e" + online.getStatistic(Statistic.MOB_KILLS));
             lines.add(" &7* &aMuertes&7: &e" + online.getStatistic(Statistic.DEATHS));
             lines.add("");
