@@ -80,7 +80,7 @@ public class Survival extends JavaPlugin {
 
         this.getSettingsManager().load();
 
-        loadScoreboard();
+        loadProviders();
         loadListeners();
         loadCommands();
     }
@@ -111,7 +111,7 @@ public class Survival extends JavaPlugin {
     }
 
 
-    public void loadScoreboard() {
+    public void loadProviders() {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
