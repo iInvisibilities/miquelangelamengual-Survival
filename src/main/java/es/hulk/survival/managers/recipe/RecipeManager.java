@@ -12,6 +12,14 @@ import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondBoots;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondChestplate;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondHelmet;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondLeggings;
+import es.hulk.survival.managers.recipe.recipes.emerald.EmeraldAxe;
+import es.hulk.survival.managers.recipe.recipes.emerald.EmeraldPickaxe;
+import es.hulk.survival.managers.recipe.recipes.emerald.EmeraldShovel;
+import es.hulk.survival.managers.recipe.recipes.emerald.EmeraldSword;
+import es.hulk.survival.managers.recipe.recipes.emerald.armor.EmeraldBoots;
+import es.hulk.survival.managers.recipe.recipes.emerald.armor.EmeraldChestplate;
+import es.hulk.survival.managers.recipe.recipes.emerald.armor.EmeraldHelmet;
+import es.hulk.survival.managers.recipe.recipes.emerald.armor.EmeraldLeggings;
 import es.hulk.survival.managers.recipe.recipes.gold.GoldAxe;
 import es.hulk.survival.managers.recipe.recipes.gold.GoldPickaxe;
 import es.hulk.survival.managers.recipe.recipes.gold.GoldShovel;
@@ -75,6 +83,15 @@ public class RecipeManager {
         IronLeggins.load();
         IronBoots.load();
 
+        GoldSword.load();
+        GoldPickaxe.load();
+        GoldAxe.load();
+        GoldShovel.load();
+        GoldHelmet.load();
+        GoldChestplate.load();
+        GoldLeggings.load();
+        GoldBoots.load();
+
         DiamondSword.load();
         DiamondPickaxe.load();
         DiamondAxe.load();
@@ -84,14 +101,14 @@ public class RecipeManager {
         DiamondLeggings.load();
         DiamondBoots.load();
 
-        GoldSword.load();
-        GoldPickaxe.load();
-        GoldAxe.load();
-        GoldShovel.load();
-        GoldHelmet.load();
-        GoldChestplate.load();
-        GoldLeggings.load();
-        GoldBoots.load();
+        EmeraldSword.load();
+        EmeraldPickaxe.load();
+        EmeraldAxe.load();
+        EmeraldShovel.load();
+        EmeraldHelmet.load();
+        EmeraldChestplate.load();
+        EmeraldLeggings.load();
+        EmeraldBoots.load();
 
         NetheriteSword.load();
         NetheriteFortunePickaxe.load();
