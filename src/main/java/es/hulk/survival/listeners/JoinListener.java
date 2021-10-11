@@ -27,9 +27,9 @@ public class JoinListener implements Listener {
             if (player.getUniqueId().equals(UUIDs.nadalUUID())) {
                 player.kickPlayer(Utils.color(
                         "&cYou are not allowed to join this server! " +
-                                "\n " +
-                                "\nBecause you are a fucking retarded i dont want u in this server\n" +
-                                "Have fun and go cry retard"));
+                             "\n " +
+                             "\nBecause you are a fucking retarded i dont want u in this server" +
+                             "\nHave fun and go cry retard"));
             }
         }
 
