@@ -10,7 +10,7 @@ public class PlayerUtils {
         return player.getStatistic(Statistic.PLAYER_KILLS);
     }
 
-    public static int getPlayerDeaths(Player player) {
+    public static int getDeaths(Player player) {
         return player.getStatistic(Statistic.DEATHS);
     }
 
@@ -44,6 +44,19 @@ public class PlayerUtils {
 
     public static int getPlayerStatistic(Player player, Statistic statistic) {
         return player.getStatistic(statistic);
+    }
+
+    public static String getWorld(Player player) {
+        switch(player.getLocation().getWorld().getName()) {
+            case "world":
+                return "Overworld";
+            case "world_nether":
+                return "Nether";
+            case "world_the_end":
+                return "The End";
+            default:
+                return player.getLocation().getWorld().getName();
+        }
     }
 
 }
