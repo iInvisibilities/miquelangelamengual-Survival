@@ -10,9 +10,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class FortuntePickaxe {
+public class FortunePickaxe {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 

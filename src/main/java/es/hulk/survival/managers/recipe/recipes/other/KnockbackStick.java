@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class KnockbackStick {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.STICK);
         ItemMeta meta = pickaxe.getItemMeta();
 

@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class FortuneSword {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 

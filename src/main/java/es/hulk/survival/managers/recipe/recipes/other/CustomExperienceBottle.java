@@ -12,7 +12,7 @@ public class CustomExperienceBottle {
 
     private static final Survival plugin = Survival.get();
 
-    public static void customExperienceBottle() {
+    public static void load() {
         ItemStack exp = new ItemStack(Material.EXPERIENCE_BOTTLE);
         NamespacedKey key = new NamespacedKey(plugin, "exp_bottle_custom");
 
