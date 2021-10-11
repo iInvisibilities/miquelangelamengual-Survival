@@ -22,7 +22,7 @@ public class WoodPickaxe {
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 2);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "coal_block_pickaxe");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "oak_wood_block_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape("DDD", " I ", " I ");
         recipe.setIngredient('D', Material.OAK_WOOD);

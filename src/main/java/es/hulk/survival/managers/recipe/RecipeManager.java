@@ -34,6 +34,10 @@ import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteChestpl
 import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteHelmet;
 import es.hulk.survival.managers.recipe.recipes.netherite.armor.NetheriteLeggings;
 import es.hulk.survival.managers.recipe.recipes.other.*;
+import es.hulk.survival.managers.recipe.recipes.stone.StoneAxe;
+import es.hulk.survival.managers.recipe.recipes.stone.StonePickaxe;
+import es.hulk.survival.managers.recipe.recipes.stone.StoneShovel;
+import es.hulk.survival.managers.recipe.recipes.stone.StoneSword;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodAxe;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodPickaxe;
 import es.hulk.survival.managers.recipe.recipes.wood.WoodShovel;
@@ -51,6 +55,11 @@ public class RecipeManager {
         WoodPickaxe.load();
         WoodAxe.load();
         WoodShovel.load();
+
+        StoneSword.load();
+        StonePickaxe.load();
+        StoneAxe.load();
+        StoneShovel.load();
 
         CoalSword.load();
         CoalPickaxe.load();
