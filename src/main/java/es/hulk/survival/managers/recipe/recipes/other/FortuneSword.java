@@ -24,7 +24,7 @@ public class FortuneSword {
         NamespacedKey key = new NamespacedKey(Survival.get(), "looting_sword");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
         recipe.shape(" L ", " R ", " I ");
-        recipe.setIngredient('L', Material.LAPIS_BLOCK);
+        recipe.setIngredient('L', Material.DIAMOND_BLOCK);
         recipe.setIngredient('R', Material.IRON_BLOCK);
         recipe.setIngredient('I', Material.STICK);
 

@@ -1,5 +1,8 @@
 package es.hulk.survival.managers.recipe;
 
+import es.hulk.survival.managers.recipe.recipes.coal.CoalAxe;
+import es.hulk.survival.managers.recipe.recipes.coal.CoalPickaxe;
+import es.hulk.survival.managers.recipe.recipes.coal.CoalShovel;
 import es.hulk.survival.managers.recipe.recipes.coal.CoalSword;
 import es.hulk.survival.managers.recipe.recipes.iron.IronAxe;
 import es.hulk.survival.managers.recipe.recipes.iron.IronPickaxe;
@@ -13,7 +16,11 @@ public class RecipeManager {
     public void load() {
         NameTag.load();
         EnchantedGoldenApple.load();
+
         CoalSword.load();
+        CoalPickaxe.load();
+        CoalAxe.load();
+        CoalShovel.load();
 
         IronAxe.load();
         IronShovel.load();

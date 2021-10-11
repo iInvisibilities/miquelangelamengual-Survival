@@ -10,22 +10,22 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CoalSword {
+public class CoalPickaxe {
 
     public static void load() {
-        ItemStack pickaxe = new ItemStack(Material.STONE_SWORD);
+        ItemStack pickaxe = new ItemStack(Material.STONE_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&aEnchanted Sword"));
+        meta.setDisplayName(Utils.color("&aEnchanted Pickaxe"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);
-        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 5);
-        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 4);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);
+        pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 6);
+        pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "diamond_block_sword");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "diamond_block_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
-        recipe.shape(" D ", " D ", " I ");
+        recipe.shape("DDD", " I ", " I ");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('I', Material.STICK);
 
