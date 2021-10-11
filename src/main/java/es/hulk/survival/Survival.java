@@ -1,5 +1,6 @@
 package es.hulk.survival;
 
+import dev.hely.tab.api.Tab;
 import es.hulk.survival.command.HelpCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;
@@ -21,6 +22,7 @@ import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.recipe.RecipeManager;
 import es.hulk.survival.managers.warp.WarpManager;
 import es.hulk.survival.providers.ScoreboardProvider;
+import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
@@ -114,9 +116,16 @@ public class Survival extends JavaPlugin {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
             Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
-            return;
+        } else {
+            Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
         }
-        Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
+
+        if (mainConfig.getBoolean("BOOLEANS.TAB")) {
+            new Tab(this, new TablistProvider());
+            Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
+        } else {
+            Utils.sendConsole("&8[&aSurvival&8] &cTablist Disabled");
+        }
     }
 
     public void loadListeners() {
