@@ -10,13 +10,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class UltimateLeggings {
+public class NetheriteChestplate {
 
-    public static void recipe() {
-        ItemStack item = new ItemStack(Material.NETHERITE_LEGGINGS);
+    public static void load() {
+        ItemStack item = new ItemStack(Material.NETHERITE_CHESTPLATE);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Leggings"));
+        meta.setDisplayName(Utils.color("&eUltimate Chestplate"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 
@@ -24,9 +24,9 @@ public class UltimateLeggings {
         item.addUnsafeEnchantment(Enchantment.MENDING, 10);
         item.addUnsafeEnchantment(Enchantment.DURABILITY, 30);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_LEGGINGS");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_CHESTPLATE");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
-        recipe.shape("DDD", "D D", "D D");
+        recipe.shape("D D", "DDD", "DDD");
         recipe.setIngredient('D', Material.NETHERITE_BLOCK);
 
         Bukkit.addRecipe(recipe);

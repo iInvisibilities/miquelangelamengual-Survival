@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class NetheriteSilkPickaxe {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 

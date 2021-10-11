@@ -10,24 +10,27 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class UltimateHelmet {
+public class NetheriteBoots {
 
-    public static void recipe() {
-        ItemStack item = new ItemStack(Material.NETHERITE_HELMET);
+    public static void load() {
+        ItemStack item = new ItemStack(Material.NETHERITE_BOOTS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Helmet"));
+        meta.setDisplayName(Utils.color("&eUltimate Boots"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 60);
         item.addUnsafeEnchantment(Enchantment.MENDING, 10);
-        item.addUnsafeEnchantment(Enchantment.OXYGEN, 80);
-        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 80);
+        item.addUnsafeEnchantment(Enchantment.OXYGEN, 30);
+        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 20);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 60);
+        item.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 20);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 40);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_HELMET");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_BOOTS");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
-        recipe.shape("DDD", "D D", "   ");
+        recipe.shape("   ", "D D", "D D");
         recipe.setIngredient('D', Material.NETHERITE_BLOCK);
 
         Bukkit.addRecipe(recipe);

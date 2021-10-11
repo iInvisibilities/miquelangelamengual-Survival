@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class NetheriteSword {
 
-    public static void recipe() {
+    public static void load() {
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_SWORD);
         ItemMeta meta = pickaxe.getItemMeta();
 

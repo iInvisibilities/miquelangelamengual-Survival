@@ -10,23 +10,24 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class UltimateChestplate {
+public class NetheriteHelmet {
 
-    public static void recipe() {
-        ItemStack item = new ItemStack(Material.NETHERITE_CHESTPLATE);
+    public static void load() {
+        ItemStack item = new ItemStack(Material.NETHERITE_HELMET);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&eUltimate Chestplate"));
+        meta.setDisplayName(Utils.color("&eUltimate Helmet"));
         meta.setUnbreakable(true);
         item.setItemMeta(meta);
 
         item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 60);
         item.addUnsafeEnchantment(Enchantment.MENDING, 10);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 30);
+        item.addUnsafeEnchantment(Enchantment.OXYGEN, 80);
+        item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 80);
 
-        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_CHESTPLATE");
+        NamespacedKey key = new NamespacedKey(Survival.get(), "ULTIMATE_HELMET");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
-        recipe.shape("D D", "DDD", "DDD");
+        recipe.shape("DDD", "D D", "   ");
         recipe.setIngredient('D', Material.NETHERITE_BLOCK);
 
         Bukkit.addRecipe(recipe);
