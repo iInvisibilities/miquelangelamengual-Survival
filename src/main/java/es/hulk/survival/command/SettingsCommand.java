@@ -1,6 +1,6 @@
 package es.hulk.survival.command;
 
-import es.hulk.survival.managers.menu.settings.menu.SettingsMenu;
+import es.hulk.survival.managers.menu.SettingsMenu;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;

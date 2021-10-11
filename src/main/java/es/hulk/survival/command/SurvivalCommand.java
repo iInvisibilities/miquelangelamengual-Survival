@@ -12,7 +12,6 @@ public class SurvivalCommand extends BaseCommand {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-    private final FileConfig menuConfig = Survival.get().getMenuConfig();
 
     private final Survival plugin = Survival.get();
 
@@ -36,9 +35,7 @@ public class SurvivalCommand extends BaseCommand {
                 if (sender.hasPermission("survival.command.reload")) {
                     this.mainConfig.reload();
                     this.messagesConfig.reload();
-                    this.menuConfig.reload();
 
-                    plugin.getSettingsManager().load();
                     sender.sendMessage(Utils.color("&aConfig has been succesfully reloaded"));
                 }
             }

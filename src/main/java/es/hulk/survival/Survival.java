@@ -17,7 +17,6 @@ import es.hulk.survival.command.teleport.TeleportCoordsCommand;
 import es.hulk.survival.command.teleport.TeleportHereCommand;
 import es.hulk.survival.listeners.*;
 import es.hulk.survival.managers.SpawnManager;
-import es.hulk.survival.managers.menu.settings.SettingsManager;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.managers.recipe.RecipeManager;
 import es.hulk.survival.managers.warp.WarpManager;
@@ -47,7 +46,6 @@ public class Survival extends JavaPlugin {
     private FileConfig locationsConfig;
     private FileConfig spawnConfig;
     private FileConfig messagesConfig;
-    private FileConfig menuConfig;
     private FileConfig serverConfig;
 
     private SpawnManager spawnManager;
@@ -56,7 +54,6 @@ public class Survival extends JavaPlugin {
     private RankManager rankManager;
     private CommandManager commandManager;
     private RecipeManager recipeManager;
-    private SettingsManager settingsManager;
     private TPSUtil tpsUtil;
 
     private boolean PlaceholderAPI;
@@ -78,8 +75,6 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
 
-        this.getSettingsManager().load();
-
         loadProviders();
         loadListeners();
         loadCommands();
@@ -96,17 +91,15 @@ public class Survival extends JavaPlugin {
         this.warpManager = new WarpManager(this);
         this.rankManager = new RankManager(this);
         this.commandManager = new CommandManager(this);
-        this.settingsManager = new SettingsManager();
         this.tpsUtil = new TPSUtil(this);
         Utils.sendConsole("&8[&aSurvival&8] &eManagers loaded");
     }
 
     public void loadConfigs() {
-        this.locationsConfig = new FileConfig(this, "locations.yml");
+        this.locationsConfig = new FileConfig(this, "data/locations.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
-        this.spawnConfig = new FileConfig(this, "spawn.yml");
+        this.spawnConfig = new FileConfig(this, "data/spawn.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
-        this.menuConfig = new FileConfig(this, "menu.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
 
