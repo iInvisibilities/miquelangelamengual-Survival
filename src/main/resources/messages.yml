@@ -66,13 +66,3 @@ SETNAME_COMMAND:
   RESET: "&7[&aSurvival&7] &aHas resetado tu nombre al predeterminado"
   RESET-OTHER: "&7[&aSurvival&7] &aHas resetado el nombre del jugador &e<target> &aal predeterminado."
   ERROR: "&7[&aSurvival&7] &cEl Jugador &e<target> &ano existe o no esta conectado."
-
-TABLIST:
-  HEADER:
-    - ""
-    - "Hello"
-    - ""
-  FOOTER:
-    - ""
-    - "Bye!"
-    - ""

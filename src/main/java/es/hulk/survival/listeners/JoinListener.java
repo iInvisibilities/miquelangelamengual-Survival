@@ -5,7 +5,9 @@ import es.hulk.survival.managers.TablistHandler;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,12 +44,8 @@ public class JoinListener implements Listener {
             }
         }
 
-        if (mainConfig.getBoolean("BOOLEANS.TAB")) {
-
-            List<String> header = new ArrayList<>(messagesConfig.getStringList("TABLIST.HEADER"));
-            List<String> footer = new ArrayList<>(messagesConfig.getStringList("TABLIST.FOOTER"));
-
-            TablistHandler.updateHeaderAndFooter(player, header, footer);
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            player.setPlayerListName(Utils.color(online.getName() + " &7| &c" + online.getHealth() + "❤"));
         }
 
         if (!player.hasPlayedBefore()) {
