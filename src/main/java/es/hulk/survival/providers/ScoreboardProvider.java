@@ -1,5 +1,6 @@
 package es.hulk.survival.providers;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
@@ -25,6 +26,8 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         for (Player online : Bukkit.getOnlinePlayers()) {
             lines.add("&b" + online.getName() + "&7: &e" + PlayerUtils.getDeaths(online));
         }
+        lines.add("");
+        lines.add("&bTPS&7: &e" + Survival.get().getTpsUtil().getRoundedTPS());
         lines.add("");
         lines.add("&7frostpvp.net");
         return Utils.translate(lines);
