@@ -19,10 +19,10 @@ public class DiamondHelmet {
         meta.setDisplayName(Utils.color("&bDiamond Helmet"));
         item.setItemMeta(meta);
 
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
         item.addUnsafeEnchantment(Enchantment.OXYGEN, 1);
         item.addUnsafeEnchantment(Enchantment.WATER_WORKER, 1);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 2);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "DIAMOND_BLOCK_HELMET");
         ShapedRecipe recipe = new ShapedRecipe(key, item);

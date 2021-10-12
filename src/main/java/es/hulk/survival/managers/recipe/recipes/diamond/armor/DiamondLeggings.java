@@ -19,8 +19,8 @@ public class DiamondLeggings {
         meta.setDisplayName(Utils.color("&bDiamond Leggings"));
         item.setItemMeta(meta);
 
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 2);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "DIAMOND_BLOCK_LEGGINGS");
         ShapedRecipe recipe = new ShapedRecipe(key, item);

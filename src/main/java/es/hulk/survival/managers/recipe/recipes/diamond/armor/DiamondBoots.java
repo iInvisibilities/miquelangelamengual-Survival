@@ -19,10 +19,10 @@ public class DiamondBoots {
         meta.setDisplayName(Utils.color("&bDiamond Boots"));
         item.setItemMeta(meta);
 
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-        item.addUnsafeEnchantment(Enchantment.DURABILITY, 2);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+        item.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
         item.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 3);
-        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 3);
+        item.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 4);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "DIAMOND_BLOCK_BOOTS");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
