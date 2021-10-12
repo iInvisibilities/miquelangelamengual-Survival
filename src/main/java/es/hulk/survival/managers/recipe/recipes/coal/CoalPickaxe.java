@@ -19,7 +19,7 @@ public class CoalPickaxe {
         meta.setDisplayName(Utils.color("&7Coal Pickaxe"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 3);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 4);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "coal_block_pickaxe");

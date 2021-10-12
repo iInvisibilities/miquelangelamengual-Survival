@@ -19,7 +19,7 @@ public class EmeraldAxe {
         meta.setDisplayName(Utils.color("&aEmerald Axe"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 12);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 20);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 12);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 6);
 

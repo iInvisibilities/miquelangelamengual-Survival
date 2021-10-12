@@ -19,7 +19,7 @@ public class DiamondShovel {
         meta.setDisplayName(Utils.color("&bDiamond Shovel"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);
+        pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 12);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 6);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
 

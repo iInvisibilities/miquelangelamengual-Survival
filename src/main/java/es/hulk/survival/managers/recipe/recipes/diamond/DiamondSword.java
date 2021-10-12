@@ -19,8 +19,9 @@ public class DiamondSword {
         meta.setDisplayName(Utils.color("&bDiamond Sword"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);
+        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 12);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 5);
+        pickaxe.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 1);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 4);
 
         NamespacedKey key = new NamespacedKey(Survival.get(), "diamond_block_sword");

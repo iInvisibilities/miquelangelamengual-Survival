@@ -19,7 +19,7 @@ public class EmeraldSword {
         meta.setDisplayName(Utils.color("&aEmerald Sword"));
         pickaxe.setItemMeta(meta);
 
-        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 12);
+        pickaxe.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 20);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 10);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 8);
 
