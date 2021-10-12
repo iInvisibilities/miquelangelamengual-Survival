@@ -65,7 +65,7 @@ public class SettingsMenu extends Menu {
             public ItemStack getButtonItem(Player p0) {
                 return new ItemBuilder(Material.GRASS_BLOCK)
                         .data(0).name("&aSeed del mundo")
-                        .lore(Arrays.asList("&aLa seed del mundo es: ", String.valueOf(Bukkit.getWorlds().get(0).getSeed())))
+                        .lore(Arrays.asList("&aLa seed del mundo es: ", "", "&e" + Bukkit.getWorlds().get(0).getSeed(), ""))
                         .build();
             }
 
