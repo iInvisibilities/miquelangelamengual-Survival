@@ -27,7 +27,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
             lines.add("&b" + online.getName() + "&7: &e" + PlayerUtils.getDeaths(online));
         }
         lines.add("");
-        lines.add("&bTPS&7: &e" + Survival.get().getTpsUtil().getRoundedTPS());
+        lines.add("&bTPS&7: &e" + (int) Survival.get().getTpsUtil().getRoundedTPS());
         lines.add("");
         lines.add("&7frostpvp.net");
         return Utils.translate(lines);
