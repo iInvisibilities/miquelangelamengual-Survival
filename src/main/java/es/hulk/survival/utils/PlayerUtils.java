@@ -1,5 +1,6 @@
 package es.hulk.survival.utils;
 
+import es.hulk.survival.Survival;
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -47,7 +48,7 @@ public class PlayerUtils {
     }
 
     public static String getWorld(Player player) {
-        switch(player.getLocation().getWorld().getName()) {
+        switch (player.getLocation().getWorld().getName()) {
             case "world":
                 return "Overworld";
             case "world_nether":
@@ -56,6 +57,19 @@ public class PlayerUtils {
                 return "The End";
             default:
                 return player.getLocation().getWorld().getName();
+        }
+    }
+
+    public static String getSpawnWorld() {
+        FileConfig config = Survival.get().getSpawnConfig();
+        if (config.getString("SPAWN_LOCATION.WORLD").equals("world")) {
+            return "Overworld";
+        } else if (config.getString("SPAWN_LOCATION.WORLD").equals("world_nether")) {
+            return "Nether";
+        } else if (config.getString("SPAWN_LOCATION.WORLD").equals("world_the_end")) {
+            return "The End";
+        } else {
+            return "None";
         }
     }
 

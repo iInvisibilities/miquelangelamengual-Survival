@@ -35,7 +35,7 @@ public class TablistProvider implements TabProvider {
         tabs.add(new TabLayout(TabColumn.LEFT, 4, "&bJugadores&7: &e" + PlayerUtils.getPlayerKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 5, "&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 6, "&bTiempo&7: &e" + PlayerUtils.getPlayTime(player)));
-        tabs.add(new TabLayout(TabColumn.LEFT, 7, "&bVida&7: &e" + player.getHealth()));
+        tabs.add(new TabLayout(TabColumn.LEFT, 7, "&bVida&7: &e" + (int) player.getHealth()));
 
         tabs.add(new TabLayout(TabColumn.LEFT, 10, "&aBosses Eliminados"));
         tabs.add(new TabLayout(TabColumn.LEFT, 11, "&bWhiters&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.WITHER)));
@@ -57,7 +57,7 @@ public class TablistProvider implements TabProvider {
 
         if (plugin.getSpawnManager().getSpawnLocation() != null) {
             tabs.add(new TabLayout(TabColumn.MIDDLE, 10, "&aCoords del Spawn"));
-            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &e" + config.getString("SPAWN_LOCATION.WORLD"), Skin.PLANET_SKIN));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &e" + PlayerUtils.getSpawnWorld(), Skin.PLANET_SKIN));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 12, "&bX&7: &e" + config.getInt("SPAWN_LOCATION.X")));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 13, "&bY&7: &e" + config.getInt("SPAWN_LOCATION.Y")));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 14, "&bZ&7: &e" + config.getInt("SPAWN_LOCATION.Z")));
