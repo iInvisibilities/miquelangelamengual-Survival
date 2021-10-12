@@ -1,14 +1,13 @@
 package es.hulk.survival.providers;
 
-import dev.hely.tab.api.Tab;
 import dev.hely.tab.api.TabColumn;
 import dev.hely.tab.api.TabLayout;
 import dev.hely.tab.api.TabProvider;
 import dev.hely.tab.api.skin.Skin;
 import es.hulk.survival.Survival;
+import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.location.BedLocation;
-import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -24,11 +23,14 @@ import java.util.*;
 
 public class TablistProvider implements TabProvider {
 
+    private final Survival plugin = Survival.get();
+    private final FileConfig config = Survival.get().getSpawnConfig();
+
     @Override
     public Set<TabLayout> getProvider(Player player) {
         Set<TabLayout> tabs = new HashSet<>();
 
-        tabs.add(new TabLayout(TabColumn.LEFT, 2, "&aTus Estadisticas"));
+        tabs.add(new TabLayout(TabColumn.LEFT, 2, "&aTus Estadisticas", Skin.getSkin(player.getUniqueId())));
         tabs.add(new TabLayout(TabColumn.LEFT, 3, "&bMobs Matados&7: &e" + PlayerUtils.getMobKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 4, "&bJugadores&7: &e" + PlayerUtils.getPlayerKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 5, "&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
@@ -40,31 +42,46 @@ public class TablistProvider implements TabProvider {
         tabs.add(new TabLayout(TabColumn.LEFT, 12, "&bEnder Dragons&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.ENDER_DRAGON)));
 
         tabs.add(new TabLayout(TabColumn.LEFT, 15, "&aTus Coordenadas"));
-        tabs.add(new TabLayout(TabColumn.LEFT, 16, "&bMundo&7: &e" + PlayerUtils.getWorld(player)));
+        tabs.add(new TabLayout(TabColumn.LEFT, 16, "&bMundo&7: &e" + PlayerUtils.getWorld(player), Skin.PLANET_SKIN));
         tabs.add(new TabLayout(TabColumn.LEFT, 17, "&bX&7: &e" + player.getLocation().getBlockX()));
         tabs.add(new TabLayout(TabColumn.LEFT, 18, "&bY&7: &e" + player.getLocation().getBlockY()));
         tabs.add(new TabLayout(TabColumn.LEFT, 19, "&bZ&7: &e" + player.getLocation().getBlockZ()));
 
         if (player.getBedSpawnLocation() != null) {
             tabs.add(new TabLayout(TabColumn.MIDDLE, 3, "&aCoords de tu Cama"));
-            tabs.add(new TabLayout(TabColumn.MIDDLE, 4, "&bMundo&7: &e" + BedLocation.getBedWorld(player)));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 4, "&bMundo&7: &e" + BedLocation.getBedWorld(player), Skin.PLANET_SKIN));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 5, "&bX&7: &e" + BedLocation.bedCoordinateX(player)));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 6, "&bY&7: &e" + BedLocation.bedCoordinateY(player)));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 7, "&bZ&7: &e" + BedLocation.bedCoordinateZ(player)));
         }
 
+        if (plugin.getSpawnManager().getSpawnLocation() != null) {
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 10, "&aCoords del Spawn"));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &e" + config.getString("SPAWN_LOCATION.WORLD"), Skin.PLANET_SKIN));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 12, "&bX&7: &e" + config.getInt("SPAWN_LOCATION.X")));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 13, "&bY&7: &e" + config.getInt("SPAWN_LOCATION.Y")));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 14, "&bZ&7: &e" + config.getInt("SPAWN_LOCATION.Z")));
+        }
+
+        tabs.add(new TabLayout(TabColumn.MIDDLE, 18, "&aNuestro Discord"));
+        tabs.add(new TabLayout(TabColumn.MIDDLE, 19, "&bdiscord.frostpvp.net", Skin.DISCORD_SKIN));
+
+        tabs.add(new TabLayout(TabColumn.RIGHT, 16, "&aInformacion del Servidor", Skin.COMPASS_SKIN));
+        tabs.add(new TabLayout(TabColumn.RIGHT, 17, "&bTu Ping&7: &e" + player.getPing() + "ms"));
+        tabs.add(new TabLayout(TabColumn.RIGHT, 18, "&bJugadores&7: &e" + PlayerUtils.getOnlinePlayers()));
+        tabs.add(new TabLayout(TabColumn.RIGHT, 19, "&bTPS&7: &e" + (int) plugin.getTpsUtil().getRoundedTPS()));
 
         return tabs;
     }
 
     @Override
     public List<String> getHeader(Player player) {
-        return Arrays.asList("", "Hello", "");
+        return Arrays.asList("", "&aBienvenido &e" + player.getName() + " &aa este Survival 1.17.1", "");
     }
 
     @Override
     public List<String> getFooter(Player player) {
 
-        return Arrays.asList("", "Bye", "");
+        return Arrays.asList("", "&aEn este survival podras encontrar muchas cosas", "&aLas cuales las vas a poder ver usando el comando &e/help", "");
     }
 }
