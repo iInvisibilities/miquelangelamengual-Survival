@@ -41,8 +41,9 @@ public class TablistProvider implements TabProvider {
         tabs.add(new TabLayout(TabColumn.LEFT, 11, "&bWhiters&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.WITHER)));
         tabs.add(new TabLayout(TabColumn.LEFT, 12, "&bEnder Dragons&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.ENDER_DRAGON)));
 
-        tabs.add(new TabLayout(TabColumn.LEFT, 15, "&aTus Coordenadas"));
-        tabs.add(new TabLayout(TabColumn.LEFT, 16, "&bMundo&7: &e" + PlayerUtils.getWorld(player), Skin.PLANET_SKIN));
+        tabs.add(new TabLayout(TabColumn.LEFT, 14, "&aTus Coordenadas"));
+        tabs.add(new TabLayout(TabColumn.LEFT, 15, "&bMundo&7: &e" + PlayerUtils.getWorld(player), Skin.PLANET_SKIN));
+        tabs.add(new TabLayout(TabColumn.LEFT, 16, "&bBioma&7: &e" + PlayerUtils.getPlayerBiome(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 17, "&bX&7: &e" + player.getLocation().getBlockX()));
         tabs.add(new TabLayout(TabColumn.LEFT, 18, "&bY&7: &e" + player.getLocation().getBlockY()));
         tabs.add(new TabLayout(TabColumn.LEFT, 19, "&bZ&7: &e" + player.getLocation().getBlockZ()));

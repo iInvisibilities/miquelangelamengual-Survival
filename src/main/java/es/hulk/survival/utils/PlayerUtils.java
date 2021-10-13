@@ -2,7 +2,10 @@ package es.hulk.survival.utils;
 
 import es.hulk.survival.Survival;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Statistic;
+import org.bukkit.World;
+import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 
 public class PlayerUtils {
@@ -71,6 +74,12 @@ public class PlayerUtils {
         } else {
             return "None";
         }
+    }
+
+    public static Biome getPlayerBiome(Player player) {
+        Location location = player.getLocation();
+        World world = player.getWorld();
+        return world.getBiome(location);
     }
 
 }
