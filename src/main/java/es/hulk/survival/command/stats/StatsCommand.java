@@ -25,13 +25,7 @@ public class StatsCommand extends BaseCommand {
         String[] args = command.getArgs();
 
         if (args.length == 0) {
-            player.sendMessage(Utils.color("&aTus Estadisticas"));
-            player.sendMessage();
-            player.sendMessage(Utils.color("&bMobs Asesinados&7: &e" + PlayerUtils.getMobKills(player)));
-            player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(player)));
-            player.sendMessage(Utils.color("&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
-            player.sendMessage(Utils.color("&bTiempo Jugado&7: &e" + PlayerUtils.getPlayTime(player)));
-            player.sendMessage(Utils.color("&bVida&7: &e" + PlayerUtils.getPlayerHealth(player)));
+            getUsage(player, player);
         }
 
         if (args.length > 0) {
@@ -42,13 +36,17 @@ public class StatsCommand extends BaseCommand {
                 return;
             }
 
-            player.sendMessage(Utils.color("&aEstadisticas del jugador &e" + target.getName()));
-            player.sendMessage();
-            player.sendMessage(Utils.color("&bMobs Asesinados&7: &e" + PlayerUtils.getMobKills(target)));
-            player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(target)));
-            player.sendMessage(Utils.color("&bMuertes&7: &e" + PlayerUtils.getDeaths(target)));
-            player.sendMessage(Utils.color("&bTiempo Jugado&7: &e" + PlayerUtils.getPlayTime(target)));
-            player.sendMessage(Utils.color("&bVida&7: &e" + PlayerUtils.getPlayerHealth(target)));
+            getUsage(player, target);
         }
+    }
+
+    public static void getUsage(Player player, Player target) {
+        player.sendMessage(Utils.color("&aEstadisticas del jugador &e" + player.getName()));
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&bMobs Asesinados&7: &e" + PlayerUtils.getMobKills(target)));
+        player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(target)));
+        player.sendMessage(Utils.color("&bMuertes&7: &e" + PlayerUtils.getDeaths(target)));
+        player.sendMessage(Utils.color("&bTiempo Jugado&7: &e" + PlayerUtils.getPlayTime(target)));
+        player.sendMessage(Utils.color("&bVida&7: &e" + PlayerUtils.getPlayerHealth(target)));
     }
 }
