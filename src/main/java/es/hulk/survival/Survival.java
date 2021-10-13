@@ -11,6 +11,7 @@ import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
+import es.hulk.survival.command.stats.StatsCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
 import es.hulk.survival.command.teleport.TeleportCommand;
 import es.hulk.survival.command.teleport.TeleportCoordsCommand;
@@ -170,6 +171,8 @@ public class Survival extends JavaPlugin {
 
         new DropItemsCommand();
         new GetPlayerInformationCommand();
+
+        new StatsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
     }
 
