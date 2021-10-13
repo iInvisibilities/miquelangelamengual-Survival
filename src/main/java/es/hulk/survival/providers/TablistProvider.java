@@ -35,7 +35,7 @@ public class TablistProvider implements TabProvider {
         tabs.add(new TabLayout(TabColumn.LEFT, 4, "&bJugadores&7: &e" + PlayerUtils.getPlayerKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 5, "&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 6, "&bTiempo&7: &e" + PlayerUtils.getPlayTime(player)));
-        tabs.add(new TabLayout(TabColumn.LEFT, 7, "&bVida&7: &e" + (int) player.getHealth()));
+        tabs.add(new TabLayout(TabColumn.LEFT, 7, "&bVida&7: &e" + PlayerUtils.getPlayerHealth(player)));
 
         tabs.add(new TabLayout(TabColumn.LEFT, 10, "&aBosses Eliminados"));
         tabs.add(new TabLayout(TabColumn.LEFT, 11, "&bWhiters&7: &e" + player.getStatistic(Statistic.KILL_ENTITY, EntityType.WITHER)));

@@ -31,7 +31,7 @@ public class StatsCommand extends BaseCommand {
             player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(player)));
             player.sendMessage(Utils.color("&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
             player.sendMessage(Utils.color("&bTiempo Jugado&7: &e" + PlayerUtils.getPlayTime(player)));
-            player.sendMessage(Utils.color("&bVida&7: &e" + (int) player.getHealth()));
+            player.sendMessage(Utils.color("&bVida&7: &e" + PlayerUtils.getPlayerHealth(player)));
         }
 
         if (args.length > 0) {
@@ -48,7 +48,7 @@ public class StatsCommand extends BaseCommand {
             player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(target)));
             player.sendMessage(Utils.color("&bMuertes&7: &e" + PlayerUtils.getDeaths(target)));
             player.sendMessage(Utils.color("&bTiempo Jugado&7: &e" + PlayerUtils.getPlayTime(target)));
-            player.sendMessage(Utils.color("&bVida&7: &e" + (int) target.getHealth()));
+            player.sendMessage(Utils.color("&bVida&7: &e" + PlayerUtils.getPlayerHealth(target)));
         }
     }
 }
