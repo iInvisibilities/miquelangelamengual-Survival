@@ -32,7 +32,7 @@ public class StatsCommand extends BaseCommand {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                player.sendMessage(Utils.color("&cJugador " + target + " no esta conectado o no existe"));
+                player.sendMessage(Utils.color("&cEl Jugador no esta conectado o no existe"));
                 return;
             }
 
@@ -40,8 +40,14 @@ public class StatsCommand extends BaseCommand {
         }
     }
 
-    public static void getUsage(Player player, Player target) {
-        player.sendMessage(Utils.color("&aEstadisticas del jugador &e" + player.getName()));
+    public void getUsage(Player player, Player target) {
+
+        if (target.getName().equals(player.getName())) {
+            player.sendMessage(Utils.color("&aTus Estadisticas"));
+        } else {
+            player.sendMessage(Utils.color("&aEstadisticas del jugador &e" + target.getName()));
+        }
+
         player.sendMessage("");
         player.sendMessage(Utils.color("&bMobs Asesinados&7: &e" + PlayerUtils.getMobKills(target)));
         player.sendMessage(Utils.color("&bJugadores Asesinados&7: &e" + PlayerUtils.getPlayerKills(target)));
