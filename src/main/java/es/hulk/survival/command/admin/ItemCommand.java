@@ -1,5 +1,6 @@
 package es.hulk.survival.command.admin;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -44,6 +45,7 @@ public class ItemCommand extends BaseCommand {
             player.getInventory().addItem(new ItemStack(Material.valueOf(args0), Integer.parseInt(args[1])));
             player.sendMessage(Utils.color("&aYou recived " + args0 + " x" + args[1]));
             player.updateInventory();
+            Survival.get().setCounter(4);
         }
     }
 

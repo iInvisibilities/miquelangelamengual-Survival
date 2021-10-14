@@ -1,5 +1,6 @@
 package es.hulk.survival.command.essential;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -17,6 +18,7 @@ public class PlayTimeCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(17);
 
         if (args.length == 0) {
 

@@ -1,5 +1,6 @@
 package es.hulk.survival.command.admin;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
@@ -17,5 +18,7 @@ public class ClearServerCommand extends BaseCommand {
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.kickPlayer("El servidor se ha limpiado");
         }
+
+        Survival.get().setCounter(1);
     }
 }

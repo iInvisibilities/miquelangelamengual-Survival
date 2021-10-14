@@ -21,6 +21,7 @@ public class SetNameCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(7);
 
         if (args.length == 0) {
             player.sendMessage(Utils.getLINE());

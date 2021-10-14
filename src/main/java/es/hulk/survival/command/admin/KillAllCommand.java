@@ -22,5 +22,6 @@ public class KillAllCommand extends BaseCommand {
             online.setHealth(0.0D);
         }
         Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("KILL_COMMAND.ALL")));
+        Survival.get().setCounter(5);
     }
 }

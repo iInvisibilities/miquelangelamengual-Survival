@@ -15,6 +15,7 @@ public class SpawnCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(26);
 
         if (plugin.getSpawnManager().getSpawnLocation() == null) {
             player.sendMessage(Utils.color("&cThe spawn of the world hasnt been setted up"));

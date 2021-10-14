@@ -19,6 +19,7 @@ public class HealthCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(14);
 
         if (args.length == 0) {
             player.sendMessage(Utils.color(messagesConfig.getString("HEALTH_COMMAND.YOURS").replace("<health>", String.valueOf(PlayerUtils.getPlayerHealth(player)))));

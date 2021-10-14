@@ -18,6 +18,8 @@ public class KillCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(15);
+
         player.setHealth(0.0D);
         Bukkit.broadcastMessage(Utils.color(messagesConfig.getString("KILL_COMMAND.BROADCAST")).replace("<player>", player.getDisplayName()));
     }

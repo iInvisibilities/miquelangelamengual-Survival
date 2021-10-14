@@ -1,5 +1,6 @@
 package es.hulk.survival.command.admin;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -40,5 +41,6 @@ public class DropItemsCommand extends BaseCommand {
 
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&aLos items del jugador &e" + target.getDisplayName() + " &ahan sido dropeados."));
         }
+        Survival.get().setCounter(2);
     }
 }

@@ -10,12 +10,13 @@ import org.bukkit.command.CommandSender;
 
 public class ClearLocationsCommand extends BaseCommand {
 
-    private WarpManager warpManager = Survival.get().getWarpManager();
+    private final WarpManager warpManager = Survival.get().getWarpManager();
 
     @Command(name = "location.clear", permission = "survival.command.clearlocations")
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender commandSender = command.getSender();
+        Survival.get().setCounter(21);
 
         warpManager.clearWarp();
         commandSender.sendMessage(Utils.color("&aSuccesfully cleared all saved locations"));

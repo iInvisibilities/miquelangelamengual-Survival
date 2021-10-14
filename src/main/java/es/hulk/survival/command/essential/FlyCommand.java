@@ -19,6 +19,8 @@ public class FlyCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(13);
+
         if (PlayerUtils.getPlayerStatistic(player, Statistic.PLAY_ONE_MINUTE) >= 720000) {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);

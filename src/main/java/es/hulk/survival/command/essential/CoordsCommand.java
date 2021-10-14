@@ -66,5 +66,6 @@ public class CoordsCommand extends BaseCommand {
             player.sendMessage(Utils.color(messagesConfig.getString("COORDS_COMMAND.NOT_FOUND").
                     replaceAll("<player>", String.valueOf(offlinePlayer.getName()))));
         }
+        Survival.get().setCounter(10);
     }
 }

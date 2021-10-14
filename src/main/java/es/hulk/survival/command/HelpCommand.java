@@ -1,5 +1,6 @@
 package es.hulk.survival.command;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -12,6 +13,7 @@ public class HelpCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
+        Survival.get().setCounter(33);
 
         sender.sendMessage(Utils.getLINE());
         sender.sendMessage(Utils.color("&aSurvival Help"));

@@ -31,5 +31,6 @@ public class MoreCommand extends BaseCommand {
             player.getInventory().getItemInMainHand().setAmount(Integer.parseInt(args[0]));
             player.sendMessage(Utils.color(messagesConfig.getString("MORE_COMMAND.AMOUNT").replaceAll("<amount>", args[0])));
         }
+        Survival.get().setCounter(6);
     }
 }

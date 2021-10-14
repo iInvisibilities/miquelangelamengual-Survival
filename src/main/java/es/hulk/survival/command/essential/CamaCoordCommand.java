@@ -24,5 +24,6 @@ public class CamaCoordCommand extends BaseCommand {
                     .replaceAll("<bed-z-coord>", String.valueOf(BedLocation.bedCoordinateZ(player)))
                     .replaceAll("<bed-world>", BedLocation.getBedWorld(player)));
         }
+        Survival.get().setCounter(9);
     }
 }

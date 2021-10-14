@@ -1,5 +1,6 @@
 package es.hulk.survival.command.essential;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -24,5 +25,7 @@ public class BedTPCommand extends BaseCommand {
         } else {
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));
         }
+
+        Survival.get().setCounter(8);
     }
 }

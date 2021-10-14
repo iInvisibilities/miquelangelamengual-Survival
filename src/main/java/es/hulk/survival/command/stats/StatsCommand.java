@@ -1,5 +1,6 @@
 package es.hulk.survival.command.stats;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -23,6 +24,7 @@ public class StatsCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(28);
 
         if (args.length == 0) {
             getUsage(player, player);

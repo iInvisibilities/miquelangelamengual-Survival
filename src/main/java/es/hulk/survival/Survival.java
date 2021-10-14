@@ -11,6 +11,7 @@ import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
+import es.hulk.survival.command.stats.SetStatsCommand;
 import es.hulk.survival.command.stats.StatsCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
 import es.hulk.survival.command.teleport.TeleportCommand;
@@ -36,6 +37,7 @@ import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.w3c.dom.css.Counter;
 
 import java.util.Objects;
 
@@ -56,6 +58,8 @@ public class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
+
+    private int counter = 0;
 
     private boolean isPlaceholderAPI;
 
@@ -157,23 +161,20 @@ public class Survival extends JavaPlugin {
         new BedTPCommand();
         new KillAllCommand();
         new EnderChestCommand();
-
         new TeleportCommand();
         new TeleportHereCommand();
         new TeleportAllCommand();
         new TeleportCoordsCommand();
-
         new ClearServerCommand();
-
         new HelpCommand();
         new SeedCommand();
         new SettingsCommand();
-
         new DropItemsCommand();
         new GetPlayerInformationCommand();
-
         new StatsCommand();
-        Utils.sendConsole("&8[&aSurvival&8] &eCommands Registered");
+        new SetStatsCommand();
+        new CounterCommand();
+        Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a" + counter + " &ecommands");
     }
 
 

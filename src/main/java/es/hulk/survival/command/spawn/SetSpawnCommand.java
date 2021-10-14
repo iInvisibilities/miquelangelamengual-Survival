@@ -15,6 +15,7 @@ public class SetSpawnCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         Location playerLocation = player.getLocation();
+        Survival.get().setCounter(25);
 
         Survival.get().getSpawnManager().setSpawnLocation(player.getLocation());
         player.sendMessage(Utils.color("&6Spawn location has been set to "

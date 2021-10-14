@@ -16,6 +16,7 @@ public class ListLocationCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(22);
 
         if (warpManager.getNames().isEmpty()) {
             player.sendMessage(Utils.color("&cNo Available Locations."));

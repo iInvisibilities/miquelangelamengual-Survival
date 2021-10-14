@@ -34,6 +34,7 @@ public class LocationCommand extends BaseCommand {
         CommandSender commandSender = command.getSender();
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(24);
 
         if (args.length == 0) {
             getUsage(commandSender);

@@ -1,5 +1,6 @@
 package es.hulk.survival.command.gamemode.subcommands;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -14,6 +15,7 @@ public class CameraCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(19);
 
         if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 2160000) {
             player.setGameMode(GameMode.SPECTATOR);

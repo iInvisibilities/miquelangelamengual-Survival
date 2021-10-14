@@ -1,5 +1,6 @@
 package es.hulk.survival.command.teleport;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -12,6 +13,7 @@ public class TeleportAllCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        Survival.get().setCounter(29);
 
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.teleport(player.getLocation());

@@ -19,6 +19,7 @@ public class PingCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(16);
 
         if (args.length == 0) {
             player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.YOURS").replaceAll("<ping>", String.valueOf(Utils.getPing(player)))));

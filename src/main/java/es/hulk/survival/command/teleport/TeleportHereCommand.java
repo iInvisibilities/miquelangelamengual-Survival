@@ -16,6 +16,7 @@ public class TeleportHereCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(32);
 
         if (args.length < 1) {
             player.sendMessage(Utils.color("&cUsage: /" + command.getLabel() + " <player>"));

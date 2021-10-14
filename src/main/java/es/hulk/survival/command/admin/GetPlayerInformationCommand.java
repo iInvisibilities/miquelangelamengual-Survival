@@ -1,5 +1,6 @@
 package es.hulk.survival.command.admin;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
@@ -38,6 +39,7 @@ public class GetPlayerInformationCommand extends BaseCommand {
             player.sendMessage(Utils.color("&eVersion&7: &f" + target.getServer().getBukkitVersion()));
             player.sendMessage(Utils.color("&ePing&7: &f" + Utils.getPing(target)));
             player.sendMessage(Utils.color("&eIP&7: &f" + goodip));
+            Survival.get().setCounter(3);
         }
     }
 }

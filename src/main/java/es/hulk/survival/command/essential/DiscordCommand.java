@@ -16,6 +16,7 @@ public class DiscordCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
+        Survival.get().setCounter(11);
 
         for (String list : messagesConfig.getStringList("DISCORD_COMMAND.MESSAGE")) {
             sender.sendMessage(Utils.color(list));

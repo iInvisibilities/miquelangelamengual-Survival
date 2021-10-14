@@ -1,5 +1,6 @@
 package es.hulk.survival.command.gamemode;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.command.gamemode.subcommands.CameraCommand;
 import es.hulk.survival.command.gamemode.subcommands.SurvivalCommand;
 import es.hulk.survival.utils.Utils;
@@ -24,6 +25,7 @@ public class GamemodeCommand extends BaseCommand {
         CommandSender commandSender = command.getSender();
         String[] args = command.getArgs();
         Player player = command.getPlayer();
+        Survival.get().setCounter(21);
 
         if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 2160000) {
             if (args.length == 0) {

@@ -21,6 +21,7 @@ public class SurvivalCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
         String[] args = command.getArgs();
+        Survival.get().setCounter(35);
 
         if (args.length == 0) {
             if (sender.hasPermission("survival.command.reload"))  {

@@ -19,6 +19,7 @@ public class SetLocationCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
+        Survival.get().setCounter(23);
 
         if (args.length == 0) {
             player.sendMessage(Utils.color("&cUsage: /setlocation <name>"));
