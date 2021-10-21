@@ -13,8 +13,6 @@ public class SurvivalCommand extends BaseCommand {
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
 
-    private final Survival plugin = Survival.get();
-
     @Command(name = "survival")
 
     @Override

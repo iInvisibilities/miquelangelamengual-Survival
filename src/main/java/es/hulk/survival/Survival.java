@@ -37,7 +37,6 @@ import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.w3c.dom.css.Counter;
 
 import java.util.Objects;
 
@@ -58,6 +57,7 @@ public class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
+    private Tab tab;
 
     private int counter = 0;
 
@@ -123,7 +123,7 @@ public class Survival extends JavaPlugin {
         }
 
         if (mainConfig.getBoolean("BOOLEANS.TAB")) {
-            new Tab(this, new TablistProvider());
+            tab = new Tab(this, new TablistProvider());
             Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
         } else {
             Utils.sendConsole("&8[&aSurvival&8] &cTablist Disabled");
