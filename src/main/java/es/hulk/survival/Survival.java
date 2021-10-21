@@ -1,6 +1,6 @@
 package es.hulk.survival;
 
-import dev.hely.tab.api.Tab;
+import dev.hely.tab.Tab;
 import es.hulk.survival.command.HelpCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;

@@ -1,9 +1,9 @@
 package es.hulk.survival.providers;
 
-import dev.hely.tab.api.TabColumn;
-import dev.hely.tab.api.TabLayout;
-import dev.hely.tab.api.TabProvider;
-import dev.hely.tab.api.skin.Skin;
+import dev.hely.tab.TabColumn;
+import dev.hely.tab.TabLayout;
+import dev.hely.tab.TabProvider;
+import dev.hely.tab.skin.Skin;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
