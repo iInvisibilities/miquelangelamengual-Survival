@@ -26,6 +26,7 @@ import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.TPSUtil;
+import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
@@ -38,7 +39,10 @@ import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -49,6 +53,7 @@ public class Survival extends JavaPlugin {
     private FileConfig spawnConfig;
     private FileConfig messagesConfig;
     private FileConfig serverConfig;
+    private FileConfig dataConfig;
 
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
@@ -63,8 +68,11 @@ public class Survival extends JavaPlugin {
 
     private boolean isPlaceholderAPI;
 
+    List<UUID> playersIds = new ArrayList<>();
+
     @Override
     public void onEnable() {
+        initPlayers();
         loadConfigs();
         loadManagers();
         getWarpManager().loadWarps();
@@ -107,6 +115,7 @@ public class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.locationsConfig = new FileConfig(this, "data/locations.yml");
         this.spawnConfig = new FileConfig(this, "data/spawn.yml");
+        this.dataConfig = new FileConfig(this, "data/players.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
@@ -174,7 +183,8 @@ public class Survival extends JavaPlugin {
         new StatsCommand();
         new SetStatsCommand();
         new CounterCommand();
-        Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a" + counter + " &ecommands");
+        new AddPlayerListCommand();
+        Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a36 &ecommands");
     }
 
 
@@ -187,6 +197,14 @@ public class Survival extends JavaPlugin {
         Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setDifficulty(Difficulty.HARD);
 
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
+    }
+
+    public void initPlayers() {
+        playersIds.add(UUIDs.hulkUUID());
+        playersIds.add(UUIDs.jaumeUUID());
+        playersIds.add(UUIDs.nadalUUID());
+        playersIds.add(UUIDs.rafaUUID());
+        playersIds.add(UUIDs.xiscoUUID());
     }
 
     public static Survival get() {

@@ -9,6 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class TeleportCoordsCommand extends BaseCommand {
+    private final Survival plugin = Survival.get();
 
     @Command(name = "tppos")
 
@@ -18,22 +19,27 @@ public class TeleportCoordsCommand extends BaseCommand {
         String[] args = command.getArgs();
         Survival.get().setCounter(31);
 
-        if (args.length == 0) {
-            player.sendMessage(Utils.color("&cUsage: /tppos <x> <y> <z>"));
-        }
+        if (plugin.getPlayersIds().contains(player.getUniqueId())) {
 
-        if (args.length > 3) {
-            player.sendMessage(Utils.color("&cError, has puesto demasiados argumentos"));
-            return;
-        }
-        if (args.length < 3) {
-            player.sendMessage(Utils.color("&cError, no has puesto todos los argumentos"));
-            return;
-        }
+            if (args.length == 0) {
+                player.sendMessage(Utils.color("&cUsage: /tppos <x> <y> <z>"));
+            }
 
-        Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
-        player.teleport(location);
-        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &ex: " + args[0] + " y: " + args[1] + " z: " + args[2]));
+            if (args.length > 3) {
+                player.sendMessage(Utils.color("&cError, has puesto demasiados argumentos"));
+                return;
+            }
+            if (args.length < 3) {
+                player.sendMessage(Utils.color("&cError, no has puesto todos los argumentos"));
+                return;
+            }
 
+            Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
+            player.teleport(location);
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &ex: " + args[0] + " y: " + args[1] + " z: " + args[2]));
+
+        } else {
+            player.sendMessage(Utils.color("&cYou cannot do that"));
+        }
     }
 }

@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class TeleportAllCommand extends BaseCommand {
+
     @Command(name = "tpall", permission = "survival.command.tpall")
     @Override
     public void onCommand(CommandArgs command) {

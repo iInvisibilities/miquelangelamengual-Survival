@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 
 public class TeleportCommand extends BaseCommand {
 
+    private final Survival plugin = Survival.get();
+
     @Command(name = "teleport", aliases = "tp")
 
     @Override
@@ -18,19 +20,23 @@ public class TeleportCommand extends BaseCommand {
         String[] args = command.getArgs();
         Survival.get().setCounter(30);
 
-        if (args.length < 1) {
-            player.sendMessage(Utils.color("&cUsage: /" + command.getLabel() + " <player>"));
-            return;
+        if (plugin.getPlayersIds().contains(player.getUniqueId())) {
+            if (args.length < 1) {
+                player.sendMessage(Utils.color("&cUsage: /" + command.getLabel() + " <player>"));
+                return;
+            }
+
+            Player target = Bukkit.getPlayer(args[0]);
+
+            if (target == null) {
+                player.sendMessage(Utils.color("&cPlayer not found"));
+                return;
+            }
+
+            player.teleport(target.getLocation());
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &e" + target.getDisplayName()));
+        } else {
+            player.sendMessage(Utils.color("&cYou cannot do that"));
         }
-
-        Player target = Bukkit.getPlayer(args[0]);
-
-        if (target == null) {
-            player.sendMessage(Utils.color("&cPlayer not found"));
-            return;
-        }
-
-        player.teleport(target.getLocation());
-        player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &e" + target.getDisplayName()));
     }
 }
