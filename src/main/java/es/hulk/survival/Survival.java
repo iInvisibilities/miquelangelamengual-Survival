@@ -84,6 +84,7 @@ public class Survival extends JavaPlugin {
             isPlaceholderAPI = true;
         }
 
+        Utils.sendConsole(Utils.getLINE());
         Utils.sendConsole("");
         Utils.sendConsole("&aSurvival - 1.17");
         Utils.sendConsole("");
@@ -91,6 +92,7 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
         Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
+        Utils.sendConsole(Utils.getLINE());
 
         loadProviders();
         loadListeners();
