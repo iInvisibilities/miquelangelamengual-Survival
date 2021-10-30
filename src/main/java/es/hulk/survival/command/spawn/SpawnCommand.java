@@ -19,7 +19,7 @@ public class SpawnCommand extends BaseCommand {
 
         if (plugin.getSpawnManager().getLocation() == null) {
             player.teleport(player.getWorld().getSpawnLocation());
-            return;c
+            return;
         }
 
         player.teleport(plugin.getSpawnManager().getLocation());

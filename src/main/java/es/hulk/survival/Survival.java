@@ -186,7 +186,7 @@ public class Survival extends JavaPlugin {
         new SetStatsCommand();
         new CounterCommand();
         new AddPlayerListCommand();
-        Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a36 &ecommands");
+        Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
 
