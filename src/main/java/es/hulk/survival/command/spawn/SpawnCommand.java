@@ -17,14 +17,12 @@ public class SpawnCommand extends BaseCommand {
         Player player = command.getPlayer();
         Survival.get().setCounter(26);
 
-        if (plugin.getSpawnManager().getSpawnLocation() == null) {
-            player.sendMessage(Utils.color("&cThe spawn of the world hasnt been setted up"));
-            return;
+        if (plugin.getSpawnManager().getLocation() == null) {
+            player.teleport(player.getWorld().getSpawnLocation());
+            return;c
         }
 
-        if (plugin.getSpawnManager().hasSpawn()) player.teleport(plugin.getSpawnManager().getSpawnLocation());
-        else player.getWorld().getSpawnLocation();
-
+        player.teleport(plugin.getSpawnManager().getLocation());
         player.sendMessage(Utils.color("&aTeleported to Spawn"));
     }
 }
