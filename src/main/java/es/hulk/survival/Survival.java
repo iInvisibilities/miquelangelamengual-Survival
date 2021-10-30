@@ -10,6 +10,7 @@ import es.hulk.survival.command.essential.KillCommand;
 import es.hulk.survival.command.location.LocationCommand;
 import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
+import es.hulk.survival.command.spawn.SpawnChunksCoordsCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
 import es.hulk.survival.command.stats.SetStatsCommand;
 import es.hulk.survival.command.stats.StatsCommand;
@@ -186,6 +187,7 @@ public class Survival extends JavaPlugin {
         new SetStatsCommand();
         new CounterCommand();
         new AddPlayerListCommand();
+        new SpawnChunksCoordsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
