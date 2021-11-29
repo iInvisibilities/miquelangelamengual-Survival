@@ -36,6 +36,7 @@ public class AddPlayerListCommand extends BaseCommand {
 
             assert target != null;
             SavePlayers.savePlayerIds(target);
+            player.sendMessage("Hello :)");
         }
     }
 }
