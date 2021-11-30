@@ -41,10 +41,6 @@ public class JoinListener implements Listener {
             }
         }
 
-        for (Player online : Bukkit.getOnlinePlayers()) {
-            player.setPlayerListName(Utils.color(online.getName() + " &7| &c" + online.getHealth() + "❤"));
-        }
-
         if (!player.hasPlayedBefore()) {
             player.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
             player.getInventory().addItem(new ItemStack(Material.STONE_PICKAXE));
