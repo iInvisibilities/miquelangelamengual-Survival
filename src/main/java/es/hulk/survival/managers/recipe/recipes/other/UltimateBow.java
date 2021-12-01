@@ -30,7 +30,7 @@ public class UltimateBow {
         recipe.shape("SSS", "MOM", "BBB");
         recipe.setIngredient('O', Material.BOW);
         recipe.setIngredient('S', Material.STRING);
-        recipe.setIngredient('B', Material.NETHERITE_BLOCK);
+        recipe.setIngredient('B', Material.OBSIDIAN);
         recipe.setIngredient('M', Material.OAK_LOG);
 
         Bukkit.addRecipe(recipe);

@@ -145,6 +145,7 @@ public class Survival extends JavaPlugin {
         pm.registerEvents(new EntityListener(), this);
         pm.registerEvents(new BedListener(), this);
         pm.registerEvents(new ButtonListener(), this);
+        pm.registerEvents(new CommandsListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
