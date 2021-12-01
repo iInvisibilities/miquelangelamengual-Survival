@@ -4,10 +4,7 @@ import es.hulk.survival.managers.recipe.recipes.coal.CoalAxe;
 import es.hulk.survival.managers.recipe.recipes.coal.CoalPickaxe;
 import es.hulk.survival.managers.recipe.recipes.coal.CoalShovel;
 import es.hulk.survival.managers.recipe.recipes.coal.CoalSword;
-import es.hulk.survival.managers.recipe.recipes.diamond.DiamondAxe;
-import es.hulk.survival.managers.recipe.recipes.diamond.DiamondPickaxe;
-import es.hulk.survival.managers.recipe.recipes.diamond.DiamondShovel;
-import es.hulk.survival.managers.recipe.recipes.diamond.DiamondSword;
+import es.hulk.survival.managers.recipe.recipes.diamond.*;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondBoots;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondChestplate;
 import es.hulk.survival.managers.recipe.recipes.diamond.armor.DiamondHelmet;
@@ -93,7 +90,8 @@ public class RecipeManager {
         GoldBoots.load();
 
         DiamondSword.load();
-        DiamondPickaxe.load();
+        DiamondFortunePickaxe.load();
+        DiamondSilkTouchPickaxe.load();
         DiamondAxe.load();
         DiamondShovel.load();
         DiamondHelmet.load();
