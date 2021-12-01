@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class DiamondPickaxe {
+public class DiamondFortunePickaxe {
 
     private static final Survival plugin = Survival.get();
 
@@ -18,17 +18,18 @@ public class DiamondPickaxe {
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemMeta meta = pickaxe.getItemMeta();
 
-        meta.setDisplayName(Utils.color("&bDiamond Pickaxe"));
+        meta.setDisplayName(Utils.color("&bDiamond Fortune Pickaxe"));
         pickaxe.setItemMeta(meta);
 
         pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 12);
         pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 6);
         pickaxe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
 
-        NamespacedKey key = new NamespacedKey(plugin, "diamond_block_pickaxe");
+        NamespacedKey key = new NamespacedKey(plugin, "diamond_fortune_block_pickaxe");
         ShapedRecipe recipe = new ShapedRecipe(key, pickaxe);
-        recipe.shape("DDD", " I ", " I ");
+        recipe.shape("DDD", "LIL", " I ");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('L', Material.LAPIS_BLOCK);
         recipe.setIngredient('I', Material.STICK);
 
         Bukkit.addRecipe(recipe);
