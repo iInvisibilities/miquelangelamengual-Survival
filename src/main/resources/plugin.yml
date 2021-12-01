@@ -2,4 +2,4 @@ name: Survival
 version: ${project.version}
 main: es.hulk.survival.Survival
 depend: [LuckPerms, ProtocolLib]
-api-version: 1.17
+api-version: 1.18
