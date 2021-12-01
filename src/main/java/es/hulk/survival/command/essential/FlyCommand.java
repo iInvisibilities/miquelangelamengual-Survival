@@ -25,11 +25,11 @@ public class FlyCommand extends BaseCommand {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);
                 player.setFlying(true);
-                player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.ENABLED")));
+                player.sendMessage(Utils.color("&8* &aTu modo de vuelo a sido activado."));
             } else {
                 player.setFlying(false);
                 player.setAllowFlight(false);
-                player.sendMessage(Utils.color(messagesConfig.getString("FLY_COMMAND.DISABLED")));
+                player.sendMessage(Utils.color("&8* &cTu modo de vuelo a sido desactivado."));
             }
         } else {
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 10h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));

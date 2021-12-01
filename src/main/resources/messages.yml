@@ -1,11 +1,3 @@
-MORE_COMMAND:
-  STACKED: "&aThe item you have been holding has been stacked to 64"
-  AMOUNT: "&aThe item you have been holding has been stacked to <amount>"
-
-FLY_COMMAND:
-  ENABLED: "&8* &aTu modo de vuelo a sido activado."
-  DISABLED: "&8* &cTu modo de vuelo a sido desactivado."
-
 CAMA_COORDS:
   - "&fCoordenadas de tu Cama&7: "
   - " &8» &aMundo - <bed-world>"

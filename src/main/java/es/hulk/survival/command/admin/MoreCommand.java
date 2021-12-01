@@ -21,7 +21,7 @@ public class MoreCommand extends BaseCommand {
 
         if (args.length == 0) {
             player.getInventory().getItemInMainHand().setAmount(64);
-            player.sendMessage(Utils.color(messagesConfig.getString("MORE_COMMAND.STACKED")));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + " &aThe item you have been holding has been stacked to 64."));
         }
         if (args.length > 0) {
             if (Integer.parseInt(args[0]) <= amount) {
@@ -29,7 +29,7 @@ public class MoreCommand extends BaseCommand {
                 return;
             }
             player.getInventory().getItemInMainHand().setAmount(Integer.parseInt(args[0]));
-            player.sendMessage(Utils.color(messagesConfig.getString("MORE_COMMAND.AMOUNT").replaceAll("<amount>", args[0])));
+            player.sendMessage(Utils.color(Utils.getPREFIX() + "&aThe item you have been holding has been stacked to " + args[0] + "."));
         }
         Survival.get().setCounter(6);
     }
