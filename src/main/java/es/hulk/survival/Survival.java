@@ -54,7 +54,6 @@ public class Survival extends JavaPlugin {
     private FileConfig spawnConfig;
     private FileConfig messagesConfig;
     private FileConfig serverConfig;
-    private FileConfig dataConfig;
 
     private SpawnManager spawnManager;
     private Scoreboard scoreboard;
@@ -69,11 +68,8 @@ public class Survival extends JavaPlugin {
 
     private boolean isPlaceholderAPI;
 
-    List<UUID> playersIds = new ArrayList<>();
-
     @Override
     public void onEnable() {
-        initPlayers();
         loadConfigs();
         loadManagers();
         getWarpManager().loadWarps();
@@ -118,7 +114,6 @@ public class Survival extends JavaPlugin {
     public void loadConfigs() {
         this.locationsConfig = new FileConfig(this, "data/locations.yml");
         this.spawnConfig = new FileConfig(this, "data/spawn.yml");
-        this.dataConfig = new FileConfig(this, "data/players.yml");
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
@@ -186,7 +181,6 @@ public class Survival extends JavaPlugin {
         new StatsCommand();
         new SetStatsCommand();
         new CounterCommand();
-        new AddPlayerListCommand();
         new SpawnChunksCoordsCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
@@ -199,16 +193,7 @@ public class Survival extends JavaPlugin {
         Objects.requireNonNull(Bukkit.getWorld("world_nether")).setDifficulty(Difficulty.HARD);
         Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setGameRule(GameRule.KEEP_INVENTORY, true);
         Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setDifficulty(Difficulty.HARD);
-
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
-    }
-
-    public void initPlayers() {
-        playersIds.add(UUIDs.hulkUUID());
-        playersIds.add(UUIDs.jaumeUUID());
-        playersIds.add(UUIDs.nadalUUID());
-        playersIds.add(UUIDs.rafaUUID());
-        playersIds.add(UUIDs.xiscoUUID());
     }
 
     public static Survival get() {
