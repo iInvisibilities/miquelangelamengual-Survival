@@ -19,8 +19,6 @@ public class TeleportCoordsCommand extends BaseCommand {
         String[] args = command.getArgs();
         Survival.get().setCounter(31);
 
-        if (plugin.getPlayersIds().contains(player.getUniqueId())) {
-
             if (args.length == 0) {
                 player.sendMessage(Utils.color("&cUsage: /tppos <x> <y> <z>"));
             }
@@ -38,8 +36,5 @@ public class TeleportCoordsCommand extends BaseCommand {
             player.teleport(location);
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&aTe has teletransportado a &ex: " + args[0] + " y: " + args[1] + " z: " + args[2]));
 
-        } else {
-            player.sendMessage(Utils.color("&cYou cannot do that"));
-        }
     }
 }
