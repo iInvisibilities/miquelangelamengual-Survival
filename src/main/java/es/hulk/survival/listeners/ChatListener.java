@@ -26,11 +26,7 @@ public class ChatListener implements Listener {
         Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
 
         if (mainConfig.getBoolean("CHAT.ENABLED")) {
-            event.setFormat(Utils.color(mainConfig.getString("CHAT.FORMAT")
-                    .replaceAll("<rank-suffix>", rankManager.getRank().getSuffix(player))
-                    .replaceAll("<rank-prefix>", rankManager.getRank().getPrefix(player))
-                    .replaceAll("<player>", player.getDisplayName())
-                    .replace("<message>", "%2$s")));
+            event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
         }
 
         if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {
