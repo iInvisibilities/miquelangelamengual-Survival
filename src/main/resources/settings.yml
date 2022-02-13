@@ -2,7 +2,7 @@ JOIN-MESSAGE:
   ENABLE: true
   LINES:
     - "&7&m----------------------------------------------------"
-    - "&6Bienvenido &f<player> &6a &fSurvival 1.17"
+    - "&6Bienvenido &f<player> &6a &fSurvival 1.18.1"
     - ""
     - "&eSe te recomienda como jugador novato mirar el comando /help"
     - "&epara enterarte de lo que puedes llegar a hacer"

@@ -40,10 +40,7 @@ import org.bukkit.GameRule;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Setter
 @Getter
@@ -83,11 +80,11 @@ public class Survival extends JavaPlugin {
 
         Utils.sendConsole(Utils.getLINE());
         Utils.sendConsole("");
-        Utils.sendConsole("&aSurvival - 1.17");
+        Utils.sendConsole("&aSurvival &e- &f" + getDescription().getVersion());
         Utils.sendConsole("");
-        Utils.sendConsole("Author: Hulk");
-        Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
-        Utils.sendConsole("Rank System&7: &f" + getRankManager().getRankSystem());
+        Utils.sendConsole("&aAuthor&7: &f" + getDescription().getAuthors());
+        Utils.sendConsole("&aVersion&7: &f1.18.1");
+        Utils.sendConsole("&aRank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
         Utils.sendConsole(Utils.getLINE());
 
@@ -99,6 +96,8 @@ public class Survival extends JavaPlugin {
     @Override
     public void onDisable() {
         warpManager.saveWarps();
+        this.scoreboard.getBoards().clear();
+        this.tab.disable();
     }
 
     public void loadManagers() {
