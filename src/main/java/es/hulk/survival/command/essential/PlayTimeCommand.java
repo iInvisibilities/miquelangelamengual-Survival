@@ -21,7 +21,6 @@ public class PlayTimeCommand extends BaseCommand {
         Survival.get().setCounter(17);
 
         if (args.length == 0) {
-
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&aHas jugado un total de &e" + PlayerUtils.getPlayTime(player) + " &adentro del Servidor."));
         }
 
