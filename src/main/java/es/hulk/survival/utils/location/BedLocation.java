@@ -1,8 +1,11 @@
 package es.hulk.survival.utils.location;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class BedLocation {
+
+    private Location location;
 
     public static int bedCoordinateX(Player player) {
         return (int) player.getBedSpawnLocation().getX();
@@ -27,6 +30,13 @@ public class BedLocation {
             default:
                 return "No World Found";
         }
+    }
+
+    public static Location getBedLocation(Player player) {
+        if (player.getBedSpawnLocation() != null) {
+            return new Location(player.getBedSpawnLocation().getWorld(), bedCoordinateX(player), bedCoordinateY(player), bedCoordinateZ(player));
+        }
+        return null;
     }
 
 }

