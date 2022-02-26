@@ -58,7 +58,6 @@ public class TablistProvider implements TabProvider {
 
         tabs.add(new TabLayout(TabColumn.MIDDLE, 10, "&aCoords del Spawn"));
         if (plugin.getSpawnManager().getLocation() != null) {
-            tabs.add(new TabLayout(TabColumn.MIDDLE, 11, "&bMundo&7: &e" + PlayerUtils.getSpawnWorld(), Skin.PLANET_SKIN));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 12, "&bX&7: &e" + config.getInt("SPAWN_LOCATION.X")));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 13, "&bY&7: &e" + config.getInt("SPAWN_LOCATION.Y")));
             tabs.add(new TabLayout(TabColumn.MIDDLE, 14, "&bZ&7: &e" + config.getInt("SPAWN_LOCATION.Z")));

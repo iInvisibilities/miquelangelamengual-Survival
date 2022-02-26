@@ -9,7 +9,7 @@
     <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Survival 1.17</name>
+    <name>Survival 1.18</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
             <artifactId>ProtocolLib</artifactId>
-            <version>4.7.0</version>
+            <version>4.8.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

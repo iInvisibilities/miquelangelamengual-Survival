@@ -20,13 +20,7 @@ public class SeedCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         Survival.get().setCounter(18);
-
         String seed = String.valueOf(Bukkit.getWorlds().get(0).getSeed());
-
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Clipboard clipboard = toolkit.getSystemClipboard();
-        StringSelection strSel = new StringSelection(seed);
-        clipboard.setContents(strSel, null);
 
         player.sendMessage(Utils.color(Utils.getPREFIX() + "&aLa seed del juego es &e" + seed));
     }

@@ -83,7 +83,7 @@ public class Survival extends JavaPlugin {
 
         Utils.sendConsole(Utils.getLINE());
         Utils.sendConsole("");
-        Utils.sendConsole("&aSurvival - 1.17");
+        Utils.sendConsole("&aSurvival - 1.18");
         Utils.sendConsole("");
         Utils.sendConsole("Author: Hulk");
         Utils.sendConsole("Version: 1.17 - " + Survival.get().getDescription().getVersion());
