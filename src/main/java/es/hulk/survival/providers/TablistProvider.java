@@ -1,13 +1,13 @@
 package es.hulk.survival.providers;
 
-import dev.hely.tab.TabColumn;
-import dev.hely.tab.TabLayout;
-import dev.hely.tab.TabProvider;
-import dev.hely.tab.skin.Skin;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.location.BedLocation;
+import es.hulk.tablist.objects.TabColumn;
+import es.hulk.tablist.objects.TabLayout;
+import es.hulk.tablist.skin.Skin;
+import es.hulk.tablist.utils.TabProvider;
 import org.bukkit.Statistic;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -75,7 +75,6 @@ public class TablistProvider implements TabProvider {
         tabs.add(new TabLayout(TabColumn.RIGHT, 16, "&aInformacion del Servidor", Skin.COMPASS_SKIN));
         tabs.add(new TabLayout(TabColumn.RIGHT, 17, "&bTu Ping&7: &e" + player.getPing() + "ms"));
         tabs.add(new TabLayout(TabColumn.RIGHT, 18, "&bJugadores&7: &e" + PlayerUtils.getOnlinePlayers()));
-        tabs.add(new TabLayout(TabColumn.RIGHT, 19, "&bTPS&7: &e" + (int) plugin.getTpsUtil().getRoundedTPS()));
 
         return tabs;
     }

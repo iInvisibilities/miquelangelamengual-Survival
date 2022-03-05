@@ -21,6 +21,7 @@ BOOLEANS:
   CHAT: true
 
 SEAL-KICK: true
+ENABLE_CUSTOM_RECIPES: true
 
 ENTITIES:
   POPPY-DROP: false

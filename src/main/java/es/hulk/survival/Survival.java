@@ -1,6 +1,5 @@
 package es.hulk.survival;
 
-import dev.hely.tab.Tab;
 import es.hulk.survival.command.HelpCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;
@@ -27,11 +26,11 @@ import es.hulk.survival.providers.ScoreboardProvider;
 import es.hulk.survival.providers.TablistProvider;
 import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.TPSUtil;
-import es.hulk.survival.utils.UUIDs;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
+import es.hulk.tablist.Porc;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -59,7 +58,7 @@ public class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
-    private Tab tab;
+    private Porc tablist;
 
     private int counter = 0;
 
@@ -71,7 +70,12 @@ public class Survival extends JavaPlugin {
         loadManagers();
         getWarpManager().loadWarps();
         getRankManager().loadRank();
-        getRecipeManager().load();
+
+        if (mainConfig.getBoolean("ENABLE_CUSTOM_RECIPES")) {
+            getRecipeManager().load();
+        }
+
+
         setGamerule();
 
         if (Bukkit.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
@@ -86,9 +90,9 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&aVersion&7: &f1.18.1");
         Utils.sendConsole("&aRank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
-        Utils.sendConsole(Utils.getLINE());
-
         loadProviders();
+        Utils.sendConsole("");
+        Utils.sendConsole(Utils.getLINE());
         loadListeners();
         loadCommands();
     }
@@ -97,7 +101,7 @@ public class Survival extends JavaPlugin {
     public void onDisable() {
         warpManager.saveWarps();
         this.scoreboard.getBoards().clear();
-        this.tab.disable();
+        this.tablist.disable();
     }
 
     public void loadManagers() {
@@ -123,16 +127,10 @@ public class Survival extends JavaPlugin {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
             scoreboard.setTicks(2);
-            Utils.sendConsole("&8[&aSurvival&8] &eScoreboard Enabled");
-        } else {
-            Utils.sendConsole("&8[&aSurvival&8] &cScoreboard Disabled");
         }
 
         if (mainConfig.getBoolean("BOOLEANS.TAB")) {
-            tab = new Tab(this, new TablistProvider());
-            Utils.sendConsole("&8[&aSurvival&8] &eTablist Enabled");
-        } else {
-            Utils.sendConsole("&8[&aSurvival&8] &cTablist Disabled");
+            tablist = new Porc(this, new TablistProvider());
         }
     }
 
