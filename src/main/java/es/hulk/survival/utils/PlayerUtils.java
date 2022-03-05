@@ -63,19 +63,6 @@ public class PlayerUtils {
         }
     }
 
-    public static String getSpawnWorld() {
-        FileConfig config = Survival.get().getSpawnConfig();
-        if (config.getString("SPAWN_LOCATION.WORLD").equals("world")) {
-            return "Overworld";
-        } else if (config.getString("SPAWN_LOCATION.WORLD").equals("world_nether")) {
-            return "Nether";
-        } else if (config.getString("SPAWN_LOCATION.WORLD").equals("world_the_end")) {
-            return "The End";
-        } else {
-            return "None";
-        }
-    }
-
     public static Biome getPlayerBiome(Player player) {
         Location location = player.getLocation();
         World world = player.getWorld();

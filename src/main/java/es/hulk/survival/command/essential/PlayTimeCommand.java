@@ -29,6 +29,7 @@ public class PlayTimeCommand extends BaseCommand {
 
             if (target == null) {
                 player.sendMessage(Utils.color(Utils.getPREFIX() + "&cEl jugador &4" + target.getName() + " &cno se ha encontrado."));
+                return;
             }
 
             player.sendMessage(Utils.color(Utils.getPREFIX() + "&aEl Jugador &e" + target.getDisplayName() + " &aha jugado un total de &e" + PlayerUtils.getPlayTime(target) + " &adentro del Servidor."));
