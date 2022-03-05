@@ -33,6 +33,7 @@ public class DropItemsCommand extends BaseCommand {
             for (ItemStack i : target.getInventory().getContents()) {
                 if (i != null) {
                     target.getWorld().dropItemNaturally(target.getLocation(), i);
+                    
                     target.getInventory().remove(i);
                     target.getInventory().setArmorContents(null);
                     target.getInventory().getItemInOffHand().setAmount(0);

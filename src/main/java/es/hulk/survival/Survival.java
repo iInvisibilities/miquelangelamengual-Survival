@@ -143,6 +143,7 @@ public class Survival extends JavaPlugin {
         pm.registerEvents(new BedListener(), this);
         pm.registerEvents(new ButtonListener(), this);
         pm.registerEvents(new CommandsListener(), this);
+        pm.registerEvents(new DeathListener(), this);
         Utils.sendConsole("&8[&aSurvival&8] &eListeners Registered");
     }
 
@@ -180,6 +181,7 @@ public class Survival extends JavaPlugin {
         new SetStatsCommand();
         new CounterCommand();
         new SpawnChunksCoordsCommand();
+        new GiveExperienceCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 

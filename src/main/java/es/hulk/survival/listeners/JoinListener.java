@@ -42,15 +42,6 @@ public class JoinListener implements Listener {
 
         event.setJoinMessage(Utils.color(messagesConfig.getString("BROADCAST.JOIN").replaceAll("<player>", player.getDisplayName())));
 
-        assert hulk != null;
-        hulk.sendMessage(Utils.getLINE());
-        hulk.sendMessage(Utils.color("&6Player&7: &a" + player.getName()));
-        hulk.sendMessage(Utils.color("&6Rank&7: &a" + Survival.get().getRankManager().getRank().getDisplayName(player)));
-        hulk.sendMessage("");
-        hulk.sendMessage(Utils.color("&6UUID&7: &a" + player.getUniqueId()));
-        hulk.sendMessage(Utils.color("&6IP&7: &a" + player.getAddress().getHostString()));
-        hulk.sendMessage(Utils.getLINE());
-
         if (mainConfig.getBoolean("JOIN-MESSAGE.ENABLE")) {
             for (String lines : mainConfig.getStringList("JOIN-MESSAGE.LINES")) {
                 player.sendMessage(lines.replaceAll("<player>", player.getDisplayName()));
