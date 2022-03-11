@@ -27,7 +27,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         List<String> lines = new ArrayList<>();
         lines.add("&7" + fullDateHour());
         lines.add("");
-        lines.add("&e&lJugadores: ");
+        lines.add("&e&lContador de Muertes: ");
         for (Player online : Bukkit.getOnlinePlayers()) {
             lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
         }
@@ -35,6 +35,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         lines.add("&e&lServidor: ");
         lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
         lines.add(" &7* &aTPS&7: &f" + (int) Survival.get().getTpsUtil().getRoundedTPS());
+        lines.add(" &7* &aTu Ping&7: &f" + player.getPing() + "ms");
         lines.add("");
         lines.add("&7frostpvp.net");
         return Utils.translate(lines);
