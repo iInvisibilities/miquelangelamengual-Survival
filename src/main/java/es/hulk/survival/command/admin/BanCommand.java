@@ -6,8 +6,6 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.Date;
-
 import static org.bukkit.BanList.Type;
 
 public class BanCommand extends BaseCommand {
@@ -25,6 +23,6 @@ public class BanCommand extends BaseCommand {
         if (reason == null) {
             reason = "Default Reason";
         }
-        Bukkit.getBanList(Type.NAME).addBan(target.getName(), reason, new Date(), player.getName());
+        Bukkit.getBanList(Type.NAME).addBan(target.getName(), reason, null, player.getName());
     }
 }

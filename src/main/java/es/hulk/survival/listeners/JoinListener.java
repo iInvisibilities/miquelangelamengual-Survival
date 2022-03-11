@@ -1,22 +1,16 @@
 package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.managers.SpawnManager;
 import es.hulk.survival.utils.FileConfig;
-import es.hulk.survival.utils.UUIDs;
+import es.hulk.survival.utils.PlayerUUID;
 import es.hulk.survival.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.advancement.Advancement;
-import org.bukkit.advancement.AdvancementProgress;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Iterator;
 
 public class JoinListener implements Listener {
 
@@ -27,11 +21,10 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
-
+        Player hulk = Bukkit.getPlayer(PlayerUUID.HULK);
 
         if (mainConfig.getBoolean("SEAL-KICK")) {
-            if (player.getUniqueId().equals(UUIDs.nadalUUID())) {
+            if (player.getUniqueId().equals(PlayerUUID.NADAL)) {
                 player.kickPlayer(Utils.color(
                         "&cYou are not allowed to join this server! " +
                                 "\n " +

