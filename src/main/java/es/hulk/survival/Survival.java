@@ -29,7 +29,6 @@ import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
-import es.hulk.survival.utils.runnable.TimerRunnable;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
 import es.hulk.tablist.Omega;
 import lombok.Getter;
@@ -60,13 +59,12 @@ public class Survival extends JavaPlugin {
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
     private Omega tablist;
-    private TimerRunnable timerRunnable;
 
     private int counter = 0;
 
     private boolean isPlaceholderAPI;
     private boolean isCounterEnabled;
-
+    private boolean isSpeedRun;
 
     @Override
     public void onEnable() {
@@ -184,7 +182,7 @@ public class Survival extends JavaPlugin {
         new SpawnChunksCoordsCommand();
         new GiveExperienceCommand();
         new BanCommand();
-        new EnableScoreboardCounterCommand();
+        new ScoreboardCounterCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
@@ -201,7 +199,7 @@ public class Survival extends JavaPlugin {
 
     private void scoreboardCounter() {
         this.isCounterEnabled = false;
-        this.timerRunnable = new TimerRunnable();
+        this.isSpeedRun = false;
     }
 
     public static Survival get() {

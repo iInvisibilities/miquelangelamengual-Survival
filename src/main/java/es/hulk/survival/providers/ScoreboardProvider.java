@@ -1,13 +1,14 @@
 package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.command.admin.ScoreboardCounterCommand;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.counter.CounterHelper;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
 import org.bukkit.Bukkit;
-import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
 import java.text.SimpleDateFormat;
@@ -34,7 +35,8 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         }
         if (Survival.get().isCounterEnabled()) {
             lines.add("");
-            lines.add(TimeUtil.convert(Survival.get().getTimerRunnable().getSeconds()));
+            lines.add("&e&lCronometro");
+            lines.add(" &7* &aDuracion&7: &f" + TimeUtil.convert(CounterHelper.getTimer().getSeconds()));
         }
         lines.add("");
         lines.add("&e&lServidor: ");

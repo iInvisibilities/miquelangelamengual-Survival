@@ -2,7 +2,12 @@ package es.hulk.survival.listeners;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.FileConfig;
+import es.hulk.survival.utils.TimeUtil;
+import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.counter.CounterHelper;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_18_R1.entity.CraftEnderDragon;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -70,6 +75,16 @@ public class EntityListener implements Listener {
                             event.getDrops().add(new ItemStack(Material.HONEY_BLOCK));
                         }
                     }
+                }
+            }
+        }
+    }
+
+    public void checkEntityDeath(EntityDeathEvent event) {
+        if (Survival.get().isSpeedRun()) {
+            if (event.getEntity() instanceof CraftEnderDragon) {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    online.sendTitle(Utils.color("&c&lEL ENDERDRAGON HA MUERTO"), Utils.color("&aHas necesitado &e" + TimeUtil.convert(CounterHelper.getTimer().getSeconds()) + " &apara matarlo"), 0, 20, 20);
                 }
             }
         }
