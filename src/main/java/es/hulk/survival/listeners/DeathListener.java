@@ -1,7 +1,9 @@
 package es.hulk.survival.listeners;
 
+import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
+import es.hulk.survival.utils.counter.CounterHelper;
 import es.hulk.survival.utils.location.OfflinePlayerLocation;
 import es.hulk.tablist.utils.CC;
 import org.bukkit.OfflinePlayer;
@@ -9,6 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Hulk
@@ -30,5 +34,9 @@ public class DeathListener implements Listener {
         player.sendMessage(Utils.color("&bX&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateX(player))));
         player.sendMessage(Utils.color("&bY&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateY(player))));
         player.sendMessage(Utils.color("&bZ&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateZ(player))));
+
+        if (Survival.get().getSpeedRunners().contains(player)) {
+            CounterHelper.getTimer().setSeconds((int) (CounterHelper.getTimer().getSeconds() + TimeUnit.MINUTES.toSeconds(5)));
+        }
     }
 }

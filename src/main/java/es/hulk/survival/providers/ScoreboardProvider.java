@@ -1,7 +1,6 @@
 package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.command.admin.ScoreboardCounterCommand;
 import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
@@ -29,7 +28,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         List<String> lines = new ArrayList<>();
         lines.add("&7" + fullDateHour());
         lines.add("");
-        lines.add("&e&lContador de Muertes: ");
+        lines.add("&e&lMuertes: ");
         for (Player online : Bukkit.getOnlinePlayers()) {
             lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
         }

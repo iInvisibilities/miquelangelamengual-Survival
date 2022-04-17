@@ -1,4 +1,4 @@
-package es.hulk.survival.command.admin;
+package es.hulk.survival.command.speedrun;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.Utils;
@@ -27,6 +27,7 @@ public class ScoreboardCounterCommand extends BaseCommand {
 
         if (args[0].equalsIgnoreCase("start")) {
             Survival.get().setCounterEnabled(true);
+            Survival.get().setSpeedRun(true);
             CounterHelper.startRunnable();
             player.sendMessage(Utils.color("&aScoreboard counter enabled."));
             return;
@@ -34,6 +35,7 @@ public class ScoreboardCounterCommand extends BaseCommand {
 
         if (args[0].equalsIgnoreCase("stop")) {
             Bukkit.getScheduler().cancelTasks(Survival.get());
+            Survival.get().setSpeedRun(false);
             Survival.get().setCounterEnabled(false);
             player.sendMessage(Utils.color("&cScoreboard counter disabled."));
         }

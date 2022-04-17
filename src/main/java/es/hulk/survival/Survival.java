@@ -11,6 +11,7 @@ import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnChunksCoordsCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
+import es.hulk.survival.command.speedrun.ScoreboardCounterCommand;
 import es.hulk.survival.command.stats.SetStatsCommand;
 import es.hulk.survival.command.stats.StatsCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
@@ -36,9 +37,12 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Setter
@@ -65,6 +69,7 @@ public class Survival extends JavaPlugin {
     private boolean isPlaceholderAPI;
     private boolean isCounterEnabled;
     private boolean isSpeedRun;
+    private List<Player> speedRunners = new ArrayList<>();
 
     @Override
     public void onEnable() {
