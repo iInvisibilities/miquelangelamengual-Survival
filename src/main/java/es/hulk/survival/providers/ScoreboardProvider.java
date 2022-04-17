@@ -34,7 +34,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         }
         if (Survival.get().isCounterEnabled()) {
             lines.add("");
-            lines.add(TimeUtil.millisToTimer(0));
+            lines.add(TimeUtil.convert(Survival.get().getTimerRunnable().getSeconds()));
         }
         lines.add("");
         lines.add("&e&lServidor: ");

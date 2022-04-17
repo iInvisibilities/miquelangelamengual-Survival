@@ -29,6 +29,7 @@ import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
+import es.hulk.survival.utils.runnable.TimerRunnable;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
 import es.hulk.tablist.Omega;
 import lombok.Getter;
@@ -59,26 +60,26 @@ public class Survival extends JavaPlugin {
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
     private Omega tablist;
+    private TimerRunnable timerRunnable;
 
     private int counter = 0;
 
     private boolean isPlaceholderAPI;
     private boolean isCounterEnabled;
 
+
     @Override
     public void onEnable() {
-        loadConfigs();
-        loadManagers();
-        getWarpManager().loadWarps();
-        getRankManager().loadRank();
-        isCounterEnabled = false;
+        this.loadConfigs();
+        this.loadManagers();
+        this.getWarpManager().loadWarps();
+        this.getRankManager().loadRank();
+        this.scoreboardCounter();
 
         if (mainConfig.getBoolean("ENABLE_CUSTOM_RECIPES")) {
             getRecipeManager().load();
         }
-
-
-        setGamerule();
+        this.setGamerule();
 
         if (Bukkit.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             isPlaceholderAPI = true;
@@ -92,11 +93,11 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&aVersion&7: &f1.18.1");
         Utils.sendConsole("&aRank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
-        loadProviders();
+        this.loadProviders();
         Utils.sendConsole("");
         Utils.sendConsole(Utils.getLINE());
-        loadListeners();
-        loadCommands();
+        this.loadListeners();
+        this.loadCommands();
     }
 
     @Override
@@ -123,8 +124,6 @@ public class Survival extends JavaPlugin {
         this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
-
-
     public void loadProviders() {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
@@ -198,6 +197,11 @@ public class Survival extends JavaPlugin {
         Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setGameRule(GameRule.KEEP_INVENTORY, true);
         Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setDifficulty(Difficulty.HARD);
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
+    }
+
+    private void scoreboardCounter() {
+        this.isCounterEnabled = false;
+        this.timerRunnable = new TimerRunnable();
     }
 
     public static Survival get() {

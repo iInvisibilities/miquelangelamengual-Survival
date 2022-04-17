@@ -1,4 +1,5 @@
 package es.hulk.survival.utils;
+
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.util.Calendar;
@@ -24,6 +25,31 @@ public final class TimeUtil {
             return String.format(MINUTE_FORMAT, seconds / 60L, seconds % 60L);
         }
     }
+
+    public static String convert(int seconds) {
+        int h = seconds / 3600;
+        int i = seconds - h * 3600;
+        int m = i / 60;
+        int s = i - m * 60;
+        String timeF = "";
+        if (h > 0) {
+            if (h < 10) {
+                timeF = timeF + "0";
+            }
+            timeF = timeF + h + ":";
+        }
+        if (m < 10) {
+            timeF = timeF + "0";
+        }
+        timeF = timeF + m + ":";
+        if (s < 10) {
+            timeF = timeF + "0";
+        }
+        timeF = timeF + s;
+
+        return timeF;
+    }
+
 
     /**
      * Return the amount of seconds from milliseconds.
