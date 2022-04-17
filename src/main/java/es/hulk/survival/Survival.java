@@ -12,7 +12,6 @@ import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnChunksCoordsCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
 import es.hulk.survival.command.speedrun.ScoreboardCounterCommand;
-import es.hulk.survival.command.speedrun.SpeedRunCommand;
 import es.hulk.survival.command.stats.SetStatsCommand;
 import es.hulk.survival.command.stats.StatsCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
@@ -31,7 +30,7 @@ import es.hulk.survival.utils.TPSUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
-import es.hulk.survival.utils.scoreboard.Aether;
+import es.hulk.survival.utils.scoreboard.Scoreboard;
 import es.hulk.tablist.Omega;
 import lombok.Getter;
 import lombok.Setter;
@@ -57,7 +56,7 @@ public class Survival extends JavaPlugin {
     private FileConfig serverConfig;
 
     private SpawnManager spawnManager;
-    private Aether scoreboard;
+    private Scoreboard scoreboard;
     private WarpManager warpManager;
     private RankManager rankManager;
     private CommandManager commandManager;
@@ -66,11 +65,10 @@ public class Survival extends JavaPlugin {
     private Omega tablist;
 
     private int counter = 0;
-    private boolean isPlaceholderAPI;
 
+    private boolean isPlaceholderAPI;
     private boolean isCounterEnabled;
     private boolean isSpeedRun;
-    private boolean speedRunDeathCounter;
     private List<Player> speedRunners = new ArrayList<>();
 
     @Override
@@ -108,6 +106,7 @@ public class Survival extends JavaPlugin {
     @Override
     public void onDisable() {
         warpManager.saveWarps();
+        this.scoreboard.getBoards().clear();
         this.tablist.disable();
     }
 
@@ -130,7 +129,8 @@ public class Survival extends JavaPlugin {
     }
     public void loadProviders() {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
-            this.scoreboard = new Aether(this, new ScoreboardProvider());
+            this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
+            scoreboard.setTicks(2);
         }
 
         if (mainConfig.getBoolean("BOOLEANS.TAB")) {
@@ -188,7 +188,6 @@ public class Survival extends JavaPlugin {
         new GiveExperienceCommand();
         new BanCommand();
         new ScoreboardCounterCommand();
-        new SpeedRunCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
@@ -206,7 +205,6 @@ public class Survival extends JavaPlugin {
     private void scoreboardCounter() {
         this.isCounterEnabled = false;
         this.isSpeedRun = false;
-        this.speedRunDeathCounter = false;
     }
 
     public static Survival get() {

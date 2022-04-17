@@ -31,14 +31,12 @@ public class DeathListener implements Listener {
         player.sendTitle(Utils.color("&4&lHAS MUERTO"), "", 10, 100, 10);
         player.sendMessage(Utils.color("&aCoordenadas donde has muerto&7: "));
         player.sendMessage(Utils.color("&bMundo&7: &a" + PlayerUtils.getWorld(player)));
-        player.sendMessage(Utils.color("&bX&7: &a" + OfflinePlayerLocation.coordinateX(player)));
-        player.sendMessage(Utils.color("&bY&7: &a" + OfflinePlayerLocation.coordinateY(player)));
-        player.sendMessage(Utils.color("&bZ&7: &a" + OfflinePlayerLocation.coordinateZ(player)));
+        player.sendMessage(Utils.color("&bX&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateX(player))));
+        player.sendMessage(Utils.color("&bY&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateY(player))));
+        player.sendMessage(Utils.color("&bZ&7: &a" + String.valueOf(OfflinePlayerLocation.coordinateZ(player))));
 
-        if (Survival.get().isSpeedRunDeathCounter()) {
-            if (Survival.get().getSpeedRunners().contains(player)) {
-                CounterHelper.getTimer().setSeconds((int) (CounterHelper.getTimer().getSeconds() + TimeUnit.MINUTES.toSeconds(5)));
-            }
+        if (Survival.get().getSpeedRunners().contains(player)) {
+            CounterHelper.getTimer().setSeconds((int) (CounterHelper.getTimer().getSeconds() + TimeUnit.MINUTES.toSeconds(5)));
         }
     }
 }
