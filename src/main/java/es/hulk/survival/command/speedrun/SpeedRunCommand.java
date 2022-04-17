@@ -25,7 +25,7 @@ public class SpeedRunCommand extends BaseCommand {
         String[] args = command.getArgs();
 
         if (args.length == 0) {
-            player.performCommand("speedrun help");
+            this.sendHelp(player);
             return;
         }
 
@@ -41,16 +41,7 @@ public class SpeedRunCommand extends BaseCommand {
         }
 
         if (args[0].equalsIgnoreCase("help")) {
-            player.sendMessage("");
-            player.sendMessage("&a&lAYUDA DE COMANDOS DE SPEEDRUN");
-            player.sendMessage("");
-            player.sendMessage(Utils.color("&a/speedrun add <player> &7- &fAñade un jugador a la lista de speedruns"));
-            player.sendMessage(Utils.color("&a/speedrun remove <player> &7- &fQuita a un jugador a la lista de speedruns"));
-            player.sendMessage(Utils.color("&a/speedrun toggledeathcounter &7- &fSi un jugador el cronometro aumentara 5 minutos por muerte"));
-            player.sendMessage(Utils.color("&a/speedrun list &7- &fMuestra la lista de speedruns"));
-            player.sendMessage(Utils.color("&a/speedrun clear &7- &fLimpia la lista de speedruns"));
-            player.sendMessage(Utils.color("&a/speedrun start &7- &fInicia el cronometro"));
-            player.sendMessage(Utils.color("&a/speedrun stop &7- &fDetiene el cronometro"));
+            this.sendHelp(player);
             return;
         }
 
@@ -112,5 +103,18 @@ public class SpeedRunCommand extends BaseCommand {
             Survival.get().getSpeedRunners().remove(target);
             player.sendMessage("§aAdded §7" + target.getName() + " §ato the speedrun");
         }
+    }
+
+    private void sendHelp(Player player) {
+        player.sendMessage("");
+        player.sendMessage("&a&lAYUDA DE COMANDOS DE SPEEDRUN");
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&a/speedrun add <player> &7- &fAñade un jugador a la lista de speedruns"));
+        player.sendMessage(Utils.color("&a/speedrun remove <player> &7- &fQuita a un jugador a la lista de speedruns"));
+        player.sendMessage(Utils.color("&a/speedrun toggledeathcounter &7- &fSi un jugador el cronometro aumentara 5 minutos por muerte"));
+        player.sendMessage(Utils.color("&a/speedrun list &7- &fMuestra la lista de speedruns"));
+        player.sendMessage(Utils.color("&a/speedrun clear &7- &fLimpia la lista de speedruns"));
+        player.sendMessage(Utils.color("&a/speedrun start &7- &fInicia el cronometro"));
+        player.sendMessage(Utils.color("&a/speedrun stop &7- &fDetiene el cronometro"));
     }
 }
