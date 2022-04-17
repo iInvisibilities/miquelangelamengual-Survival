@@ -188,7 +188,6 @@ public class Survival extends JavaPlugin {
         new SpawnChunksCoordsCommand();
         new GiveExperienceCommand();
         new BanCommand();
-        new ScoreboardCounterCommand();
         new SpeedRunCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
