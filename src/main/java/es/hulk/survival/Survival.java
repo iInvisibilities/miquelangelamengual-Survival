@@ -65,10 +65,11 @@ public class Survival extends JavaPlugin {
     private Omega tablist;
 
     private int counter = 0;
-
     private boolean isPlaceholderAPI;
+
     private boolean isCounterEnabled;
     private boolean isSpeedRun;
+    private boolean speedRunDeathCounter;
     private List<Player> speedRunners = new ArrayList<>();
 
     @Override
