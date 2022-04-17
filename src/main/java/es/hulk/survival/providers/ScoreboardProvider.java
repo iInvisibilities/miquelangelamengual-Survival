@@ -2,6 +2,7 @@ package es.hulk.survival.providers;
 
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.PlayerUtils;
+import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
 import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
@@ -30,6 +31,10 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         lines.add("&e&lContador de Muertes: ");
         for (Player online : Bukkit.getOnlinePlayers()) {
             lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
+        }
+        if (Survival.get().isCounterEnabled()) {
+            lines.add("");
+            lines.add(TimeUtil.millisToTimer(0));
         }
         lines.add("");
         lines.add("&e&lServidor: ");

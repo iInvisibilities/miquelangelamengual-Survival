@@ -63,6 +63,7 @@ public class Survival extends JavaPlugin {
     private int counter = 0;
 
     private boolean isPlaceholderAPI;
+    private boolean isCounterEnabled;
 
     @Override
     public void onEnable() {
@@ -70,6 +71,7 @@ public class Survival extends JavaPlugin {
         loadManagers();
         getWarpManager().loadWarps();
         getRankManager().loadRank();
+        isCounterEnabled = false;
 
         if (mainConfig.getBoolean("ENABLE_CUSTOM_RECIPES")) {
             getRecipeManager().load();
@@ -183,6 +185,7 @@ public class Survival extends JavaPlugin {
         new SpawnChunksCoordsCommand();
         new GiveExperienceCommand();
         new BanCommand();
+        new EnableScoreboardCounterCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
