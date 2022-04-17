@@ -94,7 +94,7 @@
         </dependency>
         <dependency>
             <groupId>es.hulk.tablist</groupId>
-            <artifactId>Porc</artifactId>
+            <artifactId>Omega</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

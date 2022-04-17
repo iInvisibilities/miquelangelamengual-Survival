@@ -30,7 +30,7 @@ import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.CommandManager;
 import es.hulk.survival.utils.menu.ButtonListener;
 import es.hulk.survival.utils.scoreboard.Scoreboard;
-import es.hulk.tablist.Porc;
+import es.hulk.tablist.Omega;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -58,7 +58,7 @@ public class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RecipeManager recipeManager;
     private TPSUtil tpsUtil;
-    private Porc tablist;
+    private Omega tablist;
 
     private int counter = 0;
 
@@ -130,7 +130,7 @@ public class Survival extends JavaPlugin {
         }
 
         if (mainConfig.getBoolean("BOOLEANS.TAB")) {
-            tablist = new Porc(this, new TablistProvider());
+            tablist = new Omega(this, new TablistProvider());
         }
     }
 
