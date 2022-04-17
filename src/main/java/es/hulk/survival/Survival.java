@@ -11,7 +11,7 @@ import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnChunksCoordsCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;
-import es.hulk.survival.command.speedrun.ScoreboardCounterCommand;
+import es.hulk.survival.command.speedrun.SpeedRunCommand;
 import es.hulk.survival.command.stats.SetStatsCommand;
 import es.hulk.survival.command.stats.StatsCommand;
 import es.hulk.survival.command.teleport.TeleportAllCommand;
@@ -189,6 +189,7 @@ public class Survival extends JavaPlugin {
         new GiveExperienceCommand();
         new BanCommand();
         new ScoreboardCounterCommand();
+        new SpeedRunCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
