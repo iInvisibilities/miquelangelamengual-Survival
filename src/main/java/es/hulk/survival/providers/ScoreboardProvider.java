@@ -5,18 +5,17 @@ import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.counter.CounterHelper;
-import es.hulk.survival.utils.scoreboard.ScoreboardAdapter;
-import es.hulk.survival.utils.scoreboard.ScoreboardStyle;
+import es.hulk.survival.utils.scoreboard.scoreboard.Board;
+import es.hulk.survival.utils.scoreboard.scoreboard.BoardAdapter;
+import es.hulk.survival.utils.scoreboard.scoreboard.cooldown.BoardCooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
-public class ScoreboardProvider implements ScoreboardAdapter {
+public class ScoreboardProvider implements BoardAdapter {
 
     @Override
     public String getTitle(Player player) {
@@ -24,7 +23,7 @@ public class ScoreboardProvider implements ScoreboardAdapter {
     }
 
     @Override
-    public List<String> getLines(Player player) {
+    public List<String> getScoreboard(Player player, Board board, Set<BoardCooldown> cooldowns) {
         List<String> lines = new ArrayList<>();
         lines.add("&7" + fullDateHour());
         lines.add("");
@@ -45,11 +44,6 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         lines.add("");
         lines.add("&7frostpvp.net");
         return Utils.translate(lines);
-    }
-
-    @Override
-    public ScoreboardStyle getBoardStyle(Player player) {
-        return ScoreboardStyle.MODERN;
     }
 
     private String fullDateHour() {

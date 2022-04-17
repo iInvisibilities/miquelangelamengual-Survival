@@ -27,6 +27,18 @@ public class SpeedRunCommand extends BaseCommand {
             player.sendMessage("§c/speedrun <add|remove> <player>");
             return;
         }
+
+        if (args[0].equalsIgnoreCase("toggledeathcounter")) {
+            if (Survival.get().isSpeedRunDeathCounter()) {
+                Survival.get().setSpeedRunDeathCounter(false);
+                player.sendMessage("§cSpeedrun death counter disabled");
+            } else {
+                Survival.get().setSpeedRunDeathCounter(true);
+                player.sendMessage("§aSpeedrun death counter enabled");
+            }
+            return;
+        }
+
         Player target = Bukkit.getPlayer(args[1]);
 
         if (target == null) {

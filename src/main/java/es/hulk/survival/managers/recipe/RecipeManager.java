@@ -123,5 +123,6 @@ public class RecipeManager {
         FortunePickaxe.load();
         KnockbackStick.load();
         UltimateBow.load();
+        EnderPearlRecipe.load();
     }
 }
