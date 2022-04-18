@@ -20,30 +20,49 @@ public class ScoreboardProvider implements ScoreboardAdapter {
 
     @Override
     public String getTitle(Player player) {
+        if (Survival.get().isSpeedRun()) {
+            return Utils.color("&a&lSpeedRun &7| &f1.18.1");
+        }
         return Utils.color("&a&lSurvival &7| &f1.18.1");
     }
 
     @Override
     public List<String> getLines(Player player) {
         List<String> lines = new ArrayList<>();
-        lines.add("&7" + fullDateHour());
-        lines.add("");
-        lines.add("&e&lMuertes: ");
-        for (Player online : Bukkit.getOnlinePlayers()) {
-            lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
-        }
-        if (Survival.get().isCounterEnabled()) {
+
+        if (Survival.get().isSpeedRun()) {
+            lines.add("&7" + fullDateHour());
+            lines.add("");
+            lines.add("&e&lMuertes: ");
+            for (Player online : Bukkit.getOnlinePlayers()) {
+                if (Survival.get().getSpeedRunners().contains(online.getName())) {
+                    lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
+                }
+            }
             lines.add("");
             lines.add("&e&lCronometro");
             lines.add(" &7* &aDuracion&7: &f" + TimeUtil.convert(CounterHelper.getTimer().getSeconds()));
+            lines.add("");
+            lines.add("&e&lServidor: ");
+            lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
+            lines.add(" &7* &aTu Ping&7: &f" + player.getPing() + "ms");
+            lines.add("");
+            lines.add("&7frostpvp.net");
+        } else {
+            lines.add("&7" + fullDateHour());
+            lines.add("");
+            lines.add("&e&lMuertes: ");
+            for (Player online : Bukkit.getOnlinePlayers()) {
+                lines.add(" &7* &a" + online.getName() + "&7: &f" + PlayerUtils.getDeaths(online));
+            }
+            lines.add("");
+            lines.add("&e&lServidor: ");
+            lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
+            lines.add(" &7* &aTPS&7: &f" + (int) Survival.get().getTpsUtil().getRoundedTPS());
+            lines.add(" &7* &aTu Ping&7: &f" + player.getPing() + "ms");
+            lines.add("");
+            lines.add("&7frostpvp.net");
         }
-        lines.add("");
-        lines.add("&e&lServidor: ");
-        lines.add(" &7* &aTotal&7: &f" + Bukkit.getOnlinePlayers().size());
-        lines.add(" &7* &aTPS&7: &f" + (int) Survival.get().getTpsUtil().getRoundedTPS());
-        lines.add(" &7* &aTu Ping&7: &f" + player.getPing() + "ms");
-        lines.add("");
-        lines.add("&7frostpvp.net");
         return Utils.translate(lines);
     }
 
