@@ -92,6 +92,7 @@ public class RecipeManager {
         DiamondSword.load();
         DiamondFortunePickaxe.load();
         DiamondSilkTouchPickaxe.load();
+        DiamondEffiencyPickaxe.load();
         DiamondAxe.load();
         DiamondShovel.load();
         DiamondHelmet.load();
