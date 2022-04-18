@@ -33,7 +33,7 @@ public class RemoveSpeedRunnerCommand extends BaseCommand {
             player.sendMessage("§cSpeedrun already started");
             return;
         }
-        Survival.get().getSpeedRunners().remove(target);
+        Survival.get().getSpeedRunners().remove(target.getName());
         player.sendMessage("§cRemoved §7" + target.getName() + " §cto the speedrun");
     }
 }

@@ -33,7 +33,7 @@ public class AddSpeedRunnerCommand extends BaseCommand {
             player.sendMessage("§cSpeedrun already started");
             return;
         }
-        Survival.get().getSpeedRunners().add(target);
+        Survival.get().getSpeedRunners().add(target.getName());
         player.sendMessage("§aAdded §7" + target.getName() + " §ato the speedrun");
     }
 }

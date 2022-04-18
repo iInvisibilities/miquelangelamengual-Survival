@@ -22,8 +22,8 @@ public class SpeedRunnerListCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.sendMessage(Utils.color("&aLista de speedruns:"));
-        for (Player online : Survival.get().getSpeedRunners()) {
-            player.sendMessage(Utils.color(" &f- &e" + online.getName()));
+        for (String str : Survival.get().getSpeedRunners()) {
+            player.sendMessage(Utils.color(" &f- &e" + str));
         }
     }
 }

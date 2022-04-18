@@ -25,6 +25,11 @@ public class StartSpeedRunCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
+        if (Survival.get().getSpeedRunners().isEmpty()) {
+            player.sendMessage(Utils.color("&cThere are no speedrunners in the server."));
+            return;
+        }
+
         Survival.get().setCounterEnabled(true);
         Survival.get().setSpeedRun(true);
         CounterHelper.startRunnable();

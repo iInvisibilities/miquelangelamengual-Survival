@@ -70,7 +70,7 @@ public class Survival extends JavaPlugin {
     private boolean isCounterEnabled;
     private boolean isSpeedRun;
     private boolean speedRunDeathCounter;
-    private List<Player> speedRunners = new ArrayList<>();
+    private List<String> speedRunners = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -98,7 +98,6 @@ public class Survival extends JavaPlugin {
         Utils.sendConsole("&aRank System&7: &f" + getRankManager().getRankSystem());
         Utils.sendConsole("");
         this.loadProviders();
-        Utils.sendConsole("");
         Utils.sendConsole(Utils.getLINE());
         this.loadListeners();
         this.loadCommands();
