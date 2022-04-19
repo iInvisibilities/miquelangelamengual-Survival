@@ -1,6 +1,5 @@
 package es.hulk.survival.utils;
 
-import es.hulk.survival.Survival;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Statistic;

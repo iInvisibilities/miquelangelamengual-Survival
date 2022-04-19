@@ -1,13 +1,12 @@
 package es.hulk.survival;
 
 import es.hulk.survival.command.HelpCommand;
+import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.SurvivalCommand;
 import es.hulk.survival.command.admin.*;
 import es.hulk.survival.command.essential.*;
 import es.hulk.survival.command.gamemode.GamemodeCommand;
-import es.hulk.survival.command.essential.KillCommand;
 import es.hulk.survival.command.location.LocationCommand;
-import es.hulk.survival.command.SettingsCommand;
 import es.hulk.survival.command.spawn.SetSpawnCommand;
 import es.hulk.survival.command.spawn.SpawnChunksCoordsCommand;
 import es.hulk.survival.command.spawn.SpawnCommand;

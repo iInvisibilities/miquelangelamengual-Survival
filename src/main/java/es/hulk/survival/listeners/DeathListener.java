@@ -5,8 +5,6 @@ import es.hulk.survival.utils.PlayerUtils;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.counter.CounterHelper;
 import es.hulk.survival.utils.location.OfflinePlayerLocation;
-import es.hulk.tablist.utils.CC;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
