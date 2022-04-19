@@ -11,6 +11,9 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Arrays;
 
 /**
  * Created by Hulk
@@ -22,6 +25,7 @@ import org.bukkit.entity.Player;
 public class StartSpeedRunCommand extends BaseCommand {
 
     @Getter private static WorldManager worldManager;
+    @Getter private static ItemStack[] inventory;
 
     @Command(name = "speedrun.start", permission = "survival.speedrun.start", inGameOnly = true)
 
@@ -44,6 +48,9 @@ public class StartSpeedRunCommand extends BaseCommand {
         worldManager.createWorlds();
         speedrunPlayer.teleport(new Location(Bukkit.getWorld(worldManager.getPlayerWorldName()), 0, 70, 0));
 
+        inventory = speedrunPlayer.getInventory().getContents();
+        speedrunPlayer.sendMessage(Utils.color(Arrays.toString(inventory)));
+        speedrunPlayer.getInventory().clear();
         Survival.get().setCounterEnabled(true);
         Survival.get().setSpeedRun(true);
         CounterHelper.startRunnable();

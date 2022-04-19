@@ -49,6 +49,8 @@ public class StopSpeedRunCommand extends BaseCommand {
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.sendTitle(Utils.color("&c&lSPEEDRUN ACABADO"), Utils.color("&cEl Cronometro ha terminado en &f" + TimeUtil.convert(CounterHelper.getTimer().getSeconds())), 20, 30, 30);
         }
+        speedrunPlayer.sendMessage(Utils.color("&aRestoring your inventory..."));
+        player.getInventory().setContents(StartSpeedRunCommand.getInventory());
         player.sendMessage(Utils.color("&cThe Speedrun has been stopped."));
     }
 }
