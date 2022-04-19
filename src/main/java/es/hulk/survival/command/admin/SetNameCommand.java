@@ -37,7 +37,6 @@ public class SetNameCommand extends BaseCommand {
             if (args[0].equalsIgnoreCase("reset")) {
                 player.setDisplayName(player.getName());
                 player.setPlayerListName(player.getName());
-                Utils.changeName(player.getName(), player);
                 player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.RESET")));
                 return;
             }
@@ -59,7 +58,6 @@ public class SetNameCommand extends BaseCommand {
 
                 target.setDisplayName(target.getName());
                 target.setPlayerListName(target.getName());
-                Utils.changeName(target.getName(), target);
                 player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.RESET-OTHER")
                         .replace("<target>", target.getName())));
                 return;
@@ -76,7 +74,6 @@ public class SetNameCommand extends BaseCommand {
 
             target.setDisplayName(args[1]);
             target.setPlayerListName(args[1]);
-            Utils.changeName(args[1], target);
             player.sendMessage(Utils.color(messagesConfig.getString("SETNAME_COMMAND.OTHER").replace("<target>", target.getName()).replace("<name>", args[1])));
         }
     }

@@ -1,6 +1,5 @@
 package es.hulk.survival.utils;
 
-import com.mojang.authlib.GameProfile;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -51,30 +50,4 @@ public class Utils {
 
         return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
-
-    public static void changeName(String name, Player player) {
-        try {
-            Method getHandle = player.getClass().getMethod("getHandle");
-            Object entityPlayer = getHandle.invoke(player);
-            Class<?> entityHuman = entityPlayer.getClass().getSuperclass();
-            Field gameProfileField;
-            int majVersion = Integer.parseInt(Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3].replaceAll("(v|R[0-9]+)", "").split("_")[0]);
-            int minVersion = Integer.parseInt(Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3].replaceAll("(v|R[0-9]+)", "").split("_")[1]);
-            if (majVersion >= 1 && minVersion >= 9) {
-                gameProfileField = entityHuman.getDeclaredField("bS");
-            } else {
-                gameProfileField = entityHuman.getDeclaredField("bH");
-            }
-            gameProfileField.setAccessible(true);
-            gameProfileField.set(entityPlayer, new GameProfile(player.getUniqueId(), name));
-            for (Player players : Bukkit.getOnlinePlayers()) {
-                players.hidePlayer(player);
-                players.showPlayer(player);
-            }
-        } catch (NoSuchMethodException | SecurityException | InvocationTargetException | NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }
