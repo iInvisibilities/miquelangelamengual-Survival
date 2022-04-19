@@ -1,13 +1,17 @@
 package es.hulk.survival.command.speedrun.subcommands;
 
 import es.hulk.survival.Survival;
+import es.hulk.survival.command.location.LocationCommand;
+import es.hulk.survival.managers.world.WorldManager;
 import es.hulk.survival.utils.TimeUtil;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import es.hulk.survival.utils.counter.CounterHelper;
+import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 /**
@@ -19,6 +23,8 @@ import org.bukkit.entity.Player;
 
 public class StartSpeedRunCommand extends BaseCommand {
 
+    @Getter private static WorldManager worldManager;
+
     @Command(name = "speedrun.start", permission = "survival.speedrun.start", inGameOnly = true)
 
     @Override
@@ -29,6 +35,16 @@ public class StartSpeedRunCommand extends BaseCommand {
             player.sendMessage(Utils.color("&cThere are no speedrunners in the server."));
             return;
         }
+
+        String speedrun = Survival.get().getSpeedRunners().get(0);
+        Player speedrunPlayer = Bukkit.getPlayer(speedrun);
+
+        if (speedrunPlayer == null) return;
+
+        worldManager = new WorldManager(speedrun);
+        worldManager.deleteWorlds();
+        worldManager.createWorlds();
+        speedrunPlayer.teleport(new Location(Bukkit.getWorld(worldManager.getPlayerWorldName()), 0, 70, 0));
 
         Survival.get().setCounterEnabled(true);
         Survival.get().setSpeedRun(true);

@@ -8,6 +8,8 @@ import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import es.hulk.survival.utils.counter.CounterHelper;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 /**
@@ -24,6 +26,21 @@ public class StopSpeedRunCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+
+        String speedrun = Survival.get().getSpeedRunners().get(0);
+        Player speedrunPlayer = Bukkit.getPlayer(speedrun);
+
+        if (speedrunPlayer == null) return;
+
+        World world = Bukkit.getWorld("world");
+
+        if (world == null) {
+            player.sendMessage(Utils.color("&cThe world is not loaded!"));
+            return;
+        }
+
+        speedrunPlayer.teleport(new Location(world, world.getSpawnLocation().getX(), world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
+        StartSpeedRunCommand.getWorldManager().deleteWorlds();
 
         Bukkit.getScheduler().cancelTasks(Survival.get());
         Survival.get().setSpeedRun(false);

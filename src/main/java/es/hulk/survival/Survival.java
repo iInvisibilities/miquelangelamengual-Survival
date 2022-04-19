@@ -37,13 +37,12 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.GameRule;
-import org.bukkit.entity.Player;
+import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Setter
 @Getter
@@ -83,7 +82,7 @@ public class Survival extends JavaPlugin {
         if (mainConfig.getBoolean("ENABLE_CUSTOM_RECIPES")) {
             getRecipeManager().load();
         }
-        this.setGamerule();
+        this.setGamerules();
 
         if (Bukkit.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             isPlaceholderAPI = true;
@@ -127,6 +126,7 @@ public class Survival extends JavaPlugin {
         this.messagesConfig = new FileConfig(this, "messages.yml");
         Utils.sendConsole("&8[&aSurvival&8] &eConfigs loaded");
     }
+
     public void loadProviders() {
         if (mainConfig.getBoolean("BOOLEANS.SCOREBOARD")) {
             this.scoreboard = new Scoreboard(this, new ScoreboardProvider());
@@ -188,17 +188,16 @@ public class Survival extends JavaPlugin {
         new GiveExperienceCommand();
         new BanCommand();
         new SpeedRunCommand();
+        new TPWorldCommand();
+        new WorldInfoCommand();
         Utils.sendConsole("&8[&aSurvival&8] &eLoaded &a37 &ecommands");
     }
 
-
-    public void setGamerule() {
-        Objects.requireNonNull(Bukkit.getWorld("world")).setGameRule(GameRule.KEEP_INVENTORY, true);
-        Objects.requireNonNull(Bukkit.getWorld("world")).setDifficulty(Difficulty.HARD);
-        Objects.requireNonNull(Bukkit.getWorld("world_nether")).setGameRule(GameRule.KEEP_INVENTORY, true);
-        Objects.requireNonNull(Bukkit.getWorld("world_nether")).setDifficulty(Difficulty.HARD);
-        Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setGameRule(GameRule.KEEP_INVENTORY, true);
-        Objects.requireNonNull(Bukkit.getWorld("world_the_end")).setDifficulty(Difficulty.HARD);
+    public void setGamerules() {
+        for (World world : Bukkit.getWorlds()) {
+            world.setDifficulty(Difficulty.HARD);
+            world.setGameRule(GameRule.KEEP_INVENTORY, true);
+        }
         Utils.sendConsole("&8[&aSurvival&8] &eGamerule Updated");
     }
 
