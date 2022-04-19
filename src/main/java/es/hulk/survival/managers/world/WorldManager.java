@@ -2,14 +2,11 @@ package es.hulk.survival.managers.world;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
 import com.onarandombox.MultiverseCore.api.MVWorldManager;
-import es.hulk.survival.Survival;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  * Created by Hulk
@@ -23,10 +20,11 @@ public class WorldManager {
 
     private String playerWorldName, playerNetherWorldName, playerEndWorldName;
     private String playerName;
+    private Player player;
     private final MultiverseCore core = (MultiverseCore) Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
 
     public WorldManager(String speedRunner) {
-        Player player = Bukkit.getPlayer(speedRunner);
+        this.player = Bukkit.getPlayer(speedRunner);
 
         if (player == null) {
             System.out.println("There are no player online with this name: " + speedRunner);
@@ -61,7 +59,7 @@ public class WorldManager {
         worldManager.addWorld(
                 playerWorldName,
                 World.Environment.NORMAL,
-                "Survival",
+                null,
                 WorldType.NORMAL,
                 true,
                 null
@@ -70,7 +68,7 @@ public class WorldManager {
         worldManager.addWorld(
                 playerNetherWorldName,
                 World.Environment.NETHER,
-                "Survival",
+                null,
                 WorldType.NORMAL,
                 true,
                 null
@@ -79,7 +77,7 @@ public class WorldManager {
         worldManager.addWorld(
                 playerEndWorldName,
                 World.Environment.THE_END,
-                "Survival",
+                null,
                 WorldType.NORMAL,
                 true,
                 null

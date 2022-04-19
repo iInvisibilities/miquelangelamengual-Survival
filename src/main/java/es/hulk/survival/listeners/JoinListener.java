@@ -16,7 +16,7 @@ public class JoinListener implements Listener {
 
     private final FileConfig mainConfig = Survival.get().getMainConfig();
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
-    private Survival plugin = Survival.get();
+    private final Survival plugin = Survival.get();
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
