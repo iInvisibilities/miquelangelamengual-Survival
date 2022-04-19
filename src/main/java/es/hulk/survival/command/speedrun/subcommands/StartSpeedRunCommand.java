@@ -49,7 +49,6 @@ public class StartSpeedRunCommand extends BaseCommand {
         speedrunPlayer.teleport(new Location(Bukkit.getWorld(worldManager.getPlayerWorldName()), 0, 70, 0));
 
         inventory = speedrunPlayer.getInventory().getContents();
-        speedrunPlayer.sendMessage(Utils.color(Arrays.toString(inventory)));
         speedrunPlayer.getInventory().clear();
         Survival.get().setCounterEnabled(true);
         Survival.get().setSpeedRun(true);
