@@ -21,9 +21,9 @@ public class ScoreboardProvider implements ScoreboardAdapter {
     @Override
     public String getTitle(Player player) {
         if (Survival.get().isSpeedRun()) {
-            return Utils.color("&a&lSpeedRun &7| &f1.18.1");
+            return Utils.color("&a&lSpeedRun &7| &f1.16.5");
         }
-        return Utils.color("&a&lSurvival &7| &f1.18.1");
+        return Utils.color("&a&lSurvival &7| &f1.16.5");
     }
 
     @Override
