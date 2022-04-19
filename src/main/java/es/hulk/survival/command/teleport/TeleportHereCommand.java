@@ -1,7 +1,6 @@
 package es.hulk.survival.command.teleport;
 
 import es.hulk.survival.Survival;
-import es.hulk.survival.utils.FileConfig;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;

@@ -1,12 +1,10 @@
 package es.hulk.survival.command.speedrun;
 
-import es.hulk.survival.Survival;
 import es.hulk.survival.command.speedrun.subcommands.*;
 import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**

@@ -8,10 +8,6 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-
 public class SeedCommand extends BaseCommand {
 
     @Command(name = "semilla")

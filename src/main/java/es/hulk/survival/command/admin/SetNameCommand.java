@@ -9,8 +9,6 @@ import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.awt.*;
-
 public class SetNameCommand extends BaseCommand {
 
     private final FileConfig messagesConfig = Survival.get().getMessagesConfig();
