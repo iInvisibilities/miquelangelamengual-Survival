@@ -5,6 +5,7 @@ import es.hulk.survival.utils.command.Command;
 import es.hulk.survival.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import java.util.Arrays;
 
 import static org.bukkit.BanList.Type;
 
@@ -16,7 +17,9 @@ public class BanCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-        String reason = args[1];
+        String reason = Arrays.toString(Arrays.copyOfRange(args, 0, args.length))
+                    .replaceAll(",", "")
+                    .replace("[", "").replace("]", "");
 
         Player target = Bukkit.getPlayer(args[0]);
         assert target != null;
