@@ -17,7 +17,7 @@ public class BanCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-        String reason = Arrays.toString(Arrays.copyOfRange(args, 0, args.length))
+        String reason = Arrays.toString(Arrays.copyOfRange(args, 1, args.length))
                     .replaceAll(",", "")
                     .replace("[", "").replace("]", "");
 
